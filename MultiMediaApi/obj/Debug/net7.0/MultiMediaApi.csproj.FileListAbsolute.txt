@@ -1,0 +1,7 @@
+C:\Users\breanna.nesbit\Source\Repos\MobileFinal\MultiMediaApi\obj\Debug\net7.0\MultiMediaApi.csproj.AssemblyReference.cache
+C:\Users\breanna.nesbit\Source\Repos\MobileFinal\MultiMediaApi\obj\Debug\net7.0\MultiMediaApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\breanna.nesbit\Source\Repos\MobileFinal\MultiMediaApi\obj\Debug\net7.0\MultiMediaApi.AssemblyInfoInputs.cache
+C:\Users\breanna.nesbit\Source\Repos\MobileFinal\MultiMediaApi\obj\Debug\net7.0\MultiMediaApi.AssemblyInfo.cs
+C:\Users\breanna.nesbit\Source\Repos\MobileFinal\MultiMediaApi\obj\Debug\net7.0\MultiMediaApi.csproj.CoreCompileInputs.cache
+C:\Users\breanna.nesbit\Source\Repos\MobileFinal\MultiMediaApi\obj\Debug\net7.0\MultiMediaApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\breanna.nesbit\Source\Repos\MobileFinal\MultiMediaApi\obj\Debug\net7.0\MultiMediaApi.MvcApplicationPartsAssemblyInfo.cache
