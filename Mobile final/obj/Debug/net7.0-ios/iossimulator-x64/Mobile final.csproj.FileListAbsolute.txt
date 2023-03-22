@@ -285,3 +285,4 @@ C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-ios\
 C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-ios\iossimulator-x64\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-ios\iossimulator-x64\Microsoft.Extensions.ObjectPool.dll
 C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-ios\iossimulator-x64\Microsoft.Net.Http.Headers.dll
+C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-ios\iossimulator-x64\CommunityToolkit.Maui.MediaElement.dll

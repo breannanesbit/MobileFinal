@@ -10,6 +10,9 @@
         <member name="P:Mobile_final.ViewModels.UploadFileViewModel.Blobkey">
             <inheritdoc cref="F:Mobile_final.ViewModels.UploadFileViewModel.blobkey"/>
         </member>
+        <member name="P:Mobile_final.ViewModels.UploadFileViewModel.VideoFile">
+            <inheritdoc cref="F:Mobile_final.ViewModels.UploadFileViewModel.videoFile"/>
+        </member>
         <member name="F:Mobile_final.ViewModels.UploadFileViewModel.pickFileToUploadCommand">
             <summary>The backing field for <see cref="P:Mobile_final.ViewModels.UploadFileViewModel.PickFileToUploadCommand"/>.</summary>
         </member>
@@ -21,6 +24,12 @@
         </member>
         <member name="P:Mobile_final.ViewModels.UploadFileViewModel.UploadFileCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Mobile_final.ViewModels.UploadFileViewModel.UploadFile"/>.</summary>
+        </member>
+        <member name="F:Mobile_final.ViewModels.UploadFileViewModel.downloadFileCommand">
+            <summary>The backing field for <see cref="P:Mobile_final.ViewModels.UploadFileViewModel.DownloadFileCommand"/>.</summary>
+        </member>
+        <member name="P:Mobile_final.ViewModels.UploadFileViewModel.DownloadFileCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Mobile_final.ViewModels.UploadFileViewModel.DownloadFile"/>.</summary>
         </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
             <summary>

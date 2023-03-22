@@ -30,25 +30,25 @@
     <AppXManifest Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-03-22T02:34:32.438</Modified>
+      <Modified>2023-03-22T03:16:32.621</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-03-22T02:34:20.890</Modified>
+      <Modified>2023-03-22T03:16:20.060</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Mobile final.runtimeconfig.json">
       <PackagePath>Mobile final.runtimeconfig.json</PackagePath>
-      <Modified>2023-03-22T02:34:20.613</Modified>
+      <Modified>2023-03-22T03:16:19.918</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Mobile final.dll">
       <PackagePath>Mobile final.dll</PackagePath>
-      <Modified>2023-03-22T02:34:09.544</Modified>
+      <Modified>2023-03-22T03:16:07.008</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>Mobile final.exe</PackagePath>
-      <Modified>2023-03-22T02:34:09.625</Modified>
+      <Modified>2023-03-22T03:16:07.112</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\josh.barlow\.nuget\packages\microsoft.netcore.app.runtime.win-x64\7.0.1\runtimes\win-x64\lib\net7.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -814,6 +814,10 @@
       <PackagePath>CommunityToolkit.Maui.Core.dll</PackagePath>
       <Modified>2023-03-01T08:24:50.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\josh.barlow\.nuget\packages\communitytoolkit.maui.mediaelement\1.0.2\lib\net7.0-windows10.0.19041\CommunityToolkit.Maui.MediaElement.dll">
+      <PackagePath>CommunityToolkit.Maui.MediaElement.dll</PackagePath>
+      <Modified>2023-02-20T12:05:34.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\josh.barlow\.nuget\packages\communitytoolkit.mvvm\8.1.0\lib\net6.0\CommunityToolkit.Mvvm.dll">
       <PackagePath>CommunityToolkit.Mvvm.dll</PackagePath>
       <Modified>2023-01-17T22:56:14.000</Modified>
@@ -996,7 +1000,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Mobile final.deps.json">
       <PackagePath>Mobile final.deps.json</PackagePath>
-      <Modified>2023-03-22T02:34:32.129</Modified>
+      <Modified>2023-03-22T03:16:32.425</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\7.0.52\ref\net7.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>

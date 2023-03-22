@@ -1,4 +1,5 @@
-﻿using Azure.Storage.Blobs;
+﻿using Azure;
+using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MediaAPI.Controllers
@@ -28,6 +29,21 @@ namespace MediaAPI.Controllers
 
             // Return the key of the newly created blob
             return blobName;
+        }
+
+        [HttpGet("downloadfile/{blobKey}")]
+        public async Task<IActionResult> DownloadFile(string blobKey)
+        {
+
+
+            // Get a reference to the blob
+            BlobClient blobClient = video.GetBlobClient(blobKey);
+
+            // Download the blob content
+            var response = await blobClient.DownloadAsync();
+            // Return the blob content as a stream
+            var content = response.Value;
+            return File(content.Content, content.ContentType);
         }
     }
 }

@@ -22,11 +22,18 @@ namespace Mobile_final.ViewModels
         [ObservableProperty]
         private string blobkey;
 
+        [ObservableProperty]
+        private MemoryStream videoFile;
+
         [RelayCommand]
         public async Task PickFileToUpload()
         {
             var result = await FilePicker.Default.PickAsync();
             FilePath = result.FullPath;
+            if(FilePath == null)
+            {
+                PickFileToUpload();
+            }
         }
 
         [RelayCommand]
@@ -41,6 +48,21 @@ namespace Mobile_final.ViewModels
             var response = await client.PutAsync($"uploadfile/{Path.GetFileName(FilePath)}", form);
             Blobkey = await response.Content.ReadAsStringAsync();
 
+        }
+
+        [RelayCommand]
+        public async Task DownloadFile()
+        {
+            var response = await client.GetAsync($"downloadfile/{Blobkey}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                byte[] fileBytes = await response.Content.ReadAsByteArrayAsync();
+
+                // Create a MemoryStream from the byte[] array
+                MemoryStream memoryStream = new MemoryStream(fileBytes);
+                VideoFile = memoryStream;
+            }
         }
     }
 }
