@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\josh.barlow\\Source\\Repos\\MobileFinal\\Mobile final\\Mobile final.csproj": {}
+    "C:\\Users\\josh.barlow\\source\\repos\\MobileFinal\\Mobile final\\Mobile final.csproj": {}
   },
   "projects": {
-    "C:\\Users\\josh.barlow\\Source\\Repos\\MobileFinal\\Mobile final\\Mobile final.csproj": {
+    "C:\\Users\\josh.barlow\\source\\repos\\MobileFinal\\Mobile final\\Mobile final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\josh.barlow\\Source\\Repos\\MobileFinal\\Mobile final\\Mobile final.csproj",
+        "projectUniqueName": "C:\\Users\\josh.barlow\\source\\repos\\MobileFinal\\Mobile final\\Mobile final.csproj",
         "projectName": "Mobile final",
-        "projectPath": "C:\\Users\\josh.barlow\\Source\\Repos\\MobileFinal\\Mobile final\\Mobile final.csproj",
+        "projectPath": "C:\\Users\\josh.barlow\\source\\repos\\MobileFinal\\Mobile final\\Mobile final.csproj",
         "packagesPath": "C:\\Users\\josh.barlow\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\josh.barlow\\Source\\Repos\\MobileFinal\\Mobile final\\obj\\",
+        "outputPath": "C:\\Users\\josh.barlow\\source\\repos\\MobileFinal\\Mobile final\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

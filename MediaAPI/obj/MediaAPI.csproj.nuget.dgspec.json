@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\josh.barlow\\Source\\Repos\\MobileFinal\\MediaAPI\\MediaAPI.csproj": {}
+    "C:\\Users\\josh.barlow\\source\\repos\\MobileFinal\\MediaAPI\\MediaAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\josh.barlow\\Source\\Repos\\MobileFinal\\MediaAPI\\MediaAPI.csproj": {
+    "C:\\Users\\josh.barlow\\source\\repos\\MobileFinal\\MediaAPI\\MediaAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\josh.barlow\\Source\\Repos\\MobileFinal\\MediaAPI\\MediaAPI.csproj",
+        "projectUniqueName": "C:\\Users\\josh.barlow\\source\\repos\\MobileFinal\\MediaAPI\\MediaAPI.csproj",
         "projectName": "MediaAPI",
-        "projectPath": "C:\\Users\\josh.barlow\\Source\\Repos\\MobileFinal\\MediaAPI\\MediaAPI.csproj",
+        "projectPath": "C:\\Users\\josh.barlow\\source\\repos\\MobileFinal\\MediaAPI\\MediaAPI.csproj",
         "packagesPath": "C:\\Users\\josh.barlow\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\josh.barlow\\Source\\Repos\\MobileFinal\\MediaAPI\\obj\\",
+        "outputPath": "C:\\Users\\josh.barlow\\source\\repos\\MobileFinal\\MediaAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,1 +1,1 @@
-C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\Mobile final.csproj;x64
+C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\Mobile final.csproj;x64

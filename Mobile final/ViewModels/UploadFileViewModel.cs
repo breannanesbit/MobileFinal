@@ -29,11 +29,15 @@ namespace Mobile_final.ViewModels
         public async Task PickFileToUpload()
         {
             var result = await FilePicker.Default.PickAsync();
-            FilePath = result.FullPath;
-            if(FilePath == null)
+            if (result == null)
             {
                 PickFileToUpload();
             }
+            else
+            {
+                FilePath = result.FullPath;
+            }
+
         }
 
         [RelayCommand]

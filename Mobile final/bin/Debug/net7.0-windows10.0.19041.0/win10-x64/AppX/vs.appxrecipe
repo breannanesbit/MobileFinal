@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>f555df95-135a-426a-b3ee-418dfa15701e</PackageIdentityName>
     <PackageIdentityPublisher>CN=User Name</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
     <PackageRegistrationPath>
     </PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>
     </WindowsSdkPath>
-    <LayoutDir>C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
+    <LayoutDir>C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
     <RegisteredManifestChecksum>E06178A9FAB6D6F9D32154AFAB77E23FBE29F5E29849BF0A452A57742C815B69</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>f555df95-135a-426a-b3ee-418dfa15701e_1.0.0.1_x64__9zz4h110yvjzm</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>f555df95-135a-426a-b3ee-418dfa15701e_9zz4h110yvjzm!App</RegisteredUserModeAppID>
@@ -27,28 +27,28 @@
     <RegisteredVersion>1.0.0.1</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-03-22T03:16:32.621</Modified>
+      <Modified>2023-03-22T16:59:52.566</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-03-22T03:16:20.060</Modified>
+      <Modified>2023-03-22T16:59:43.865</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Mobile final.runtimeconfig.json">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Mobile final.runtimeconfig.json">
       <PackagePath>Mobile final.runtimeconfig.json</PackagePath>
-      <Modified>2023-03-22T03:16:19.918</Modified>
+      <Modified>2023-03-22T16:57:19.951</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Mobile final.dll">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Mobile final.dll">
       <PackagePath>Mobile final.dll</PackagePath>
-      <Modified>2023-03-22T03:16:07.008</Modified>
+      <Modified>2023-03-22T16:59:42.970</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>Mobile final.exe</PackagePath>
-      <Modified>2023-03-22T03:16:07.112</Modified>
+      <Modified>2023-03-22T16:59:43.018</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\josh.barlow\.nuget\packages\microsoft.netcore.app.runtime.win-x64\7.0.1\runtimes\win-x64\lib\net7.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -998,9 +998,9 @@
       <PackagePath>clrcompression.dll</PackagePath>
       <Modified>2016-11-05T04:34:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Mobile final.deps.json">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Mobile final.deps.json">
       <PackagePath>Mobile final.deps.json</PackagePath>
-      <Modified>2023-03-22T03:16:32.425</Modified>
+      <Modified>2023-03-22T16:59:52.417</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\7.0.52\ref\net7.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>
@@ -1014,239 +1014,239 @@
       <PackagePath>Microsoft.Maui.pri</PackagePath>
       <Modified>2022-11-26T06:28:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\Resources\Raw\AboutAssets.txt">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
       <Modified>2023-03-22T01:08:31.070</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
       <Modified>2023-03-22T01:08:35.850</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
       <PackagePath>splashSplashScreen.scale-125.png</PackagePath>
       <Modified>2023-03-22T01:08:35.851</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
       <PackagePath>splashSplashScreen.scale-150.png</PackagePath>
       <Modified>2023-03-22T01:08:35.852</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
       <PackagePath>splashSplashScreen.scale-200.png</PackagePath>
       <Modified>2023-03-22T01:08:35.853</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
       <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
       <Modified>2023-03-22T01:08:35.855</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
       <PackagePath>OpenSans-Regular.ttf</PackagePath>
       <Modified>2023-03-22T01:08:35.808</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
       <PackagePath>OpenSans-Semibold.ttf</PackagePath>
       <Modified>2023-03-22T01:08:35.810</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
       <Modified>2023-03-22T01:08:35.812</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
       <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
       <Modified>2023-03-22T01:08:35.812</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
       <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
       <Modified>2023-03-22T01:08:35.813</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
       <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
       <Modified>2023-03-22T01:08:35.814</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
       <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
       <Modified>2023-03-22T01:08:35.815</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
       <Modified>2023-03-22T01:08:35.815</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
       <Modified>2023-03-22T01:08:35.816</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
       <Modified>2023-03-22T01:08:35.817</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
       <Modified>2023-03-22T01:08:35.818</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
       <Modified>2023-03-22T01:08:35.818</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
       <Modified>2023-03-22T01:08:35.819</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
       <Modified>2023-03-22T01:08:35.820</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
       <Modified>2023-03-22T01:08:35.820</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
       <Modified>2023-03-22T01:08:35.821</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
       <Modified>2023-03-22T01:08:35.822</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
       <Modified>2023-03-22T01:08:35.823</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
       <PackagePath>appiconLogo.scale-100.png</PackagePath>
       <Modified>2023-03-22T01:08:35.823</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
       <PackagePath>appiconLogo.scale-125.png</PackagePath>
       <Modified>2023-03-22T01:08:35.824</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
       <PackagePath>appiconLogo.scale-150.png</PackagePath>
       <Modified>2023-03-22T01:08:35.825</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
       <PackagePath>appiconLogo.scale-200.png</PackagePath>
       <Modified>2023-03-22T01:08:35.826</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
       <PackagePath>appiconLogo.scale-400.png</PackagePath>
       <Modified>2023-03-22T01:08:35.826</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
       <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
       <Modified>2023-03-22T01:08:35.827</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
       <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
       <Modified>2023-03-22T01:08:35.827</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
       <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
       <Modified>2023-03-22T01:08:35.828</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
       <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
       <Modified>2023-03-22T01:08:35.829</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
       <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
       <Modified>2023-03-22T01:08:35.829</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
       <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
       <Modified>2023-03-22T01:08:35.830</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
       <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
       <Modified>2023-03-22T01:08:35.831</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
       <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
       <Modified>2023-03-22T01:08:35.831</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
       <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
       <Modified>2023-03-22T01:08:35.832</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
       <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
       <Modified>2023-03-22T01:08:35.833</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
       <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
       <Modified>2023-03-22T01:08:35.834</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
       <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
       <Modified>2023-03-22T01:08:35.834</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
       <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
       <Modified>2023-03-22T01:08:35.835</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
       <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
       <Modified>2023-03-22T01:08:35.836</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
       <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
       <Modified>2023-03-22T01:08:35.836</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
       <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
       <Modified>2023-03-22T01:08:35.837</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
       <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
       <Modified>2023-03-22T01:08:35.837</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
       <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
       <Modified>2023-03-22T01:08:35.839</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
       <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
       <Modified>2023-03-22T01:08:35.840</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
       <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
       <Modified>2023-03-22T01:08:35.840</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
       <PackagePath>appiconWideTile.scale-100.png</PackagePath>
       <Modified>2023-03-22T01:08:35.841</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
       <PackagePath>appiconWideTile.scale-125.png</PackagePath>
       <Modified>2023-03-22T01:08:35.842</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
       <PackagePath>appiconWideTile.scale-150.png</PackagePath>
       <Modified>2023-03-22T01:08:35.843</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
       <PackagePath>appiconWideTile.scale-200.png</PackagePath>
       <Modified>2023-03-22T01:08:35.843</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
       <Modified>2023-03-22T01:08:35.844</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
       <PackagePath>dotnet_bot.scale-100.png</PackagePath>
       <Modified>2023-03-22T01:08:35.845</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
       <PackagePath>dotnet_bot.scale-125.png</PackagePath>
       <Modified>2023-03-22T01:08:35.846</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
       <PackagePath>dotnet_bot.scale-150.png</PackagePath>
       <Modified>2023-03-22T01:08:35.847</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
       <PackagePath>dotnet_bot.scale-200.png</PackagePath>
       <Modified>2023-03-22T01:08:35.848</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\josh.barlow\Source\Repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\josh.barlow\source\repos\MobileFinal\Mobile final\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
       <Modified>2023-03-22T01:08:35.849</Modified>
     </AppxPackagedFile>
