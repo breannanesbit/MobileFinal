@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mobile final", "Mobile final\Mobile final.csproj", "{084710BA-DD67-4D58-A2E8-D26562BAE9E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaAPI", "MediaAPI\MediaAPI.csproj", "{3893CA39-B693-4CA3-84F7-9C845D24EC2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaAPI", "MediaAPI\MediaAPI.csproj", "{3893CA39-B693-4CA3-84F7-9C845D24EC2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{1C2E4197-41BA-469F-9FC0-D44519575FF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{3893CA39-B693-4CA3-84F7-9C845D24EC2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3893CA39-B693-4CA3-84F7-9C845D24EC2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3893CA39-B693-4CA3-84F7-9C845D24EC2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C2E4197-41BA-469F-9FC0-D44519575FF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C2E4197-41BA-469F-9FC0-D44519575FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C2E4197-41BA-469F-9FC0-D44519575FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C2E4197-41BA-469F-9FC0-D44519575FF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
