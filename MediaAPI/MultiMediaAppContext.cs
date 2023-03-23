@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using MediaAPI.Data;
 using Microsoft.EntityFrameworkCore;
+using Shared;
 
 namespace MediaAPI;
 

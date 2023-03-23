@@ -9,24 +9,39 @@ namespace MediaAPI.Controllers
     [Route("[controller]")]
     public class MediaController : Controller
     {
-        private readonly BlobServiceClient blobclient;
+
         private readonly BlobContainerClient video;
+        private readonly BlobContainerClient audio;
+        private readonly BlobContainerClient visual;
         public MediaController(BlobServiceClient blobclient)
         {
-            this.blobclient = blobclient;
-            video = this.blobclient.GetBlobContainerClient("videos");
+            video = blobclient.GetBlobContainerClient("videos");
+            audio = blobclient.GetBlobContainerClient("audio");
+            visual = blobclient.GetBlobContainerClient("pictures");
         }
-      [HttpPut("uploadfile/{file}")]
-        public async Task<string> UploadFile(IFormFile file)
+        [HttpPut("uploadfile/{type}")]
+        public async Task<string> UploadFile(IFormFile file, string type)
         {
 
             // Generate a unique name for the new blob
             var blobName = Guid.NewGuid().ToString();
-
+            BlobClient blobClient;
             // Upload the file to Blob Storage
-            var blobClient = video.GetBlobClient(blobName);
-            await blobClient.UploadAsync(file.OpenReadStream());
-
+            switch (type)
+            {
+                case "video":
+                    blobClient = video.GetBlobClient(blobName);
+                    await blobClient.UploadAsync(file.OpenReadStream());
+                    break;
+                case "audio":
+                    blobClient = audio.GetBlobClient(blobName);
+                    await blobClient.UploadAsync(file.OpenReadStream());
+                    break;
+                case "visual":
+                    blobClient = visual.GetBlobClient(blobName);
+                    await blobClient.UploadAsync(file.OpenReadStream());
+                    break;
+            }
             // Return the key of the newly created blob
             return blobName;
         }

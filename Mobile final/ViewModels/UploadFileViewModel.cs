@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.AspNetCore.Http;
 
 namespace Mobile_final.ViewModels
 {
@@ -43,15 +44,25 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task UploadFile()
         {
-            using var form = new MultipartFormDataContent();
-            using var fileStream = new FileStream(FilePath, FileMode.Open);
-            using var fileContent = new StreamContent(fileStream);
+            MultipartFormDataContent form;
+            FileStream fileStream;
+            StreamContent fileContent;
+            var convertedForm = ConvertFileType(out form, out fileStream, out fileContent);
+
+            var response = await client.PutAsync($"uploadfile/video", convertedForm);
+            Blobkey = await response.Content.ReadAsStringAsync();
+
+        }
+
+        private MultipartFormDataContent ConvertFileType(out MultipartFormDataContent form, out FileStream fileStream, out StreamContent fileContent)
+        {
+            form = new MultipartFormDataContent();
+            fileStream = new FileStream(FilePath, FileMode.Open);
+            fileContent = new StreamContent(fileStream);
             fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("multipart/form-data");
             form.Add(fileContent, "file", Path.GetFileName(FilePath));
 
-            var response = await client.PutAsync($"uploadfile/{Path.GetFileName(FilePath)}", form);
-            Blobkey = await response.Content.ReadAsStringAsync();
-
+            return form;
         }
 
         [RelayCommand]

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MediaAPI.Data;
+namespace Shared;
 
 public partial class Appointment
 {
