@@ -1,36 +1,37 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Shared.Auth0;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mobile_final.ViewModels
 {
-    public class LoginViewModel 
+    public partial class LoginViewModel : ObservableObject
     {
         private readonly Auth0Client auth0Client;
 
         public LoginViewModel(Auth0Client client)
         {
-            auth0Client = client;    
+            auth0Client = client; 
         }
 
-  
+        [ObservableProperty]
+        private bool loginView;
 
-        private async void OnLoginClicked(object sender, EventArgs e)
+        [ObservableProperty]
+        private bool homeView;
+
+        [RelayCommand]
+        private async void OnLoginClicked()
         {
             var loginResult = await auth0Client.LoginAsync();
 
             if (!loginResult.IsError)
             {
-                //LoginView.IsVisible = false;
-                //HomeView.IsVisible = true;
+                LoginView = false;
+                HomeView = true;
             }
             else
             {
-               // await DisplayAlert("Error", loginResult.ErrorDescription, "OK");
+               Console.WriteLine("Error", loginResult.ErrorDescription, "OK");
             }
         }
     }

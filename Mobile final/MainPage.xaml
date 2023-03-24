@@ -9,8 +9,22 @@
             Padding="30,0"
             VerticalOptions="Center">
 
+            <StackLayout
+                x:Name="LoginView"
+                IsVisible="{Binding LoginView}">
+                
+                <Button 
+                    x:Name="LoginBtn"
+                    Text="Log In"
+                    SemanticProperties.Hint="Click to log in"
+                    Command="{Binding OnLoginClickedCommand}"
+                    HorizontalOptions="Center" />
+            </StackLayout>
             
-           
+            <StackLayout
+                x:Name="HomeView"
+                IsVisible="{Binding HomeView}">
+            </StackLayout>
 
         </VerticalStackLayout>
     </ScrollView>

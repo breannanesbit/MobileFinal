@@ -1,6 +1,6 @@
 ﻿using IdentityModel.Client;
 using IdentityModel.OidcClient.Browser;
-
+using Xamarin.Essentials;
 
 namespace Shared.Auth0
 {
@@ -10,7 +10,7 @@ namespace Shared.Auth0
         {
             try
             {
-                WebAuthenticatorResult result = await WebAuthenticator.Default.AuthenticateAsync(
+                WebAuthenticatorResult result = await WebAuthenticator.AuthenticateAsync(
                     new Uri(options.StartUrl),
                     new Uri(options.EndUrl));
 
