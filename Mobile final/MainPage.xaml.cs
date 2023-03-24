@@ -4,7 +4,7 @@ namespace Mobile_final;
 
 public partial class MainPage : ContentPage
 {
-	public MainPage(UploadFileViewModel model)
+	public MainPage(LoginViewModel model)
 	{
 
 		InitializeComponent();

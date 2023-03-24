@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mobile_final.ViewModels
 {
-    internal class LoginViewModel 
+    public class LoginViewModel 
     {
         private readonly Auth0Client auth0Client;
 
