@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Shared.Auth0;
+//using Mobile_final.Auth0;
+//using Shared.Auth0;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,9 @@ namespace Mobile_final.ViewModels
 {
     public class LoginViewModel 
     {
-        private readonly Auth0Client auth0Client;
+        //private readonly Auth0Client auth0Client;
 
-        public LoginViewModel(Auth0Client client)
+        /*public LoginViewModel(Auth0Client client)
         {
             auth0Client = client;    
         }
@@ -32,6 +33,6 @@ namespace Mobile_final.ViewModels
             {
                // await DisplayAlert("Error", loginResult.ErrorDescription, "OK");
             }
-        }
+        }*/
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared.Auth0
+/*namespace Mobile_final.Auth0
 {
     public class Auth0ClientOptions
     {
@@ -23,6 +23,6 @@ namespace Shared.Auth0
 
         public string Scope { get; set; }
 
-        public IdentityModel.OidcClient.Browser.IBrowser Browser { get; set; }
+        public IBrowser Browser { get; set; }
     }
-}
+}*/

@@ -1,7 +1,6 @@
-﻿using IdentityModel.OidcClient;
+﻿/*using IdentityModel.OidcClient;
 
-
-namespace Shared.Auth0
+namespace Mobile_final.Auth0
 {
     public class Auth0Client
     {
@@ -36,4 +35,4 @@ namespace Shared.Auth0
             return await oidcClient.LoginAsync();
         }
     }
-}
+}*/
