@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 using Mobile_final.ViewModels;
-using Shared.Auth0;
+//using Mobile_final.Auth0;
 
 namespace Mobile_final;
 
@@ -27,13 +27,13 @@ public static class MauiProgram
         builder.Services.AddSingleton<UploadFileViewModel>();
         builder.Services.AddSingleton<MainPage>();
 
-        builder.Services.AddSingleton(new Auth0Client(new()
+        /*builder.Services.AddSingleton(new Auth0Client(new()
         {
-            Domain = "<YOUR_AUTH0_DOMAIN>",
-            ClientId = "<YOUR_CLIENT_ID>",
+            Domain = "dev-hpm6gkxhfq3nifhv.us.auth0.com",
+            ClientId = "kXRZK1rKsIcu8ELWUhULepnbcqPwP2QT",
             Scope = "openid profile",
             RedirectUri = "myapp://callback"
-        }));
+        }));*/
 
 #if DEBUG
         builder.Logging.AddDebug();

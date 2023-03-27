@@ -1,10 +1,8 @@
-﻿using IdentityModel.Client;
-using IdentityModel.OidcClient.Browser;
+﻿
 
-
-namespace Shared.Auth0
+/*namespace Mobile_final.Auth0
 {
-    public class WebBrowserAuthenticator : IdentityModel.OidcClient.Browser.IBrowser
+    public class WebBrowserAuthenticator : IBrowser
     {
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
@@ -33,4 +31,4 @@ namespace Shared.Auth0
             }
         }
     }
-}
+}*/
