@@ -6,10 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1" />
-    <PackageReference Include="Microsoft.Identity.Client" Version="4.51.0" />
-    <PackageReference Include="Microsoft.Identity.Web" Version="2.6.1" />
-  </ItemGroup>
-
 </Project>
