@@ -4,34 +4,17 @@
              x:Class="Mobile_final.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout Spacing="25"
-                             Padding="30,0"
-                             VerticalOptions="Center">
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
 
-            <!-- 👇 new code -->
-            <StackLayout x:Name="LoginView">
-                <Button x:Name="LoginBtn"
-                        Text="Log In"
-                        SemanticProperties.Hint="Click to log in"
-                        Clicked="OnLoginClicked"
-                        HorizontalOptions="Center" />
-            </StackLayout>
-            <!-- 👆 new code -->
-
-            <!-- 👇 new code -->
-            <StackLayout x:Name="HomeView"
-                         IsVisible="false">
-                <!-- 👆 new code -->
-                <Image Source="dotnet_bot.png"
-                       SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                       HeightRequest="200"
-                       HorizontalOptions="Center" />
-
-                <!-- ...existing markup... -->
-
-                <!-- 👇 new code -->
-            </StackLayout>
-            <!-- 👆 new code -->
+            <Button 
+                Text="Log In"
+                SemanticProperties.Hint="Click to log in"
+                Command="{Binding LoginCommand}"
+                HorizontalOptions="Center" />
+           
         </VerticalStackLayout>
     </ScrollView>
 

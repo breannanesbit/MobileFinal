@@ -1,4 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Mobile_final.Auth0;
 //using Mobile_final.Auth0;
 //using Shared.Auth0;
 using System;
@@ -9,30 +11,46 @@ using System.Threading.Tasks;
 
 namespace Mobile_final.ViewModels
 {
-    public class LoginViewModel 
+    public partial class LoginViewModel : ObservableObject
     {
-        //private readonly Auth0Client auth0Client;
+        private readonly Auth0Client auth0Client;
+        private readonly INavigationService nag;
 
-        /*public LoginViewModel(Auth0Client client)
+        public LoginViewModel(Auth0Client client, INavigationService nag)
         {
-            auth0Client = client;    
+            auth0Client = client;
+            this.nag = nag;
+            LoginView = true;
         }
 
-  
+        [ObservableProperty]
+        private bool loginView;
 
-        private async void OnLoginClicked(object sender, EventArgs e)
+        [ObservableProperty]
+        private bool homeView;
+
+        [RelayCommand]
+        public async Task Login()
         {
             var loginResult = await auth0Client.LoginAsync();
 
             if (!loginResult.IsError)
             {
-                //LoginView.IsVisible = false;
-                //HomeView.IsVisible = true;
+                LoginView = false;
+                HomeView = true;
             }
             else
             {
-               // await DisplayAlert("Error", loginResult.ErrorDescription, "OK");
+                Console.WriteLine("Error", loginResult.ErrorDescription, "OK");
             }
-        }*/
+            NavigateToUpload(nameof(UploadPage));
+        }
+
+
+        public async void NavigateToUpload(string destination)
+        {
+            await nag.NaviagteToAsync(destination);
+
+        }
     }
 }

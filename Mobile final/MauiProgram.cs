@@ -26,7 +26,10 @@ public static class MauiProgram
         });
 
         builder.Services.AddSingleton<UploadFileViewModel>();
+        builder.Services.AddSingleton<LoginViewModel>();
+        builder.Services.AddSingleton<INavigationService, NavigationService>();
         builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<UploadPage>();
 
         builder.Services.AddSingleton(new Auth0Client(new()
         {
@@ -39,6 +42,7 @@ public static class MauiProgram
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
+        Routing.RegisterRoute(nameof(UploadPage), typeof(UploadPage));  
 
         return builder.Build();
     }
