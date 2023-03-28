@@ -21,13 +21,23 @@ namespace Mobile_final.ViewModels
             auth0Client = client;
             this.nag = nag;
             LoginView = true;
+            SignUpView = false;
         }
 
         [ObservableProperty]
         private bool loginView;
 
         [ObservableProperty]
-        private bool homeView;
+        private bool signUpView;
+
+        [RelayCommand]
+        public void SignUpViewToShowUp() => SignUpView = true;
+
+        [RelayCommand]
+        public void AddUserToDatabase()
+        {
+            //Create new user in database with their information
+        }
 
         [RelayCommand]
         public async Task Login()
@@ -37,7 +47,6 @@ namespace Mobile_final.ViewModels
             if (!loginResult.IsError)
             {
                 LoginView = false;
-                HomeView = true;
             }
             else
             {
