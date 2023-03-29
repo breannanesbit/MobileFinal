@@ -22,7 +22,7 @@ public static class MauiProgram
             });
         builder.Services.AddSingleton(c => new HttpClient()
         {
-            BaseAddress = new Uri("http://localhost:5102/Media/")
+            BaseAddress = new Uri("https://mediaapisadtrombone.azurewebsites.net")
         });
 
         builder.Services.AddSingleton<UploadFileViewModel>();
