@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Mobile_final.MainPage">
 
     <ScrollView>
@@ -10,31 +9,63 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            
-            <Button
-                Text="Pick file to Upload"
-                Command="{Binding PickFileToUploadCommand}"
-                />
+            <Image
+                Source="trombonefixed.png"/>
 
-            <Label
-                Text="{Binding FilePath}"/>
-            <Button
-                Text="Upload File"
-                Command="{Binding UploadFileCommand}"
-                />
-            <Label Text="{Binding Blobkey}"/>
+            <Grid
+                RowDefinitions="*,*"
+                ColumnDefinitions="*,*"
+                RowSpacing="50">
+                <Label
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Column="0"
+                    Text="SAD TROMBONE PRODUCTS"
+                    HorizontalOptions="Center"
+                    FontSize="24"/>
+                <Button 
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Sign up"
+                    SemanticProperties.Hint="Click to sign up"
+                    Command="{Binding SignUpViewToShowUpCommand}"
+                    HorizontalOptions="Center" />
+                <Button 
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="Log In"
+                    SemanticProperties.Hint="Click to log in"
+                    Command="{Binding LoginCommand}"
+                    HorizontalOptions="Center" />
+            </Grid>
+            <Grid
+                IsVisible="{Binding SignUpView}"
+                RowDefinitions="*,*,*,*,*"
+                ColumnDefinitions="*">
+                <Label 
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Enter First name"/>
+                <Entry
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="{Binding FirstName}"/>
+                <Label 
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="Enter Last name"/>
+                <Entry
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Text="{Binding LastName}"/>
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Text="Sign up"
+                    Command="{Binding LoginCommand}"/>
 
-            <Button
-                Text="Download File"
-                Command="{Binding DownloadFileCommand}"/>
-
-            <toolkit:MediaElement x:Name="mediaElement"
-                      ShouldAutoPlay="True"
-                      ShouldShowPlaybackControls="True"
-                      Source="{Binding FilePath}"
-                      HeightRequest="600"
-                      WidthRequest="400" />
-
+            </Grid>
+           
         </VerticalStackLayout>
     </ScrollView>
 

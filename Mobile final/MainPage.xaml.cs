@@ -1,18 +1,16 @@
-﻿using Mobile_final.ViewModels;
+﻿using Mobile_final.Auth0;
+using Mobile_final.ViewModels;
 
 namespace Mobile_final;
 
+
 public partial class MainPage : ContentPage
 {
-	public MainPage(UploadFileViewModel model)
+	public MainPage(LoginViewModel model)
 	{
+        InitializeComponent();
+        BindingContext = model;
+    }
 
-		InitializeComponent();
-		BindingContext= model;
-	}
-
-
-
-	
 }
-
+    
