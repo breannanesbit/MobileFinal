@@ -60,5 +60,11 @@ namespace MediaAPI.Controllers
             var content = response.Value;
             return File(content.Content, content.ContentType);
         }
+
+        [HttpGet("test/{test}")]
+        public int SquareNumber(int test)
+        {
+            return test * test;
+        }
     }
 }
