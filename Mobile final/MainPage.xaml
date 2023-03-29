@@ -24,7 +24,7 @@
                     Grid.Column="0"
                     Text="Sign up"
                     SemanticProperties.Hint="Click to sign up"
-                    Command="{Binding LoginCommand}"
+                    Command="{Binding SignUpViewToShowUpCommand}"
                     HorizontalOptions="Center" />
                 <Button 
                     Grid.Row="1"
@@ -37,7 +37,7 @@
             <Grid
                 IsVisible="{Binding SignUpView}"
                 RowDefinitions="*,*,*,*,*"
-                ColumnDefinitions="*,*">
+                ColumnDefinitions="*">
                 <Label 
                     Grid.Row="0"
                     Grid.Column="0"
@@ -55,6 +55,8 @@
                     Grid.Column="0"
                     Text="{Binding LastName}"/>
                 <Button
+                    Grid.Row="4"
+                    Grid.Column="0"
                     Text="Sign up"
                     Command="{Binding LoginCommand}"/>
 
