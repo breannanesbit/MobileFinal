@@ -18,6 +18,8 @@ var database = builder.Configuration.GetConnectionString("database");
 builder.Services.AddDbContext<MultiMediaAppContext>(options => options.UseNpgsql(database));
 builder.Services.AddScoped<IDatabaseService, DatabaseService>();
 builder.Services.AddScoped<MultiMediaAppContext>();
+
+
 builder.Services.AddSingleton(x => new BlobServiceClient(blobstring));
 BlobServiceClient blobServiceClient = new(blobstring);
 var app = builder.Build();

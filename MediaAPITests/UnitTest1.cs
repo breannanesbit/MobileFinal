@@ -1,4 +1,5 @@
 using MediaAPI;
+using MediaAPI.services;
 using MediaAPI.Controllers;
 using Microsoft.EntityFrameworkCore;
 using Shared;
@@ -11,11 +12,17 @@ namespace MediaAPITests
     public class Tests
     {
         private DatabaseService service;
-       
+        private MultiMediaAppContext context;
+
         [SetUp]
         public void Setup()
         {
-           
+
+            var options = new DbContextOptionsBuilder<MultiMediaAppContext>()
+                .UseInMemoryDatabase(databaseName: "Test_Db")
+                .Options;
+            context = new MultiMediaAppContext(options);
+            service = new DatabaseService(context);
         }
 
         [Test]
@@ -34,23 +41,18 @@ namespace MediaAPITests
                 LastName = "McTesty",
                 Username = "Test@test.com",
             };
-
-            var servicemock = new Mock<IUserService>();
-            //servicemock.Setups(x => x.);
-
-            /*await service.PostUserAsync(user);
-            var test = service.GetUserList();
-            Assert.AreEqual(1, test.Result.Count);
-            //TearDown();*/
+            service.PostUserAsync(userList);
+            var list = await service.GetUserList();
+            //Assert.AreEqual(1, list.Count());
         }
 
 
 
-       /* [TearDown]
-        public void TearDown()
-        {
-            context.Database.EnsureDeleted();
-            context.Dispose();
-        } */
+        [TearDown]
+         public void TearDown()
+         {
+             context.Database.EnsureDeleted();
+             context.Dispose();
+         }
     }
 }
