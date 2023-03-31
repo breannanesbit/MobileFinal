@@ -1,28 +1,22 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Shared;
+﻿using Shared;
 
-namespace MediaAPI.Controllers
+namespace MediaAPI.services
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UserController : ControllerBase
+    public class DatabaseService : IDatabaseService
     {
         public MultiMediaAppContext Context { get; }
-
-        public UserController(MultiMediaAppContext context)
+        public DatabaseService(MultiMediaAppContext context)
         {
             Context = context;
         }
 
-        [HttpPost]
+
         public async Task PostUserAsync(User user)
         {
             await Context.Users.AddAsync(user);
             await Context.SaveChangesAsync();
         }
 
-        [HttpGet]
         public async Task<List<User>> GetUserList()
         {
             return Context.Users.ToList();
