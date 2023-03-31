@@ -10,7 +10,7 @@ env:
   AZURE_APIM_RESOURCEGROUP: MobileFinal
   AZURE_APIM_SERVICENAME: MediaAPISadTrombone
   AZURE_APIM_API_ID: MediaAPI
-  AZURE_APIM_APPSERVICEURL: https://mediaapisadtrombone.azurewebsites.net
+  AZURE_APIM_APPSERVICEURL: https://mediaapi20230331154346.azurewebsites.net
   SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION: 5.6.3
   SWASHBUCKLE_DOTNET_CORE_VERSION: 3.1.x
   API_IMPORT_SPECIFICATION_PATH: MediaAPI\publish\swagger.json
@@ -21,7 +21,7 @@ env:
   WORKING_DIRECTORY: MediaAPI
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
@@ -49,7 +49,7 @@ jobs:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: build
     steps:
     - name: Download artifact from build job
@@ -62,7 +62,7 @@ jobs:
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-        publish-profile: ${{ secrets.MediaAPISadTrombone_6C63 }}
+        publish-profile: ${{ secrets.MEDIAAPI20230331154346_B8FB }}
     #- name: Azure Login
       #uses: azure/login@v1
       #with:
