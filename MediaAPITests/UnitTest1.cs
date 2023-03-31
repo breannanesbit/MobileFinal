@@ -43,7 +43,7 @@ namespace MediaAPITests
             };
             service.PostUserAsync(userList);
             var list = await service.GetUserList();
-            //Assert.AreEqual(1, list.Count());
+            Assert.AreEqual(1, list.Count());
         }
 
 
