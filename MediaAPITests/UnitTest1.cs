@@ -15,6 +15,27 @@ namespace MediaAPITests
         private MultiMediaAppContext context;
         private IQueryable<Category> categories;
 
+        private static User MakeTestUser()
+        {
+            return new User()
+            {
+                FirstName = "Test",
+                LastName = "McTesty",
+                Username = "Test@test.com",
+            };
+        }
+
+        private static Media MakeVideoMedia()
+        {
+            return new Media()
+            {
+                Id = 1,
+                MediaKey = "Test",
+                DateUpload = DateTime.Now,
+                UserId = 1,
+            };
+        }
+
         [SetUp]
         public void Setup()
         {
@@ -27,8 +48,8 @@ namespace MediaAPITests
 
             categories = new List<Category>()
             {
-                new Category 
-                { 
+                new Category
+                {
                     Id = 1,
                     Category1 = "video"
                 },
@@ -47,64 +68,83 @@ namespace MediaAPITests
         }
 
         [Test]
-        public void Test1()
-        {
-            Assert.Pass();
-        }
-
-        [Test]
         public async Task MakeAndConfirmUser()
         {
-
-            User userList = new User()
-            {
-                FirstName = "Test",
-                LastName = "McTesty",
-                Username = "Test@test.com",
-            };
-            service.PostUserAsync(userList);
+            service.PostUserAsync(MakeTestUser());
             var list = await service.GetUserList();
             Assert.AreEqual(1, list.Count());
             Assert.AreEqual("Test", list[0].FirstName);
         }
+
+
+
         [Test]
         public async Task GetMediaEmptyList()
         {
-            
+
             var list = await service.GetAllMedia();
             Assert.AreEqual(0, list.Count());
         }
         [Test]
         public async Task GetMediaOneItem()
         {
-            Media media = new Media()
-            {
-                Id = 1,
-                MediaKey = "Test",
-                DateUpload = DateTime.Now,
-                UserId = 1,
-            };
-            User userList = new User()
-            {
-                FirstName = "Test",
-                LastName = "McTesty",
-                Username = "Test@test.com",
-                Id = 1,
-            };
-            service.PostUserAsync(userList);
+            Media media = MakeVideoMedia();
+
+            service.PostUserAsync(MakeTestUser());
 
             service.PostMediaAsync(media);
+
             var list = await service.GetAllMedia();
+
             Assert.AreEqual(1, list.Count());
         }
 
+     [Test]
+        public async Task GetOneUsersMedia()
+        {
+            service.PostUserAsync(MakeTestUser());
+            service.PostMediaAsync(MakeVideoMedia());
+            List<Media> list = service.GetAllUserMedia(1);
+            Assert.AreEqual(1, list.Count());
+        }
+        [Test]
+        public async Task GetOneUsersMediaWith2Media()
+        {
+            await service.PostUserAsync(MakeTestUser());
+            await service.PostMediaAsync(MakeVideoMedia());
+            await service.PostMediaAsync(new Media()
+            {
+                Id = 2,
+                MediaKey = "AAH",
+                UserId = 1,
+                DateUpload = DateTime.Now,    
+        });
+            List<Media> list = service.GetAllUserMedia(1);
+            Assert.AreEqual(2, list.Count());
+        }
+
+        [Test]
+        public async Task GetOneUsersMediaWith0Media()
+        {
+            await service.PostUserAsync(MakeTestUser());
+            await service.PostMediaAsync(MakeVideoMedia());
+            await service.PostMediaAsync(new Media()
+            {
+                Id = 2,
+                MediaKey = "AAH",
+                UserId = 1,
+                DateUpload = DateTime.Now,
+            });
+            List<Media> list = service.GetAllUserMedia(2);
+            Assert.AreEqual(0, list.Count());
+        }
 
 
         [TearDown]
-        public void TearDown()
-        {
-            context.Database.EnsureDeleted();
-            context.Dispose();
-        }
+    public void TearDown()
+    {
+        context.Database.EnsureDeleted();
+        context.Dispose();
     }
+}
 }

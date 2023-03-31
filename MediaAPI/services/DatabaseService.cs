@@ -32,5 +32,10 @@ namespace MediaAPI.services
         {
             return Context.Media.ToList();
         }
+
+        public List<Media> GetAllUserMedia(int v)
+        {
+            return Context.Media.Where(w => w.UserId == v).ToList();
+        }
     }
 }
