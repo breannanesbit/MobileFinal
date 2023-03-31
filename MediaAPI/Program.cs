@@ -1,5 +1,6 @@
 using Azure.Storage.Blobs;
 using MediaAPI;
+using MediaAPI.services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -15,6 +16,9 @@ var blobstring = builder.Configuration.GetConnectionString("blobString");
 var database = builder.Configuration.GetConnectionString("database");
 
 builder.Services.AddDbContext<MultiMediaAppContext>(options => options.UseNpgsql(database));
+builder.Services.AddScoped<IDatabaseService, DatabaseService>();
+builder.Services.AddScoped<MultiMediaAppContext>();
+
 
 builder.Services.AddSingleton(x => new BlobServiceClient(blobstring));
 BlobServiceClient blobServiceClient = new(blobstring);

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mobile_final.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly HttpClient http;
 
