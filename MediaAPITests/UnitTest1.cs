@@ -70,7 +70,7 @@ namespace MediaAPITests
         [Test]
         public async Task MakeAndConfirmUser()
         {
-            service.PostUserAsync(MakeTestUser());
+            await service.PostUserAsync(MakeTestUser());
             var list = await service.GetUserList();
             Assert.AreEqual(1, list.Count());
             Assert.AreEqual("Test", list[0].FirstName);
@@ -90,20 +90,20 @@ namespace MediaAPITests
         {
             Media media = MakeVideoMedia();
 
-            service.PostUserAsync(MakeTestUser());
+            await service.PostUserAsync(MakeTestUser());
 
-            service.PostMediaAsync(media);
+            await service.PostMediaAsync(media);
 
             var list = await service.GetAllMedia();
 
             Assert.AreEqual(1, list.Count());
         }
 
-     [Test]
+        [Test]
         public async Task GetOneUsersMedia()
         {
-            service.PostUserAsync(MakeTestUser());
-            service.PostMediaAsync(MakeVideoMedia());
+            await service.PostUserAsync(MakeTestUser());
+            await service.PostMediaAsync(MakeVideoMedia());
             List<Media> list = service.GetAllUserMedia(1);
             Assert.AreEqual(1, list.Count());
         }
@@ -117,8 +117,8 @@ namespace MediaAPITests
                 Id = 2,
                 MediaKey = "AAH",
                 UserId = 1,
-                DateUpload = DateTime.Now,    
-        });
+                DateUpload = DateTime.Now,
+            });
             List<Media> list = service.GetAllUserMedia(1);
             Assert.AreEqual(2, list.Count());
         }
@@ -141,10 +141,10 @@ namespace MediaAPITests
 
 
         [TearDown]
-    public void TearDown()
-    {
-        context.Database.EnsureDeleted();
-        context.Dispose();
+        public void TearDown()
+        {
+            context.Database.EnsureDeleted();
+            context.Dispose();
+        }
     }
-}
 }
