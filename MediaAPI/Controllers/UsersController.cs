@@ -21,5 +21,11 @@ namespace MediaAPI.Controllers
             await Context.Users.AddAsync(user);
             await Context.SaveChangesAsync();
         }
+
+        [HttpGet]
+        public async Task<List<User>> GetUserList()
+        {
+            return Context.Users.ToList();
+        }
     }
 }
