@@ -50,7 +50,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\calendarregular.svg" />
+	  <None Remove="Resources\Images\housesolid.svg" />
+	  <None Remove="Resources\Images\plussolid.svg" />
 	  <None Remove="Resources\Images\tromboneFixed.png" />
+	  <None Remove="Resources\Images\userregular.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -71,16 +75,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="HomeMediaPage.xaml">
+	  <MauiXaml Update="Pages\HomeMediaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ProfilePage.xaml">
+	  <MauiXaml Update="Pages\ProfilePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="SchedulePage.xaml">
+	  <MauiXaml Update="Pages\SchedulePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="UploadPage.xaml">
+	  <MauiXaml Update="Pages\UploadPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

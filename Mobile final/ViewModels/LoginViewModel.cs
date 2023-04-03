@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Mobile_final.Auth0;
+using Mobile_final.Pages;
 //using Mobile_final.Auth0;
 //using Shared.Auth0;
 using System;
@@ -42,7 +43,7 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task Login()
         {
-            var loginResult = await auth0Client.LoginAsync();
+           /* var loginResult = await auth0Client.LoginAsync();
 
             if (!loginResult.IsError)
             {
@@ -51,7 +52,7 @@ namespace Mobile_final.ViewModels
             else
             {
                 Console.WriteLine("Error", loginResult.ErrorDescription, "OK");
-            }
+            }*/
             NavigateToUpload(nameof(UploadPage));
         }
 

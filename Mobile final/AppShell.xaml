@@ -3,12 +3,43 @@
     x:Class="Mobile_final.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Mobile_final.Pages"
     xmlns:local="clr-namespace:Mobile_final"
     Shell.FlyoutBehavior="Disabled">
+    
 
-    <ShellContent
+    <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage" />-->
+    <TabBar>
+        <Tab Title="Home"
+             Icon="houssolid.svg">
+            <ShellContent 
+                 ContentTemplate="{DataTemplate pages:HomeMediaPage}"/>
+            
+        </Tab>
+        <Tab Title="Schedule"
+             Icon="calendarregular.svg">
+
+            <ShellContent 
+                ContentTemplate="{DataTemplate pages:SchedulePage}"/>
+        </Tab>
+
+        <Tab Title="Upload"
+             Icon="plussolid.svg">
+            <ShellContent 
+                ContentTemplate="{DataTemplate pages:UploadPage}"/>
+            
+        </Tab>
+
+        <Tab Title="Profile" 
+             Icon="userregular.svg">
+        <ShellContent 
+             ContentTemplate="{DataTemplate pages:ProfilePage}"/>
+            
+        </Tab>
+        
+    </TabBar>
 
 </Shell>

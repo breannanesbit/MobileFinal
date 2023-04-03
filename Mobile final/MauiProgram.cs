@@ -3,6 +3,7 @@ using CommunityToolkit.Maui;
 using Mobile_final.ViewModels;
 using Mobile_final.Auth0;
 using Syncfusion.Maui.Core.Hosting;
+using Mobile_final.Pages;
 //using Mobile_final.Auth0;
 
 namespace Mobile_final;
@@ -32,6 +33,14 @@ public static class MauiProgram
         builder.Services.AddSingleton<INavigationService, NavigationService>();
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<UploadPage>();
+        builder.Services.AddSingleton<ProfilePage>();
+        builder.Services.AddSingleton<SchedulePage>();
+        builder.Services.AddSingleton<HomeMediaPage>();
+        builder.Services.AddSingleton<ProfileViewModel>();
+        builder.Services.AddSingleton<ScheduleViewModel>();
+        builder.Services.AddSingleton<ProfileViewModel>();
+        builder.Services.AddSingleton<HomeMediaViewModel>();
+
 
         builder.Services.AddSingleton(new Auth0Client(new()
         {
