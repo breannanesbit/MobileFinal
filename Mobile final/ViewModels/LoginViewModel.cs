@@ -43,17 +43,18 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task Login()
         {
-           /* var loginResult = await auth0Client.LoginAsync();
+            /*var loginResult = await auth0Client.LoginAsync();
 
-            if (!loginResult.IsError)
-            {
-                LoginView = false;
-            }
-            else
-            {
-                Console.WriteLine("Error", loginResult.ErrorDescription, "OK");
-            }*/
-            NavigateToUpload(nameof(UploadPage));
+             if (!loginResult.IsError)
+             {
+                 LoginView = false;
+             }
+             else
+             {
+                 Console.WriteLine("Error", loginResult.ErrorDescription, "OK");
+             }*/
+            Application.Current.MainPage = new AppShell();
+            //NavigateToUpload(nameof(UploadPage));
         }
 
 

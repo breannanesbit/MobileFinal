@@ -1,11 +1,14 @@
-﻿namespace Mobile_final;
+﻿using Mobile_final.Pages;
+using Mobile_final.ViewModels;
+
+namespace Mobile_final;
 
 public partial class App : Application
 {
-	public App()
+	public App(LoginViewModel vm)
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+		MainPage = new MainPage(vm);
 	}
 }
