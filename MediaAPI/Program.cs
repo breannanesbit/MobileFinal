@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-var blobstring = builder.Configuration.GetConnectionString("blobString");
+var blobstring = builder.Configuration["blobString"];
 Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAA Blobstring: " + blobstring.Substring(0,5));
 var database = builder.Configuration.GetConnectionString("database");
 
