@@ -13,7 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var blobstring = builder.Configuration.GetConnectionString("blobString");
-Console.WriteLine(blobstring.Substring(0,5));
+Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAA Blobstring: " + blobstring.Substring(0,5));
 var database = builder.Configuration.GetConnectionString("database");
 
 builder.Services.AddDbContext<MultiMediaAppContext>(options => options.UseNpgsql(database));
