@@ -2,6 +2,7 @@
 using CommunityToolkit.Maui;
 using Mobile_final.ViewModels;
 using Mobile_final.Auth0;
+using Syncfusion.Maui.Core.Hosting;
 //using Mobile_final.Auth0;
 
 namespace Mobile_final;
@@ -14,6 +15,7 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
              .UseMauiCommunityToolkitMediaElement()
+             .ConfigureSyncfusionCore()
             .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
             {
