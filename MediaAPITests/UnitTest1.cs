@@ -204,6 +204,7 @@ namespace MediaAPITests
             Assert.That(media.UserId, Is.EqualTo(2));
             Assert.That(media.MediaKey, Is.EqualTo("AAH"));
         }
+
         [Test]
         public Task ReturnErrorNoMatchingKey()
         {
