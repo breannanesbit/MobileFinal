@@ -14,7 +14,7 @@
         Route="MainPage" />-->
     <TabBar>
         <Tab Title="Home"
-             Icon="houssolid.svg">
+             Icon="housesolid.svg">
             <ShellContent 
                  ContentTemplate="{DataTemplate pages:HomeMediaPage}"/>
             
