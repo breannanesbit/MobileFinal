@@ -4,6 +4,7 @@ using Mobile_final.ViewModels;
 using Mobile_final.Auth0;
 using Syncfusion.Maui.Core.Hosting;
 using Mobile_final.Pages;
+using Mobile_final.Services;
 //using Mobile_final.Auth0;
 
 namespace Mobile_final;
@@ -25,7 +26,7 @@ public static class MauiProgram
             });
         builder.Services.AddSingleton(c => new HttpClient()
         {
-            BaseAddress = new Uri("https://mediaapisadtrombone.azurewebsites.net")
+            BaseAddress = new Uri("https://multimediaapi.azurewebsites.net")
         });
 
         builder.Services.AddSingleton<UploadFileViewModel>();
@@ -40,6 +41,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<ScheduleViewModel>();
         builder.Services.AddSingleton<ProfileViewModel>();
         builder.Services.AddSingleton<HomeMediaViewModel>();
+        builder.Services.AddSingleton<UserService>();
 
 
         builder.Services.AddSingleton(new Auth0Client(new()

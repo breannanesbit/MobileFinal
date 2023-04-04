@@ -9,11 +9,10 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Image
-                Source="trombonefixed.png"/>
+            
 
             <Grid
-                RowDefinitions="*,*"
+                RowDefinitions="*,*,*"
                 ColumnDefinitions="*,*"
                 RowSpacing="50">
                 <Label
@@ -23,15 +22,19 @@
                     Text="SAD TROMBONE PRODUCTS"
                     HorizontalOptions="Fill"
                     FontSize="24"/>
-                <Button 
+                <Image
                     Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                Source="trombonefixed.png"/>
+                <Button 
+                    Grid.Row="2"
                     Grid.Column="0"
                     Text="Sign up"
                     SemanticProperties.Hint="Click to sign up"
                     Command="{Binding SignUpViewToShowUpCommand}"
                     HorizontalOptions="Center" />
                 <Button 
-                    Grid.Row="1"
+                    Grid.Row="2"
                     Grid.Column="1"
                     Text="Log In"
                     SemanticProperties.Hint="Click to log in"
@@ -39,30 +42,35 @@
                     HorizontalOptions="Center" />
             </Grid>
             <Grid
+                Margin="25"
                 IsVisible="{Binding SignUpView}"
-                RowDefinitions="*,*,*,*,*"
+                RowDefinitions="*,*,*,*,*,*"
                 ColumnDefinitions="*"
                 RowSpacing="25"
                 ColumnSpacing="25
                 ">
-                <Label 
+                <Label
                     Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Welcome new user please enter your first and last name click the button below and continue sign up"/>
+                <Label 
+                    Grid.Row="1"
                     Grid.Column="0"
                     Text="Enter First name"/>
                 <Entry
-                    Grid.Row="1"
+                    Grid.Row="2"
                     Grid.Column="0"
                     Text="{Binding FirstName}"/>
                 <Label 
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Grid.Column="0"
                     Text="Enter Last name"/>
                 <Entry
-                    Grid.Row="3"
+                    Grid.Row="4"
                     Grid.Column="0"
                     Text="{Binding LastName}"/>
                 <Button
-                    Grid.Row="4"
+                    Grid.Row="5"
                     Grid.Column="0"
                     Text="Sign up"
                     Command="{Binding LoginCommand}"/>

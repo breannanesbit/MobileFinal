@@ -8,5 +8,9 @@
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button
+            Command="{Binding GetItCommand}"/>
+        <Label
+            Text="{Binding FirstName}"/>
     </VerticalStackLayout>
 </ContentPage>
