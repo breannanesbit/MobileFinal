@@ -27,6 +27,31 @@ namespace Mobile_final.ViewModels
         [ObservableProperty]
         private MemoryStream videoFile;
 
+        [ObservableProperty]
+        private bool mediaOptionSelected;
+
+        [ObservableProperty]
+        private string username;
+
+        private string selectedOption;
+
+
+        public string SelectedOption
+        {
+            get { return selectedOption; }
+            set
+            {
+                SetProperty(ref selectedOption, value);
+            }
+        }
+
+        [RelayCommand]
+        public void Start()
+        {
+            MediaOptionSelected = false;
+
+        }
+
         [RelayCommand]
         public async Task PickFileToUpload()
         {
@@ -49,8 +74,20 @@ namespace Mobile_final.ViewModels
             FileStream fileStream;
             StreamContent fileContent;
             var convertedForm = ConvertFileType(out form, out fileStream, out fileContent);
-            var response = await client.PutAsync($"uploadfile/video", convertedForm);
-            Blobkey = await response.Content.ReadAsStringAsync();
+            switch (SelectedOption)
+            {
+                case "Video":
+                    await client.PutAsync($"uploadfile/video/{Username}", convertedForm);
+                    break;
+                case "Audio":
+                    await client.PutAsync($"uploadfile/video/{Username}", convertedForm);
+                    break;
+                case "Visual":
+                    await client.PutAsync($"uploadfile/video/{Username}", convertedForm);
+                    break;
+            }
+            
+            //Blobkey = await response.Content.ReadAsStringAsync();
 
         }
 

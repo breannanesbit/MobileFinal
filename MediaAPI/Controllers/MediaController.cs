@@ -23,6 +23,7 @@ namespace MediaAPI.Controllers
             audio = blobclient.GetBlobContainerClient("audio");
             visual = blobclient.GetBlobContainerClient("pictures");
         }
+
         [HttpPost("uploadfile/video/{username}")]
         public async void UploadVideoFile(IFormFile file, string username)
         {
