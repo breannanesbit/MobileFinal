@@ -8,6 +8,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.Http;
 
+
 namespace Mobile_final.ViewModels
 {
     public partial class UploadFileViewModel : ObservableObject
@@ -48,7 +49,6 @@ namespace Mobile_final.ViewModels
             FileStream fileStream;
             StreamContent fileContent;
             var convertedForm = ConvertFileType(out form, out fileStream, out fileContent);
-
             var response = await client.PutAsync($"uploadfile/video", convertedForm);
             Blobkey = await response.Content.ReadAsStringAsync();
 

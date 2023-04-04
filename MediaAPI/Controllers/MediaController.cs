@@ -1,6 +1,9 @@
 ﻿using Azure;
 using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Mvc;
+using MediaAPI.services;
+using Shared;
+using Microsoft.EntityFrameworkCore;
 
 namespace MediaAPI.Controllers
 {
@@ -13,37 +16,138 @@ namespace MediaAPI.Controllers
         private readonly BlobContainerClient video;
         private readonly BlobContainerClient audio;
         private readonly BlobContainerClient visual;
+        private readonly DatabaseService database;
         public MediaController(BlobServiceClient blobclient)
         {
             video = blobclient.GetBlobContainerClient("videos");
             audio = blobclient.GetBlobContainerClient("audio");
             visual = blobclient.GetBlobContainerClient("pictures");
         }
-        [HttpPut("uploadfile/{type}")]
-        public async Task<string> UploadFile(IFormFile file, string type)
+        [HttpPost("uploadfile/video/{username}")]
+        public async void UploadVideoFile(IFormFile file, string username)
         {
+            var user = database.GetUser(username);
+            if (user == null)
+            {
+                User newuser = new User
+                {
+                    FirstName = "N/A",
+                    LastName = "N/A",
+                    Username = username,
 
+                };
+                await database.PostUserAsync(newuser);
+                user = database.GetUser(username);
+            }
             // Generate a unique name for the new blob
             var blobName = Guid.NewGuid().ToString();
             BlobClient blobClient;
             // Upload the file to Blob Storage
-            switch (type)
+
+
+            blobClient = video.GetBlobClient(blobName);
+            await blobClient.UploadAsync(file.OpenReadStream());
+
+            var newMedia = new Media()
             {
-                case "video":
-                    blobClient = video.GetBlobClient(blobName);
-                    await blobClient.UploadAsync(file.OpenReadStream());
-                    break;
-                case "audio":
-                    blobClient = audio.GetBlobClient(blobName);
-                    await blobClient.UploadAsync(file.OpenReadStream());
-                    break;
-                case "visual":
-                    blobClient = visual.GetBlobClient(blobName);
-                    await blobClient.UploadAsync(file.OpenReadStream());
-                    break;
+                DateUpload = DateTime.Now,
+                MediaKey = blobName,
+                UserId = user.Id,
+            };
+            database.AddMedia(newMedia);
+            Media mediawithID = database.GetMedia(blobName);
+
+            var cat = database.GetCategory("video");
+            var mediaCat = new MediaCategory()
+            {
+                CategoryId = cat.Id,
+                MediaId = mediawithID.Id,
+            };
+            database.AddMediaCategory(mediaCat);
+        }
+        [HttpPost("uploadfile/audio/{username}")]
+        public async void UploadAudioFile(IFormFile file, string username)
+        {
+            var user = database.GetUser(username);
+            if (user == null)
+            {
+                User newuser = new User
+                {
+                    FirstName = "N/A",
+                    LastName = "N/A",
+                    Username = username,
+
+                };
+                await database.PostUserAsync(newuser);
+                _ = database.GetUser(username);
             }
-            // Return the key of the newly created blob
-            return blobName;
+            // Generate a unique name for the new blob
+            var blobName = Guid.NewGuid().ToString();
+            BlobClient blobClient;
+            // Upload the file to Blob Storage
+
+
+            blobClient = audio.GetBlobClient(blobName);
+            await blobClient.UploadAsync(file.OpenReadStream());
+
+            var newMedia = new Media()
+            {
+                DateUpload = DateTime.Now,
+                MediaKey = blobName,
+                UserId = user.Id,
+            };
+            database.AddMedia(newMedia);
+            Media mediawithID = database.GetMedia(blobName);
+
+            var cat = database.GetCategory("audio");
+            var mediaCat = new MediaCategory()
+            {
+                CategoryId = cat.Id,
+                MediaId = mediawithID.Id,
+            };
+            database.AddMediaCategory(mediaCat);
+        }
+        [HttpPost("uploadfile/visual/{username}")]
+        public async void UploadVisualFile(IFormFile file, string username)
+        {
+            var user = database.GetUser(username);
+            if (user == null)
+            {
+                User newuser = new User
+                {
+                    FirstName = "N/A",
+                    LastName = "N/A",
+                    Username = username,
+
+                };
+                await database.PostUserAsync(newuser);
+                _ = database.GetUser(username);
+            }
+            // Generate a unique name for the new blob
+            var blobName = Guid.NewGuid().ToString();
+            BlobClient blobClient;
+            // Upload the file to Blob Storage
+
+
+            blobClient = visual.GetBlobClient(blobName);
+            await blobClient.UploadAsync(file.OpenReadStream());
+
+            var newMedia = new Media()
+            {
+                DateUpload = DateTime.Now,
+                MediaKey = blobName,
+                UserId = user.Id,
+            };
+            database.AddMedia(newMedia);
+            Media mediawithID = database.GetMedia(blobName);
+
+            var cat = database.GetCategory("visual");
+            var mediaCat = new MediaCategory()
+            {
+                CategoryId = cat.Id,
+                MediaId = mediawithID.Id,
+            };
+            database.AddMediaCategory(mediaCat);
         }
 
         [HttpGet("downloadfile/{blobKey}")]
