@@ -60,12 +60,6 @@ namespace MediaAPI.services
             return media;
         }
 
-        
-
-        public async Task<User> GetUser(string username)//needs testing
-        {
-            return Context.Users.Where(u => u.Username == username).FirstOrDefault();
-        }
 
         public async Task<Category> GetCategory(string name)//test it
         {
@@ -76,12 +70,6 @@ namespace MediaAPI.services
         {
            Context.Media.Add(newMedia);
         }
-
-        public Media GetMedia(string blobName)//test it
-        {
-            return Context.Media.Where(u => u.MediaKey == blobName).FirstOrDefault();
-        }
-
         internal void AddMediaCategory(MediaCategory mediaCat)//test it
         {
             Context.MediaCategories.Add(mediaCat);
