@@ -18,16 +18,15 @@ namespace MediaAPI.Controllers
             audio = blobclient.GetBlobContainerClient("audio");
             visual = blobclient.GetBlobContainerClient("pictures");
         }
-        [HttpPut("uploadfile/{type}")]
-        public async Task<string> UploadFile(IFormFile file, string type)
+        [HttpPut("uploadfile/video/{type}")]
+        public async Task<string> UploadFile(IFormFile file)
         {
 
             // Generate a unique name for the new blob
             var blobName = Guid.NewGuid().ToString();
             BlobClient blobClient;
             // Upload the file to Blob Storage
-            switch (type)
-            {
+        /*
                 case "video":
                     blobClient = video.GetBlobClient(blobName);
                     await blobClient.UploadAsync(file.OpenReadStream());
@@ -40,10 +39,17 @@ namespace MediaAPI.Controllers
                     blobClient = visual.GetBlobClient(blobName);
                     await blobClient.UploadAsync(file.OpenReadStream());
                     break;
-            }
             // Return the key of the newly created blob
             return blobName;
         }
+
+        *
+         * 
+         * 
+         * 
+         * 
+         * 
+         */
 
         [HttpGet("downloadfile/{blobKey}")]
         public async Task<IActionResult> DownloadFile(string blobKey)
