@@ -33,7 +33,7 @@ namespace Mobile_final.ViewModels
             var result = await FilePicker.Default.PickAsync();
             if (result == null)
             {
-                PickFileToUpload();
+                await PickFileToUpload();
             }
             else
             {
