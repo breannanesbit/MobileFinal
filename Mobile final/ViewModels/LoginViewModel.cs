@@ -49,7 +49,9 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task Login()
         {
-            var loginResult = await auth0Client.LoginAsync();
+            if(Device.RuntimePlatform == Device.Android)
+            {
+                var loginResult = await auth0Client.LoginAsync();
 
              if (!loginResult.IsError)
              {

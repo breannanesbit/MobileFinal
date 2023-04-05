@@ -1,4 +1,7 @@
-﻿using Shared;
+﻿using Microsoft.EntityFrameworkCore;
+using Shared;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
 
 namespace MediaAPI.services
 {
@@ -21,6 +24,11 @@ namespace MediaAPI.services
         {
             return Context.Users.ToList();
         }
+        public Task<User> GetUserByUsername(string v)
+        {
+            return Context.Users.FirstAsync(x => x.Username == v);
+        }
+
 
         public async Task PostMediaAsync(Media media)
         {
@@ -36,6 +44,35 @@ namespace MediaAPI.services
         public List<Media> GetAllUserMedia(int v)
         {
             return Context.Media.Where(w => w.UserId == v).ToList();
+        }
+
+        public async Task<Media> GetMediaByKey(string v)
+        {
+            var media =  await Context.Media
+                .Where(w => w.MediaKey == v)
+                .FirstOrDefaultAsync();
+
+            if (media == null)
+            {
+                throw new NotFoundException($"Media with key '{v}' was not found.");
+            }
+
+            return media;
+        }
+
+
+        public async Task<Category> GetCategory(string name)//test it
+        {
+            return Context.Categories.Where(u => u.Category1 == name).FirstOrDefault();
+        }
+
+        internal void AddMedia(Media newMedia)//test it
+        {
+           Context.Media.Add(newMedia);
+        }
+        internal void AddMediaCategory(MediaCategory mediaCat)//test it
+        {
+            Context.MediaCategories.Add(mediaCat);
         }
     }
 }
