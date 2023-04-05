@@ -46,31 +46,31 @@ public partial class LoginViewModel : ObservableObject
         await service.NewUserEntry(FirstName, LastName, username);
     }
 
-    [RelayCommand]
-    public async Task Login()
-    {
-        if (Device.RuntimePlatform == Device.Android)
+        [RelayCommand]
+        public async Task Login()
         {
-            var loginResult = await auth0Client.LoginAsync();
-
-            if (!loginResult.IsError)
+            if (Microsoft.Maui.Devices.DeviceInfo.Platform == Microsoft.Maui.Devices.DevicePlatform.Android)
             {
-                LoginView = false;
-            }
-            else
-            {
-                Console.WriteLine("Error", loginResult.ErrorDescription, "OK");
-            }
+                var loginResult = await auth0Client.LoginAsync();
 
-            if (FirstName != null && LastName != null)
-            {
-                await AddUserToDatabase(loginResult.User.Identity.Name);
+                if (!loginResult.IsError)
+                {
+                    LoginView = false;
+                }
+                else
+                {
+                    Console.WriteLine("Error", loginResult.ErrorDescription, "OK");
+                }
+
+                if (FirstName != null && LastName != null)
+                {
+                    await AddUserToDatabase(loginResult.User.Identity.Name);
+
+                }
 
             }
+            Application.Current.MainPage = new AppShell();
         }
-        Application.Current.MainPage = new AppShell();
-        //NavigateToUpload(nameof(UploadPage));
-    }
 
 
 
