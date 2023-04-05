@@ -11,7 +11,7 @@
     <VerticalStackLayout>
 
         <Border
-            Margin="50"
+            Margin="45"
             Stroke="#A90CD1"
             StrokeThickness="8"
             StrokeDashArray="2,2"
@@ -19,6 +19,7 @@
             StrokeShape="RoundRectangle 40"
             HorizontalOptions="Center">
             <ImageButton
+                Padding="45"
                     Source="plussolid.svg"
                     HeightRequest="150"
                     WidthRequest="200"
