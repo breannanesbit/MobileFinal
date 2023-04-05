@@ -1,16 +1,16 @@
-name: Build and deploy .NET Core application to Web App MediaAPI20230331154346 with API Management Service MediaAPISadTrombone-MediaAPI
+name: Build and deploy .NET Core application to Web App MultiMediaAPI with API Management Service MediaAPIapi-MediaAPI
 on:
   push:
     branches:
-    - figureouttesting
+    - main
 env:
-  AZURE_WEBAPP_NAME: MediaAPI20230331154346
+  AZURE_WEBAPP_NAME: MultiMediaAPI
   AZURE_WEBAPP_PACKAGE_PATH: MediaAPI/publish
   AZURE_APIM_RESOURCE_PATH: /
   AZURE_APIM_RESOURCEGROUP: MobileFinal
-  AZURE_APIM_SERVICENAME: MediaAPISadTrombone
+  AZURE_APIM_SERVICENAME: MediaAPIapi
   AZURE_APIM_API_ID: MediaAPI
-  AZURE_APIM_APPSERVICEURL: https://mediaapi20230331154346.azurewebsites.net
+  AZURE_APIM_APPSERVICEURL: https://multimediaapi.azurewebsites.net
   SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION: 5.6.3
   SWASHBUCKLE_DOTNET_CORE_VERSION: 3.1.x
   API_IMPORT_SPECIFICATION_PATH: MediaAPI/publish/swagger.json
@@ -43,8 +43,8 @@ jobs:
     - name: Install Swashbuckle CLI .NET Global Tool
       run: dotnet tool install --global Swashbuckle.AspNetCore.Cli --version ${{ env.SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION }}
       working-directory: ${{ env.WORKING_DIRECTORY }}
-    - name: Generate Open API Specification Document
-      run: swagger tofile --output "${{ env.API_IMPORT_SPECIFICATION_PATH }}" "${{ env.API_IMPORT_DLL }}" "${{ env.API_IMPORT_VERSION }}"
+    #- name: Generate Open API Specification Document
+     # run: swagger tofile --output "${{ env.API_IMPORT_SPECIFICATION_PATH }}" "${{ env.API_IMPORT_DLL }}" "${{ env.API_IMPORT_VERSION }}"
     - name: Publish Artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -64,13 +64,13 @@ jobs:
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-        publish-profile: ${{ secrets.MediaAPI20230331154346_B8FB }}
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.MediaAPISadTrombone_SPN }}
-    - name: Import API into Azure API Management
-      run: az apim api import --path "${{ env.AZURE_APIM_RESOURCE_PATH }}" --resource-group "${{ env.AZURE_APIM_RESOURCEGROUP }}" --service-name "${{ env.AZURE_APIM_SERVICENAME }}" --api-id "${{ env.AZURE_APIM_API_ID }}" --service-url "${{ env.AZURE_APIM_APPSERVICEURL }}" --specification-path "${{ env.API_IMPORT_SPECIFICATION_PATH }}" --specification-format OpenApi --subscription-required false
-    - name: logout
-      run: >
-        az logout
+        publish-profile: ${{ secrets.MultiMediaAPI_1FAE }}
+    #- name: Azure Login
+     # uses: azure/login@v1
+      #with:
+       # creds: ${{ secrets.MediaAPIapi_SPN }}
+    #- name: Import API into Azure API Management
+     # run: az apim api import --path "${{ env.AZURE_APIM_RESOURCE_PATH }}" --resource-group "${{ env.AZURE_APIM_RESOURCEGROUP }}" --service-name "${{ env.AZURE_APIM_SERVICENAME }}" --api-id "${{ env.AZURE_APIM_API_ID }}" --service-url "${{ env.AZURE_APIM_APPSERVICEURL }}" --specification-path "${{ env.API_IMPORT_SPECIFICATION_PATH }}" --specification-format OpenApi --subscription-required false
+    #- name: logout
+     # run: >
+      #  az logout

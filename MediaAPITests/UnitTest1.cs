@@ -119,7 +119,7 @@ namespace MediaAPITests
             Assert.That(list.Count(), Is.EqualTo(1));
         }
 
-     [Test]
+        [Test]
         public async Task GetOneUsersMedia()
         {
             await service.PostUserAsync(MakeTestUser());
@@ -137,8 +137,8 @@ namespace MediaAPITests
                 Id = 2,
                 MediaKey = "AAH",
                 UserId = 1,
-                DateUpload = DateTime.Now,    
-        });
+                DateUpload = DateTime.Now,
+            });
             List<Media> list = service.GetAllUserMedia(1);
             Assert.That(list.Count(), Is.EqualTo(2));
         }
@@ -214,10 +214,10 @@ namespace MediaAPITests
         }
 
         [TearDown]
-    public void TearDown()
-    {
-        context.Database.EnsureDeleted();
-        context.Dispose();
+        public void TearDown()
+        {
+            context.Database.EnsureDeleted();
+            context.Dispose();
+        }//
     }
-}
 }

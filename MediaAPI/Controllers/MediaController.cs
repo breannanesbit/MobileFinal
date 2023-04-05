@@ -12,7 +12,6 @@ namespace MediaAPI.Controllers
     [Route("[controller]")]
     public class MediaController : Controller
     {
-
         private readonly BlobContainerClient video;
         private readonly BlobContainerClient audio;
         private readonly BlobContainerClient visual;

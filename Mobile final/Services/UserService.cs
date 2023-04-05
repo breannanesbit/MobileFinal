@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mobile_final.Services
 {
-    public class UserService : IUserService
+    public class UserService
     {
         private readonly HttpClient http;
 
@@ -17,7 +17,7 @@ namespace Mobile_final.Services
             this.http = http;
         }
 
-        public async void NewUserEntry(string firstname, string lastname, string username)
+        public async Task NewUserEntry(string firstname, string lastname, string username)
         {
             var user = new User()
             {
@@ -28,5 +28,9 @@ namespace Mobile_final.Services
             await http.PostAsJsonAsync<User>($"/api/user", user);
         }
 
+        internal Task<List<User>> GetAllUsers()
+        {
+            return http.GetFromJsonAsync<List<User>>("/api/user/all");
+        }
     }
 }
