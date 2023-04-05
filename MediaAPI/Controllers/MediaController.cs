@@ -24,7 +24,7 @@ namespace MediaAPI.Controllers
         }
 
         [HttpPost("uploadfile/video/{username}")]
-        public async void UploadVideoFile(IFormFile file, string username)
+        public async Task<string> UploadVideoFile(IFormFile file, string username)
         {
             var user = database.GetUserByUsername(username);;
             if (user == null)
@@ -64,9 +64,10 @@ namespace MediaAPI.Controllers
                 MediaId = mediawithID.Id,
             };
             database.AddMediaCategory(mediaCat);
+            return blobName;
         }
-        [HttpPost("uploadfile/audio/{username}")]
-        public async void UploadAudioFile(IFormFile file, string username)
+        [HttpPut("uploadfile/audio/{username}")]
+        public async Task<string> UploadAudioFile(IFormFile file, string username)
         {
             var user = database.GetUserByUsername(username);;
             if (user == null)
@@ -106,9 +107,10 @@ namespace MediaAPI.Controllers
                 MediaId = mediawithID.Id,
             };
             database.AddMediaCategory(mediaCat);
+            return blobName;
         }
-        [HttpPost("uploadfile/visual/{username}")]
-        public async void UploadVisualFile(IFormFile file, string username)
+        [HttpPut("uploadfile/visual/{username}")]
+        public async Task<string> UploadVisualFile(IFormFile file, string username)
         {
             var user = database.GetUserByUsername(username);;
             if (user == null)
@@ -148,6 +150,7 @@ namespace MediaAPI.Controllers
                 MediaId = mediawithID.Id,
             };
             database.AddMediaCategory(mediaCat);
+            return blobName;
         }
 
         [HttpGet("downloadfile/{blobKey}")]
@@ -166,9 +169,10 @@ namespace MediaAPI.Controllers
         }
 
         [HttpGet("test/{test}")]
-        public int SquareNumber(int test)
+        public long SquareNumber(int test)
         {
-            return test * test;
+            var newtest = (long)test;
+            return newtest * newtest;
         }
     }
 }

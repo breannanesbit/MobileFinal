@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Mobile_final.Pages.UploadPage"
-             Title="UploadPage">
+             Title="Upload Media Page">
     <ContentPage.Behaviors>
         <toolkit:EventToCommandBehavior EventName="Loaded"
                                         Command="{Binding StartCommand}" />
@@ -19,7 +19,7 @@
             StrokeShape="RoundRectangle 40"
             HorizontalOptions="Center">
             <ImageButton
-                Padding="45"
+                Padding="25"
                     Source="plussolid.svg"
                     HeightRequest="150"
                     WidthRequest="200"
@@ -46,7 +46,7 @@
                 Command="{Binding UploadFileCommand}"
                 />
         <Label Text="{Binding Blobkey}"/>
-        <!--<Entry Text="{Binding Username}"/>-->
+        <Entry Text="{Binding Username}"/>
         <Button
             BackgroundColor="#817F7F"
             HorizontalOptions="Center"
