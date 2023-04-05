@@ -49,36 +49,36 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task Login()
         {
-            if(Device.RuntimePlatform == Device.Android)
+            if (Microsoft.Maui.Devices.DeviceInfo.Platform == Microsoft.Maui.Devices.DevicePlatform.Android)
             {
                 var loginResult = await auth0Client.LoginAsync();
 
-             if (!loginResult.IsError)
-             {
-                 LoginView = false;
-             }
-             else
-             {
-                 Console.WriteLine("Error", loginResult.ErrorDescription, "OK");
-             }
+                if (!loginResult.IsError)
+                {
+                    LoginView = false;
+                }
+                else
+                {
+                    Console.WriteLine("Error", loginResult.ErrorDescription, "OK");
+                }
 
-             if(FirstName != null && LastName != null)
-             {
-                await AddUserToDatabase(loginResult.User.Identity.Name);
+                if (FirstName != null && LastName != null)
+                {
+                    await AddUserToDatabase(loginResult.User.Identity.Name);
 
-             }
+                }
 
+            }
             Application.Current.MainPage = new AppShell();
-            //NavigateToUpload(nameof(UploadPage));
         }
 
 
+        async void NavigateToUpload(string destination)
+            {
+                await nag.NaviagteToAsync(destination);
 
-
-        public async void NavigateToUpload(string destination)
-        {
-            await nag.NaviagteToAsync(destination);
-
+            }
         }
     }
-}
+
+
