@@ -137,6 +137,7 @@
     </Style>
 
     <Style TargetType="ImageButton">
+        <Setter Property="Source" Value="{AppThemeBinding Light={StaticResource LightPurple}, Dark={StaticResource Gray950}}" />
         <Setter Property="Opacity" Value="1" />
         <Setter Property="BorderColor" Value="Transparent"/>
         <Setter Property="BorderWidth" Value="0"/>
@@ -408,6 +409,7 @@
         <Setter Property="Shell.TabBarUnselectedColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource White}}"/>
         
     </Style>
-  
+    
+
 
 </ResourceDictionary>

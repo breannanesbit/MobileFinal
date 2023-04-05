@@ -11,74 +11,73 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mobile_final.ViewModels
+namespace Mobile_final.ViewModels;
+
+public partial class LoginViewModel : ObservableObject
 {
-    public partial class LoginViewModel : ObservableObject
+    private readonly Auth0Client auth0Client;
+    private readonly INavigationService nag;
+    private readonly UserService service;
+
+    public LoginViewModel(Auth0Client client, INavigationService nag, UserService service)
     {
-        private readonly Auth0Client auth0Client;
-        private readonly INavigationService nag;
-        private readonly UserService service;
+        auth0Client = client;
+        this.nag = nag;
+        this.service = service;
+        LoginView = true;
+        SignUpView = false;
+    }
 
-        public LoginViewModel(Auth0Client client, INavigationService nag, UserService service)
+    [ObservableProperty]
+    private bool loginView;
+    [ObservableProperty]
+    private bool signUpView;
+    [ObservableProperty]
+    private string firstName;
+    [ObservableProperty]
+    private string lastName;
+
+    [RelayCommand]
+    public void SignUpViewToShowUp() => SignUpView = true;
+
+    [RelayCommand]
+    public async Task AddUserToDatabase(string username)
+    {
+        await service.NewUserEntry(FirstName, LastName, username);
+    }
+
+    [RelayCommand]
+    public async Task Login()
+    {
+        if (Device.RuntimePlatform == Device.Android)
         {
-            auth0Client = client;
-            this.nag = nag;
-            this.service = service;
-            LoginView = true;
-            SignUpView = false;
-        }
+            var loginResult = await auth0Client.LoginAsync();
 
-        [ObservableProperty]
-        private bool loginView;
-        [ObservableProperty]
-        private bool signUpView;
-        [ObservableProperty]
-        private string firstName;
-        [ObservableProperty]
-        private string lastName;
-
-        [RelayCommand]
-        public void SignUpViewToShowUp() => SignUpView = true;
-
-        [RelayCommand]
-        public async Task AddUserToDatabase(string username)
-        {
-            await service.NewUserEntry(FirstName, LastName, username);
-        }
-
-        [RelayCommand]
-        public async Task Login()
-        {
-            if(Device.RuntimePlatform == Device.Android)
+            if (!loginResult.IsError)
             {
-                var loginResult = await auth0Client.LoginAsync();
+                LoginView = false;
+            }
+            else
+            {
+                Console.WriteLine("Error", loginResult.ErrorDescription, "OK");
+            }
 
-             if (!loginResult.IsError)
-             {
-                 LoginView = false;
-             }
-             else
-             {
-                 Console.WriteLine("Error", loginResult.ErrorDescription, "OK");
-             }
-
-             if(FirstName != null && LastName != null)
-             {
+            if (FirstName != null && LastName != null)
+            {
                 await AddUserToDatabase(loginResult.User.Identity.Name);
 
-             }
-
-            Application.Current.MainPage = new AppShell();
-            //NavigateToUpload(nameof(UploadPage));
+            }
         }
+        Application.Current.MainPage = new AppShell();
+        //NavigateToUpload(nameof(UploadPage));
+    }
 
 
 
 
-        public async void NavigateToUpload(string destination)
-        {
-            await nag.NaviagteToAsync(destination);
+    public async void NavigateToUpload(string destination)
+    {
+        await nag.NaviagteToAsync(destination);
 
-        }
     }
 }

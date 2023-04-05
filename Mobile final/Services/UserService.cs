@@ -28,7 +28,7 @@ namespace Mobile_final.Services
             await http.PostAsJsonAsync<User>($"/api/user", user);
         }
 
-        internal Task<List<User>> GetAllUsers()
+        public Task<List<User>> GetAllUsers()
         {
             return http.GetFromJsonAsync<List<User>>("/api/user/all");
         }

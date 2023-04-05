@@ -33,6 +33,7 @@ namespace Mobile_final.ViewModels
         [ObservableProperty]
         private string username;
 
+
         private string selectedOption;
 
 
@@ -80,10 +81,10 @@ namespace Mobile_final.ViewModels
                     await client.PutAsync($"uploadfile/video/{Username}", convertedForm);
                     break;
                 case "Audio":
-                    await client.PutAsync($"uploadfile/video/{Username}", convertedForm);
+                    await client.PutAsync($"uploadfile/audio/{Username}", convertedForm);
                     break;
                 case "Visual":
-                    await client.PutAsync($"uploadfile/video/{Username}", convertedForm);
+                    await client.PutAsync($"uploadfile/pictures/{Username}", convertedForm);
                     break;
             }
             

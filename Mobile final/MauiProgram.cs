@@ -55,7 +55,7 @@ public static class MauiProgram
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
-        Routing.RegisterRoute(nameof(UploadPage), typeof(UploadPage));  
+        //Routing.RegisterRoute(nameof(UploadPage), typeof(UploadPage));  
 
         return builder.Build();
     }

@@ -24,7 +24,7 @@ namespace Mobile_final.ViewModels
         public async Task GetIt()
         {
            var userList =  await service.GetAllUsers();
-           FirstName = userList[1].FirstName;
+           FirstName = userList[0].FirstName;
         }
     }
 }

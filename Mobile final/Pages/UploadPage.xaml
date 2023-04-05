@@ -9,35 +9,42 @@
                                         Command="{Binding StartCommand}" />
     </ContentPage.Behaviors>
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
 
-        <Button
-                Text="Pick file to Upload"
-                Command="{Binding PickFileToUploadCommand}"
-                />
+        <Border
+            Stroke="#A90CD1"
+            StrokeThickness="8"
+            StrokeDashArray="2,2"
+                StrokeDashOffset="5"
+            StrokeShape="RoundRectangle 40"
+            HorizontalOptions="Center">
+            <ImageButton
+                    Padding="45"
+                    Source="plussolid.svg"
+                    HeightRequest="150"
+                    WidthRequest="200"
+                    Command="{Binding PickFileToUploadCommand}"
+                    />
+            
+        </Border>
 
         <Label
-                Text="{Binding FilePath}"/>
-        <StackLayout RadioButtonGroup.SelectedValue="{Binding SelectedOption}"
-                     >
+            Text="{Binding FilePath}"/>
+        <StackLayout RadioButtonGroup.SelectedValue="{Binding SelectedOption}" >
             <RadioButton Content="Visual" Value="Visual" CheckedChanged= "OnRadioSelected"/>
             <RadioButton Content="Audio" Value="Audio" CheckedChanged= "OnRadioSelected"/>
             <RadioButton Content="Video" Value="Video" CheckedChanged= "OnRadioSelected"/>
         </StackLayout>
-            <Label Text="{Binding SelectedOption}"/>
+        
+        <Label Text="{Binding SelectedOption}"/>
         <Button
                 Text="Upload File"
                 IsVisible="{Binding MediaOptionSelected}"
                 Command="{Binding UploadFileCommand}"
                 />
         <Label Text="{Binding Blobkey}"/>
-        <Entry Text="{Binding Username}"/>
+        <!--<Entry Text="{Binding Username}"/>-->
         <Button
                 Text="Download File"
-            
                 Command="{Binding DownloadFileCommand}"/>
 
         <toolkit:MediaElement x:Name="mediaElement"
