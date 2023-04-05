@@ -24,9 +24,14 @@ namespace MediaAPI.services
         {
             return Context.Users.ToList();
         }
-        public Task<User> GetUserByUsername(string v)
+        public Task<User>? GetUserByUsername(string v)
         {
-            return Context.Users.FirstAsync(x => x.Username == v);
+            var user = Context.Users.FirstAsync(x => x.Username == v);
+            if(user == null)
+            {
+                return null;
+            }
+            return user;
         }
 
 
@@ -69,6 +74,7 @@ namespace MediaAPI.services
         internal void AddMedia(Media newMedia)//test it
         {
            Context.Media.Add(newMedia);
+            Context.SaveChangesAsync();
         }
         internal void AddMediaCategory(MediaCategory mediaCat)//test it
         {

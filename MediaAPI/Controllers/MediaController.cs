@@ -16,14 +16,15 @@ namespace MediaAPI.Controllers
         private readonly BlobContainerClient audio;
         private readonly BlobContainerClient visual;
         private readonly DatabaseService database;
-        public MediaController(BlobServiceClient blobclient)
+        public MediaController(BlobServiceClient blobclient, DatabaseService service)
         {
             video = blobclient.GetBlobContainerClient("videos");
             audio = blobclient.GetBlobContainerClient("audio");
             visual = blobclient.GetBlobContainerClient("pictures");
+            database = service;
         }
 
-        [HttpPost("uploadfile/video/{username}")]
+        [HttpPut("uploadfile/video/{username}")]
         public async Task<string> UploadVideoFile(IFormFile file, string username)
         {
             var user = database.GetUserByUsername(username);;
@@ -66,6 +67,8 @@ namespace MediaAPI.Controllers
             database.AddMediaCategory(mediaCat);
             return blobName;
         }
+
+
         [HttpPut("uploadfile/audio/{username}")]
         public async Task<string> UploadAudioFile(IFormFile file, string username)
         {
@@ -109,10 +112,11 @@ namespace MediaAPI.Controllers
             database.AddMediaCategory(mediaCat);
             return blobName;
         }
+
         [HttpPut("uploadfile/visual/{username}")]
         public async Task<string> UploadVisualFile(IFormFile file, string username)
         {
-            var user = database.GetUserByUsername(username);;
+            var user = database.GetUserByUsername(username);
             if (user == null)
             {
                 User newuser = new User
