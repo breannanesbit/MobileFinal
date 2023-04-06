@@ -1,8 +1,8 @@
 name: Build and deploy .NET Core application to Web App MultiMediaAPI with API Management Service MediaAPIapi-MediaAPI
 on:
   push:
-    branches:
-    - main
+    tags:
+    - 'v*.*'
 env:
   AZURE_WEBAPP_NAME: MultiMediaAPI
   AZURE_WEBAPP_PACKAGE_PATH: MediaAPI/publish

@@ -24,9 +24,9 @@ namespace MediaAPI.services
         {
             return Context.Users.ToList();
         }
-        public Task<User>? GetUserByUsername(string v)
+        public async Task<User> GetUserByUsername(string v)
         {
-            var user = Context.Users.FirstAsync(x => x.Username == v);
+            var user = await Context.Users.Where(x => x.Username == v).FirstOrDefaultAsync();
             if(user == null)
             {
                 return null;
@@ -53,7 +53,7 @@ namespace MediaAPI.services
 
         public async Task<Media> GetMediaByKey(string v)
         {
-            var media =  await Context.Media
+            Media media =  await Context.Media
                 .Where(w => w.MediaKey == v)
                 .FirstOrDefaultAsync();
 
@@ -71,10 +71,10 @@ namespace MediaAPI.services
             return Context.Categories.Where(u => u.Category1 == name).FirstOrDefault();
         }
 
-        internal void AddMedia(Media newMedia)//test it
+        internal async Task AddMedia(Media newMedia)//test it
         {
            Context.Media.Add(newMedia);
-            Context.SaveChangesAsync();
+           await Context.SaveChangesAsync();
         }
         internal void AddMediaCategory(MediaCategory mediaCat)//test it
         {
