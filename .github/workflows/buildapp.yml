@@ -1,0 +1,7 @@
+#name: Platform Builds
+
+#on:
+#  push:
+#    tags:
+#      - 'v*.*'
+#https://blog.taranissoftware.com/build-net-maui-apps-with-github-actions

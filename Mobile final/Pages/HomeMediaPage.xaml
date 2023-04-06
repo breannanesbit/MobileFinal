@@ -5,7 +5,7 @@
              Title="HomeMediaPage">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Page Unintentionally left blank"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>
