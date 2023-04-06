@@ -1,7 +1,47 @@
-#name: Platform Builds
+name: Platform Builds
 
-#on:
-#  push:
-#    tags:
-#      - 'v*.*'
+on:
+  push:
+    tags:
+      - 'v*.*'
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.gitignore'
+      - '**/*.gitattributes'
+
+jobs:
+    build-android:
+        runs-on: windows-2022
+        name: Android Build
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v2
+
+          - name: Setup .NET 7
+            uses: actions/setup-dotnet@v1
+            with:
+              dotnet-version: 7.0.x
+              include-prerelease: true
+
+          - uses: actions/setup-java@v2
+            with:
+              distribution: 'microsoft'
+              java-version: '11'
+
+          - name: Install MAUI Workloads
+            run: |
+              dotnet workload install android --ignore-failed-sources
+              dotnet workload install maui --ignore-failed-sources
+
+          - name: Restore Dependencies
+            run: dotnet restore ./Mobile final/Mobile final.csproj
+
+          - name: Build MAUI Android
+            run: dotnet build ./Mobile final/Mobile final.csproj -c Release -f net6.0-android --no-restore
+
+          - name: Upload Android Artifact
+            uses: actions/upload-artifact@v2.3.1
+            with:
+              name: android-ci-build
+              path: ./Mobile final/bin/Release/net7.0-android/*Signed.a*
 #https://blog.taranissoftware.com/build-net-maui-apps-with-github-actions
