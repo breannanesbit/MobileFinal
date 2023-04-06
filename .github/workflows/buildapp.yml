@@ -34,7 +34,7 @@ jobs:
               dotnet workload install maui --ignore-failed-sources
 
           - name: Restore Dependencies
-            run: dotnet restore ./Mobile final/Mobile final.csproj
+            run: dotnet restore ./'Mobile final'/'Mobile final'.csproj
 
           - name: Build MAUI Android
             run: dotnet build ./Mobile final/Mobile final.csproj -c Release -f net6.0-android --no-restore
