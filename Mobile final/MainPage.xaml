@@ -25,7 +25,7 @@
                 <Image
                     Grid.Row="1"
                     Grid.ColumnSpan="2"
-                Source="trombonefixed.png"/>
+                Source="trombone.png"/>
                 <Button 
                     Grid.Row="2"
                     Grid.Column="0"
