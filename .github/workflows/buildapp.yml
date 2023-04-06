@@ -37,7 +37,7 @@ jobs:
             run: dotnet restore ./'Mobile final'/'Mobile final'.csproj
 
           - name: Build MAUI Android
-            run: dotnet build ./'Mobile final'/'Mobile final'.csproj -c Release -f net6.0-android --no-restore
+            run: dotnet build ./'Mobile final'/'Mobile final'.csproj -c Release -f net7.0-android --no-restore
 
           - name: Upload Android Artifact
             uses: actions/upload-artifact@v2.3.1
