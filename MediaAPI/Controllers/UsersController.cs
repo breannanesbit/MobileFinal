@@ -25,7 +25,8 @@ namespace MediaAPI.Controllers
         [HttpGet("all")]
         public async Task<List<User>> GetUserList()
         {
-            return Context.Users.ToList();
+            var result = Context.Users.ToList();
+            return result;
         }
     }
 }
