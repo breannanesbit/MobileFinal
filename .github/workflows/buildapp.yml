@@ -1,5 +1,5 @@
 name: Platform Builds
-#change
+
 on:
   push:
     tags:
@@ -34,14 +34,14 @@ jobs:
               dotnet workload install maui --ignore-failed-sources
 
           - name: Restore Dependencies
-            run: dotnet restore ./Mobile final/Mobile final.csproj
+            run: dotnet restore ./'Mobile final'/'Mobile final'.csproj
 
           - name: Build MAUI Android
-            run: dotnet build ./Mobile final/Mobile final.csproj -c Release -f net6.0-android --no-restore
+            run: dotnet build ./'Mobile final'/'Mobile final'.csproj -c Release -f net7.0-android --no-restore
 
           - name: Upload Android Artifact
             uses: actions/upload-artifact@v2.3.1
             with:
               name: android-ci-build
-              path: ./Mobile final/bin/Release/net7.0-android/*Signed.a*
+              path: ./'Mobile final'/bin/Release/net7.0-android/*Signed.a*
 #https://blog.taranissoftware.com/build-net-maui-apps-with-github-actions

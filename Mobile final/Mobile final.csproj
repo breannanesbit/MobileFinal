@@ -53,7 +53,7 @@
 	  <None Remove="Resources\Images\calendarregular.svg" />
 	  <None Remove="Resources\Images\housesolid.svg" />
 	  <None Remove="Resources\Images\plussolid.svg" />
-	  <None Remove="Resources\Images\tromboneFixed.png" />
+	  <None Remove="Resources\Images\trombone.png" />
 	  <None Remove="Resources\Images\userregular.svg" />
 	</ItemGroup>
 
