@@ -116,7 +116,8 @@ namespace MediaAPI.Controllers
         [HttpPut("uploadfile/visual/{username}")]
         public async Task<string> UploadVisualFile(IFormFile file, string username)
         {
-            var user = database.GetUserByUsername(username);
+
+            User user = await database.GetUserByUsername(username);
             if (user == null)
             {
                 User newuser = new User
@@ -129,14 +130,7 @@ namespace MediaAPI.Controllers
                 await database.PostUserAsync(newuser);
                 _ = database.GetUserByUsername(username);
             }
-            // Generate a unique name for the new blob
-            var blobName = Guid.NewGuid().ToString();
-            BlobClient blobClient;
-            // Upload the file to Blob Storage
-
-
-            blobClient = visual.GetBlobClient(blobName);
-            await blobClient.UploadAsync(file.OpenReadStream());
+           var blobName = await UploadFile(file, "visual");
 
             var newMedia = new Media()
             {
@@ -145,15 +139,43 @@ namespace MediaAPI.Controllers
                 UserId = user.Id,
             };
             database.AddMedia(newMedia);
+            Thread.Sleep(500);
             Media mediawithID = await database.GetMediaByKey(blobName);
 
-            var cat = database.GetCategory("visual");
+            Category cat = await database.GetCategory("Pictures");
             var mediaCat = new MediaCategory()
             {
                 CategoryId = cat.Id,
                 MediaId = mediawithID.Id,
             };
             database.AddMediaCategory(mediaCat);
+            return blobName;
+        }
+
+        [HttpPut("uploadfile/{type}")]
+        public async Task<string> UploadFile(IFormFile file, string type)
+        {
+
+            // Generate a unique name for the new blob
+            var blobName = Guid.NewGuid().ToString();
+            BlobClient blobClient;
+            // Upload the file to Blob Storage
+            switch (type)
+            {
+                case "video":
+                    blobClient = video.GetBlobClient(blobName);
+                    await blobClient.UploadAsync(file.OpenReadStream());
+                    break;
+                case "audio":
+                    blobClient = audio.GetBlobClient(blobName);
+                    await blobClient.UploadAsync(file.OpenReadStream());
+                    break;
+                case "visual":
+                    blobClient = visual.GetBlobClient(blobName);
+                    await blobClient.UploadAsync(file.OpenReadStream());
+                    break;
+            }
+            // Return the key of the newly created blob
             return blobName;
         }
 
