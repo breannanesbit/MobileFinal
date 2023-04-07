@@ -3,6 +3,7 @@ using MediaAPI;
 using MediaAPI.services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,10 +16,13 @@ builder.Services.AddSwaggerGen();
 var blobstring = builder.Configuration["blobString"];
 var database = builder.Configuration["database"];
 
-builder.Services.AddDbContext<MultiMediaAppContext>(options => options.UseNpgsql(database));
+builder.Services.AddDbContext<MultiMediaAppContext>(options => {
+    options.UseNpgsql(database);
+    });
 builder.Services.AddScoped<DatabaseService>();
 builder.Services.AddScoped<MultiMediaAppContext>();
-
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 //builder.Services.AddSingleton(x => new BlobServiceClient(blobstring));
 //BlobServiceClient blobServiceClient = new(blobstring);

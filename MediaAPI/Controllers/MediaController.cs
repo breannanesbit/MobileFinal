@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using MediaAPI.services;
 using Shared;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MediaAPI.Controllers
 {
@@ -184,11 +188,17 @@ namespace MediaAPI.Controllers
             return File(content.Content, content.ContentType);
         }
 
-        [HttpGet("test/{test}")]
+        [HttpGet("getusermedia/{username}")]
+        public async Task<IEnumerable<Media>> GetUserMedia(string username)
+        {
+            return database.GetMediaByUsername(username);
+        }
+
+       /* [HttpGet("test/{test}")]
         public long SquareNumber(int test)
         {
             var newtest = (long)test;
             return newtest * newtest;
-        }
+        }*/
     }
 }
