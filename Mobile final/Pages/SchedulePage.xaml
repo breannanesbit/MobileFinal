@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Mobile_final.Pages.SchedulePage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
-             Title="SchedulePage">
+             Title="SCHEDULE">
     <VerticalStackLayout>
         <scheduler:SfScheduler x:Name="Scheduler" View="Month"/>
         

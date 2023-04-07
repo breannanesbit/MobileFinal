@@ -16,13 +16,13 @@ namespace Mobile_final.ViewModels;
 public partial class LoginViewModel : ObservableObject
 {
     private readonly Auth0Client auth0Client;
-    private readonly INavigationService nag;
+    private readonly CurrentUser currentUser;
     private readonly UserService service;
 
-    public LoginViewModel(Auth0Client client, INavigationService nag, UserService service)
+    public LoginViewModel(Auth0Client client, CurrentUser currentUser, UserService service)
     {
         auth0Client = client;
-        this.nag = nag;
+        this.currentUser = currentUser;
         this.service = service;
         LoginView = true;
         SignUpView = false;
@@ -68,16 +68,12 @@ public partial class LoginViewModel : ObservableObject
 
                 }
 
+            currentUser.Username = loginResult.User.Identity.Name;
+            currentUser.AuthenticationID = loginResult.AccessToken;
             }
+
             Application.Current.MainPage = new AppShell();
         }
 
 
-
-
-    public async void NavigateToUpload(string destination)
-    {
-        await nag.NaviagteToAsync(destination);
-
-    }
 }
