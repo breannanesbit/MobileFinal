@@ -20,8 +20,8 @@ builder.Services.AddScoped<DatabaseService>();
 builder.Services.AddScoped<MultiMediaAppContext>();
 
 
-builder.Services.AddSingleton(x => new BlobServiceClient(blobstring));
-BlobServiceClient blobServiceClient = new(blobstring);
+//builder.Services.AddSingleton(x => new BlobServiceClient(blobstring));
+//BlobServiceClient blobServiceClient = new(blobstring);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

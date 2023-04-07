@@ -23,8 +23,8 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task GetIt()
         {
-           var userList =  await service.GetAllUsers();
-           FirstName = userList[0].FirstName;
+           var userList =  await service.GetCurrentUser();
+           FirstName = userList.FirstName;
         }
     }
 }
