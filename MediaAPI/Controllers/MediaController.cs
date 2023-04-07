@@ -27,7 +27,7 @@ namespace MediaAPI.Controllers
         [HttpPut("uploadfile/video/{username}")]
         public async Task<string> UploadVideoFile(IFormFile file, string username)
         {
-            var user = database.GetUserByUsername(username);;
+            User user = await database.GetUserByUsername(username);;
             if (user == null)
             {
                 User newuser = new User
@@ -38,27 +38,21 @@ namespace MediaAPI.Controllers
 
                 };
                 await database.PostUserAsync(newuser);
-                user = database.GetUserByUsername(username);;
+                user = await database.GetUserByUsername(username);;
             }
             // Generate a unique name for the new blob
-            var blobName = Guid.NewGuid().ToString();
-            BlobClient blobClient;
-            // Upload the file to Blob Storage
-
-
-            blobClient = video.GetBlobClient(blobName);
-            await blobClient.UploadAsync(file.OpenReadStream());
-
+            var blobName = await UploadFile(file, "video");
             var newMedia = new Media()
             {
                 DateUpload = DateTime.Now,
                 MediaKey = blobName,
                 UserId = user.Id,
             };
-            database.AddMedia(newMedia);
+            await database.AddMedia(newMedia);
+            Thread.Sleep(500);
             Media mediawithID = await database.GetMediaByKey(blobName);
-
-            var cat = database.GetCategory("video");
+            Thread.Sleep(500);
+            var cat = database.GetCategory("Videos");
             var mediaCat = new MediaCategory()
             {
                 CategoryId = cat.Id,
@@ -72,7 +66,7 @@ namespace MediaAPI.Controllers
         [HttpPut("uploadfile/audio/{username}")]
         public async Task<string> UploadAudioFile(IFormFile file, string username)
         {
-            var user = database.GetUserByUsername(username);;
+            User user = await database.GetUserByUsername(username);;
             if (user == null)
             {
                 User newuser = new User
@@ -83,27 +77,22 @@ namespace MediaAPI.Controllers
 
                 };
                 await database.PostUserAsync(newuser);
-                _ = database.GetUserByUsername(username);;
+                user = await database.GetUserByUsername(username);
             }
             // Generate a unique name for the new blob
-            var blobName = Guid.NewGuid().ToString();
-            BlobClient blobClient;
-            // Upload the file to Blob Storage
-
-
-            blobClient = audio.GetBlobClient(blobName);
-            await blobClient.UploadAsync(file.OpenReadStream());
-
+            var blobName = await UploadFile(file, "audio");
+            
             var newMedia = new Media()
             {
                 DateUpload = DateTime.Now,
                 MediaKey = blobName,
                 UserId = user.Id,
             };
-            database.AddMedia(newMedia);
+            await database.AddMedia(newMedia);
+            Thread.Sleep(500);
             Media mediawithID = await database.GetMediaByKey(blobName);
-
-            var cat = database.GetCategory("audio");
+            Thread.Sleep(500);
+            Category cat = await database.GetCategory("Audios");
             var mediaCat = new MediaCategory()
             {
                 CategoryId = cat.Id,
@@ -138,7 +127,7 @@ namespace MediaAPI.Controllers
                 MediaKey = blobName,
                 UserId = user.Id,
             };
-            database.AddMedia(newMedia);
+            await database.AddMedia(newMedia);
             Thread.Sleep(500);
             Media mediawithID = await database.GetMediaByKey(blobName);
 
@@ -151,6 +140,7 @@ namespace MediaAPI.Controllers
             database.AddMediaCategory(mediaCat);
             return blobName;
         }
+
 
         [HttpPut("uploadfile/{type}")]
         public async Task<string> UploadFile(IFormFile file, string type)
