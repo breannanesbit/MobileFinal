@@ -17,14 +17,18 @@ namespace Mobile_final.ViewModels
         {
             this.service = service;
         }
+
         [ObservableProperty]
         private string firstName;
+        [ObservableProperty]
+        private string lastName;
 
         [RelayCommand]
         public async Task GetIt()
         {
-           var userList =  await service.GetCurrentUser();
-           FirstName = userList.FirstName;
+            var userList =  await service.GetCurrentUser();
+            FirstName = userList.FirstName;
+            LastName = userList.LastName;
         }
     }
 }

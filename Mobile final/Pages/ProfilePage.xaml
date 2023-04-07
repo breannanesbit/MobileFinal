@@ -11,6 +11,10 @@
         <Button
             Command="{Binding GetItCommand}"/>
         <Label
-            Text="{Binding FirstName}"/>
+            Text="{Binding FirstName}"
+            HorizontalOptions="Center"/>
+        <Label
+            Text="{Binding LastName}"
+            HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>
