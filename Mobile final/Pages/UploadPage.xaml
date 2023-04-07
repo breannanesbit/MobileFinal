@@ -47,12 +47,7 @@
                 />
         <Label Text="{Binding Blobkey}"/>
         <Entry Text="{Binding Username}"/>
-        <Button
-            BackgroundColor="#817F7F"
-            HorizontalOptions="Center"
-                Text="Download File"
-                Command="{Binding DownloadFileCommand}"/>
-
+      
         <toolkit:MediaElement x:Name="mediaElement"
                       ShouldAutoPlay="True"
                       ShouldShowPlaybackControls="True"

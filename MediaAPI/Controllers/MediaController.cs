@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using MediaAPI.services;
 using Shared;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MediaAPI.Controllers
 {
