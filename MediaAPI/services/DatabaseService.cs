@@ -2,6 +2,8 @@
 using Shared;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace MediaAPI.services
 {
@@ -27,7 +29,7 @@ namespace MediaAPI.services
         public async Task<User> GetUserByUsername(string v)
         {
             var user = await Context.Users.Where(x => x.Username == v).FirstOrDefaultAsync();
-            if(user == null)
+            if (user == null)
             {
                 return null;
             }
@@ -53,7 +55,7 @@ namespace MediaAPI.services
 
         public async Task<Media> GetMediaByKey(string v)
         {
-            Media media =  await Context.Media
+            Media media = await Context.Media
                 .Where(w => w.MediaKey == v)
                 .FirstOrDefaultAsync();
 
@@ -71,14 +73,22 @@ namespace MediaAPI.services
             return Context.Categories.Where(u => u.Category1 == name).FirstOrDefault();
         }
 
-        internal async Task AddMedia(Media newMedia)//test it
+        public async Task AddMedia(Media newMedia)//test it
         {
-           Context.Media.Add(newMedia);
-           await Context.SaveChangesAsync();
+            Context.Media.Add(newMedia);
+            await Context.SaveChangesAsync();
         }
-        internal void AddMediaCategory(MediaCategory mediaCat)//test it
+        public void AddMediaCategory(MediaCategory mediaCat)//test it
         {
             Context.MediaCategories.Add(mediaCat);
+        }
+
+        public IEnumerable<Media> GetMediaByUsername(string username)
+        {
+           List<Media> result = new List<Media>();
+            var user = Context.Users.Where(u => u.Username == username).FirstOrDefault();
+            var myList = Context.Media.Where(u=> u.UserId == user.Id).ToList();
+            return myList;
         }
     }
 }
