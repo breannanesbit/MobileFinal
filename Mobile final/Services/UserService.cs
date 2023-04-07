@@ -42,5 +42,11 @@ namespace Mobile_final.Services
             var test = http.GetFromJsonAsync<User>($"/api/user/current/{user}");
             return test;
         }
+
+        public Task<List<Media>> GetUserMedia()
+        {
+            var user = current.Username;
+            return http.GetFromJsonAsync<List<Media>>($"getusermedia/{user}");
+        }
     }
 }

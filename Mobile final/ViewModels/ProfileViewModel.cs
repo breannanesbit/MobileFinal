@@ -20,8 +20,6 @@ namespace Mobile_final.ViewModels
         {
             this.client = cli;
         }
-        [ObservableProperty]
-        private string username;
 
         [ObservableProperty]
         private List<Media> video;
@@ -39,7 +37,7 @@ namespace Mobile_final.ViewModels
         private string lastName;
 
         [RelayCommand]
-        public async Task GetIt()
+        public async Task GetUser()
         {
             var userList =  await service.GetCurrentUser();
             FirstName = userList.FirstName;
@@ -50,8 +48,10 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task Start()
         {
-           /* var response = await client.GetAsync($"getusermedia/{Username}");
-            var list = await response.Content.ReadFromJsonAsync<List<Media>>();
+            GetUser();
+            /*var response = await client.GetAsync($"getusermedia/{Username}");
+             var list = await response.Content.ReadFromJsonAsync<List<Media>>();*/
+            var list = await service.GetUserMedia();
             foreach ( var item in list)
             {
                 var medcat = item.MediaCategories;
@@ -62,7 +62,7 @@ namespace Mobile_final.ViewModels
                         Video.Add(item);
                     }
                 }
-            }*/
+            }
         }
     }
 }
