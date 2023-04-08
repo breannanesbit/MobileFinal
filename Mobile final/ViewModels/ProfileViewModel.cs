@@ -16,9 +16,10 @@ namespace Mobile_final.ViewModels
         private readonly HttpClient client;
         private readonly UserService service;
 
-        public ProfileViewModel(HttpClient cli)
+        public ProfileViewModel(HttpClient cli, UserService service)
         {
             this.client = cli;
+            this.service = service;
         }
         [ObservableProperty]
         private string username;
@@ -28,18 +29,19 @@ namespace Mobile_final.ViewModels
 
         [ObservableProperty]
         private IEnumerable<Media> visual;
-        public ProfileViewModel(UserService service)
-        {
-            this.service = service;
-        }
+
+
         [ObservableProperty]
         private string firstName;
+        [ObservableProperty]
+        private string lastName;
 
         [RelayCommand]
         public async Task GetIt()
         {
-           var userList =  await service.GetAllUsers();
-           FirstName = userList[0].FirstName;
+            var userList =  await service.GetCurrentUser();
+            FirstName = userList.FirstName;
+            LastName = userList.LastName;
         }
 
 

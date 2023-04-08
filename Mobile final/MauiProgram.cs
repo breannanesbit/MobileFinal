@@ -42,6 +42,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<ProfileViewModel>();
         builder.Services.AddSingleton<HomeMediaViewModel>();
         builder.Services.AddSingleton<UserService>();
+        builder.Services.AddSingleton<CurrentUser>();
 
 
         builder.Services.AddSingleton(new Auth0Client(new()

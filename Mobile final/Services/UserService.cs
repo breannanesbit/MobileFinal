@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using Mobile_final.Auth0;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,12 @@ namespace Mobile_final.Services
     public class UserService
     {
         private readonly HttpClient http;
+        private readonly CurrentUser current;
 
-        public UserService(HttpClient http)
+        public UserService(HttpClient http, CurrentUser current)
         {
             this.http = http;
+            this.current = current;
         }
 
         public async Task NewUserEntry(string firstname, string lastname, string username)
@@ -31,6 +34,13 @@ namespace Mobile_final.Services
         public Task<List<User>> GetAllUsers()
         {
             return http.GetFromJsonAsync<List<User>>("/api/user/all");
+        }
+
+        public Task<User> GetCurrentUser()
+        {
+            var user = current.Username;
+            var test = http.GetFromJsonAsync<User>($"/api/user/current/{user}");
+            return test;
         }
     }
 }

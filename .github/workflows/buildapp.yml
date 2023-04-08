@@ -10,9 +10,44 @@ on:
       - '**/*.gitattributes'
 
 jobs:
-    build-android:
+    #build-android:
+    #    runs-on: windows-2022
+    #    name: Android Build
+    #    steps:
+    #      - name: Checkout
+    #        uses: actions/checkout@v2
+
+    #      - name: Setup .NET 7
+    #        uses: actions/setup-dotnet@v1
+    #        with:
+    #          dotnet-version: 7.0.x
+    #          include-prerelease: true
+
+    #      - uses: actions/setup-java@v2
+    #        with:
+    #          distribution: 'microsoft'
+    #          java-version: '11'
+
+    #      - name: Install MAUI Workloads
+    #        run: |
+    #          dotnet workload install android --ignore-failed-sources
+    #          dotnet workload install maui --ignore-failed-sources
+
+    #      - name: Restore Dependencies
+    #        run: dotnet restore ./'Mobile final'/'Mobile final'.csproj
+
+    #      - name: Build MAUI Android
+    #        run: dotnet build ./'Mobile final'/'Mobile final'.csproj -c Release -f net7.0-android --no-restore
+
+    #      - name: Upload Android Artifact
+    #        uses: actions/upload-artifact@v2.3.1
+    #        with:
+    #          name: android-ci-build
+    #          path: ./'Mobile final'/bin/Release/net7.0-android/*Signed.a*
+
+    build-windows:
         runs-on: windows-2022
-        name: Android Build
+        name: Windows Build
         steps:
           - name: Checkout
             uses: actions/checkout@v2
@@ -23,25 +58,25 @@ jobs:
               dotnet-version: 7.0.x
               include-prerelease: true
 
-          - uses: actions/setup-java@v2
+          - name: Setup MSBuild
+            uses: microsoft/setup-msbuild@v1.1
             with:
-              distribution: 'microsoft'
-              java-version: '11'
+              vs-prerelease: true
 
           - name: Install MAUI Workloads
             run: |
-              dotnet workload install android --ignore-failed-sources
               dotnet workload install maui --ignore-failed-sources
 
           - name: Restore Dependencies
             run: dotnet restore ./'Mobile final'/'Mobile final'.csproj
 
-          - name: Build MAUI Android
-            run: dotnet build ./'Mobile final'/'Mobile final'.csproj -c Release -f net7.0-android --no-restore
+          - name: Build MAUI Windows
+            run: msbuild ./'Mobile final'/'Mobile final'.csproj -r -p:Configuration=Release -p:RestorePackages=false -p:TargetFramework=net7.0-windows10.0.20348 /p:GenerateAppxPackageOnBuild=true
 
-          - name: Upload Android Artifact
+          - name: Upload Windows Artifact
             uses: actions/upload-artifact@v2.3.1
             with:
-              name: android-ci-build
-              path: ./'Mobile final'/bin/Release/net7.0-android/*Signed.a*
-#https://blog.taranissoftware.com/build-net-maui-apps-with-github-actions
+              name: windows-ci-build
+              path: src/'Mobile final'/bin/Release/net6.0-windows*/**/MauiBeach*.msix
+
+    #https://blog.taranissoftware.com/build-net-maui-apps-with-github-actions
