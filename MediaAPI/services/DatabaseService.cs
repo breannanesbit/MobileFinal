@@ -73,7 +73,7 @@ namespace MediaAPI.services
             return Context.Categories.Where(u => u.Category1 == name).FirstOrDefault();
         }
 
-        public void AddMediaCategory(MediaCategory mediaCat)//test it
+        public void AddMediaCategory(MediaCategory mediaCat)
         {
             Context.MediaCategories.Add(mediaCat);
             Context.SaveChangesAsync();

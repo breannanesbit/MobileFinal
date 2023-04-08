@@ -236,7 +236,6 @@ namespace MediaAPITests
             Category cat = await service.GetCategory("notempty");
             Assert.That(cat.Category1, Is.EqualTo("notempty"));
         }
-        [Test]
 
 
         [TearDown]
