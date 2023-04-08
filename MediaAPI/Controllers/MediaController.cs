@@ -52,7 +52,7 @@ namespace MediaAPI.Controllers
                 MediaKey = blobName,
                 UserId = user.Id,
             };
-            await database.AddMedia(newMedia);
+            await database.PostMediaAsync(newMedia);
             Thread.Sleep(500);
             Media mediawithID = await database.GetMediaByKey(blobName);
             Thread.Sleep(500);
@@ -92,7 +92,7 @@ namespace MediaAPI.Controllers
                 MediaKey = blobName,
                 UserId = user.Id,
             };
-            await database.AddMedia(newMedia);
+            await database.PostMediaAsync(newMedia);
             Thread.Sleep(500);
             Media mediawithID = await database.GetMediaByKey(blobName);
             Thread.Sleep(500);
@@ -131,7 +131,7 @@ namespace MediaAPI.Controllers
                 MediaKey = blobName,
                 UserId = user.Id,
             };
-            await database.AddMedia(newMedia);
+            await database.PostMediaAsync(newMedia);
             Thread.Sleep(500);
             Media mediawithID = await database.GetMediaByKey(blobName);
 

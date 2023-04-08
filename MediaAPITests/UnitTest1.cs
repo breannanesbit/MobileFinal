@@ -213,11 +213,37 @@ namespace MediaAPITests
             return Task.CompletedTask;
         }
 
+        [Test]
+        public async Task GetCategoryWhenEmpty()
+        {
+            Category cat = await service.GetCategory("empty");
+            Assert.IsNull(cat);
+        }
+
+        [Test]
+        public async Task GetCategoryWhenSomethingThere()
+        {
+            service.AddCategory("empty");
+            Category cat = await service.GetCategory("empty");
+            Assert.That(cat.Category1, Is.EqualTo("empty"));
+        }
+
+        [Test]
+        public async Task GetCategoryWithMultipleCategories()
+        {
+            service.AddCategory("empty");
+            service.AddCategory("notempty");
+            Category cat = await service.GetCategory("notempty");
+            Assert.That(cat.Category1, Is.EqualTo("notempty"));
+        }
+        [Test]
+
+
         [TearDown]
         public void TearDown()
         {
             context.Database.EnsureDeleted();
             context.Dispose();
-        }//
+        }
     }
 }
