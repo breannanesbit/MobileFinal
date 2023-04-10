@@ -28,6 +28,8 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 //BlobServiceClient blobServiceClient = new(blobstring);
 var app = builder.Build();
 
+app.UseHttpsRedirection();
+
 // Configure the HTTP request pipeline.
     app.UseSwagger();
     app.UseSwaggerUI();

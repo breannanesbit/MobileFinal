@@ -68,19 +68,15 @@ namespace MediaAPI.services
         }
 
 
-        public async Task<Category> GetCategory(string name)//test it
+        public async Task<Category> GetCategory(string name)
         {
             return Context.Categories.Where(u => u.Category1 == name).FirstOrDefault();
         }
 
-        public async Task AddMedia(Media newMedia)//test it
-        {
-            Context.Media.Add(newMedia);
-            await Context.SaveChangesAsync();
-        }
-        public void AddMediaCategory(MediaCategory mediaCat)//test it
+        public void AddMediaCategory(MediaCategory mediaCat)
         {
             Context.MediaCategories.Add(mediaCat);
+            Context.SaveChangesAsync();
         }
 
         public IEnumerable<Media> GetMediaByUsername(string username)
@@ -89,6 +85,16 @@ namespace MediaAPI.services
             var user = Context.Users.Where(u => u.Username == username).FirstOrDefault();
             var myList = Context.Media.Where(u=> u.UserId == user.Id).ToList();
             return myList;
+        }
+        public void AddCategory(string cat)
+        {
+            Category category = new Category()
+            {
+                Category1 = cat
+
+            };
+            Context.Categories.Add(category);
+            Context.SaveChangesAsync();
         }
     }
 }
