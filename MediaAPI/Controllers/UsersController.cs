@@ -30,10 +30,17 @@ namespace MediaAPI.Controllers
             return result;
         }
 
-        [HttpGet("current/{username}")]
+        [HttpGet("{username}")]
         public async Task<User> GetCurrentUserAsync(string username)
         {
-            return await Context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            try
+            {
+                return await Context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            }
+            catch(Exception ex) 
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

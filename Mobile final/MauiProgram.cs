@@ -5,6 +5,8 @@ using Mobile_final.Auth0;
 using Syncfusion.Maui.Core.Hosting;
 using Mobile_final.Pages;
 using Mobile_final.Services;
+using Microsoft.Extensions.Configuration;
+using System.Reflection;
 //using Mobile_final.Auth0;
 
 namespace Mobile_final;
@@ -24,10 +26,22 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
-        builder.Services.AddSingleton(c => new HttpClient()
-        {
-            BaseAddress = new Uri("https://multimediaapi.azurewebsites.net")
+
+        builder.Services.AddSingleton(c =>
+        { 
+            var config = c.GetRequiredService<IConfiguration>();
+            return new HttpClient()
+            {
+                BaseAddress = new Uri(config["ApiAddress"])
+            };
         });
+
+        var a = Assembly.GetExecutingAssembly();
+        var m = a.Modules;
+        var names = a.GetManifestResourceNames();
+        using var stream = a.GetManifestResourceStream("Mobile_final.appsettings.json"); 
+        var config = new ConfigurationBuilder().AddJsonStream(stream).Build(); 
+        builder.Configuration.AddConfiguration(config);
 
         builder.Services.AddSingleton<UploadFileViewModel>();
         builder.Services.AddSingleton<LoginViewModel>();

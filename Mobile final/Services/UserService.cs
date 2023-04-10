@@ -36,10 +36,10 @@ namespace Mobile_final.Services
             return http.GetFromJsonAsync<List<User>>("/api/user/all");
         }
 
-        public Task<User> GetCurrentUser()
+        public async Task<User> GetCurrentUser()
         {
             var user = current.Username;
-            var test = http.GetFromJsonAsync<User>($"/api/user/current/{user}");
+            var test = await http.GetFromJsonAsync<User>($"/api/user/{user}");
             return test;
         }
     }
