@@ -38,6 +38,8 @@ namespace Mobile_final.ViewModels
         private string firstName;
         [ObservableProperty]
         private string lastName;
+        [ObservableProperty]
+        private string name;
 
         [RelayCommand]
         public async Task GetUser()
@@ -46,6 +48,7 @@ namespace Mobile_final.ViewModels
             FirstName = userList.FirstName;
             LastName = userList.LastName;
             UserName = userList.Username;
+            Name = $"{FirstName} {LastName}";
         }
 
 

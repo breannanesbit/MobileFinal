@@ -24,8 +24,8 @@ builder.Services.AddScoped<MultiMediaAppContext>();
 builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
-//builder.Services.AddSingleton(x => new BlobServiceClient(blobstring));
-//BlobServiceClient blobServiceClient = new(blobstring);
+builder.Services.AddSingleton(x => new BlobServiceClient(blobstring));
+BlobServiceClient blobServiceClient = new(blobstring);
 var app = builder.Build();
 
 app.UseHttpsRedirection();

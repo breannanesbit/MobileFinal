@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Mobile_final.Pages.ProfilePage"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:avatarview="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              Title="PROFILE">
 
     <ContentPage.Behaviors>
@@ -11,16 +12,18 @@
     </ContentPage.Behaviors>
 
     <VerticalStackLayout>
-        
-        <!--<Button
-            Command="{Binding GetItCommand}"/>-->
+
+        <avatarview:SfAvatarView 
+                           ContentType="Custom"
+                           ImageSource="dotnet_bot.svg"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"   
+                           HeightRequest="100"
+                           WidthRequest="100"
+                           CornerRadius="50" />
         <Label
             FontSize="30"
-            Text="{Binding FirstName}"
-            HorizontalOptions="Center"/>
-        <Label
-            FontSize="30"
-            Text="{Binding LastName}"
+            Text="{Binding Name}"
             HorizontalOptions="Center"/>
         <Label
             FontSize="30"
