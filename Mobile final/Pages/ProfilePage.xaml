@@ -12,23 +12,36 @@
     </ContentPage.Behaviors>
 
     <VerticalStackLayout>
+        <Grid
+            RowDefinitions="*,*,*,*"
+            ColumnDefinitions="*">
+            
+        
 
-        <avatarview:SfAvatarView 
-                           ContentType="Custom"
-                           ImageSource="dotnet_bot.svg"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Center"   
-                           HeightRequest="100"
-                           WidthRequest="100"
-                           CornerRadius="50" />
-        <Label
-            FontSize="30"
-            Text="{Binding Name}"
-            HorizontalOptions="Center"/>
-        <Label
-            FontSize="30"
-            Text="{Binding UserName}"
-            HorizontalOptions="Center"/>
+            <avatarview:SfAvatarView 
+                Grid.Row="1"
+                Grid.Column="0"
+                
+                               ContentType="Custom"
+                               ImageSource="dotnet_bot.svg"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"   
+                               HeightRequest="125"
+                               WidthRequest="125"
+                               CornerRadius="60" />
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                FontSize="30"
+                Text="{Binding Name}"
+                HorizontalOptions="Center"/>
+            <Label
+                Grid.Row="3"
+                Grid.Column="0"
+                FontSize="30"
+                Text="{Binding UserName}"
+                HorizontalOptions="Center"/>
+        </Grid>
 
         <CollectionView ItemsSource="{Binding PersonsMedia}">
             <CollectionView.ItemTemplate>
