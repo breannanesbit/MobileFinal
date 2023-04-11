@@ -4,6 +4,7 @@ using Mobile_final.Services;
 using Shared;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http.Json;
 using System.Text;
@@ -22,12 +23,16 @@ namespace Mobile_final.ViewModels
             this.service = service;
         }
 
+        public ObservableCollection<Media> PersonsMedia { get; set; } = new();
+
         [ObservableProperty]
-        private List<Media> video;
+        private string userName;
+
+        //[ObservableProperty]
+        //private List<Media> video;
 
         [ObservableProperty]
         private IEnumerable<Media> visual;
-
 
         [ObservableProperty]
         private string firstName;
@@ -40,6 +45,7 @@ namespace Mobile_final.ViewModels
             var userList =  await service.GetCurrentUser();
             FirstName = userList.FirstName;
             LastName = userList.LastName;
+            UserName = userList.Username;
         }
 
 
@@ -57,7 +63,7 @@ namespace Mobile_final.ViewModels
                 {
                     if(item2.Category.Category1 == "Videos")
                     {
-                        Video.Add(item);
+                        PersonsMedia.Add(item);
                     }
                 }
             }

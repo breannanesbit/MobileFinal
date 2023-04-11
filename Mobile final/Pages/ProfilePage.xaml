@@ -11,18 +11,37 @@
     </ContentPage.Behaviors>
 
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button
-            Command="{Binding GetItCommand}"/>
+        
+        <!--<Button
+            Command="{Binding GetItCommand}"/>-->
         <Label
+            FontSize="30"
             Text="{Binding FirstName}"
             HorizontalOptions="Center"/>
         <Label
+            FontSize="30"
             Text="{Binding LastName}"
             HorizontalOptions="Center"/>
+        <Label
+            FontSize="30"
+            Text="{Binding UserName}"
+            HorizontalOptions="Center"/>
+
+        <CollectionView ItemsSource="{Binding PersonsMedia}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        RowDefinitions="*"
+                        ColumnDefinitions="*,*">
+                        <Label
+                            Text="{Binding MediaKey}"/>
+                        <Button
+                            Text="View"
+                            Command="{Binding NavToPlayerCommand}"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
     </VerticalStackLayout>
 </ContentPage>
