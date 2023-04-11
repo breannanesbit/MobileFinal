@@ -12,7 +12,7 @@
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
-<WindowsPackageType>MSIX</WindowsPackageType>		
+		<WindowsPackageType>MSIX</WindowsPackageType>		
 
 		<!-- Display name -->
 		<ApplicationTitle>Mobile final</ApplicationTitle>
