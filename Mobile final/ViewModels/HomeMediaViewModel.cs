@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Maui.Graphics;
+using Azure.Storage.Blobs;
+using System.IO;
+using Microsoft.Maui.ApplicationModel;
+using System.Drawing;
 
 namespace Mobile_final.ViewModels
 {
@@ -14,17 +19,23 @@ namespace Mobile_final.ViewModels
     {
 
         [ObservableProperty]
-        private string source1;
+        private Microsoft.Maui.Controls.Image imageView;
 
+        [ObservableProperty]
+        private string url;
+
+        [ObservableProperty]
+        private string url2;
         [RelayCommand]
-        public static async Task Start()
+        public async Task Start()
         {
-            /*var url = "http://mobilemediastorage.blob.core.windows.net/videos/665e813e-7e0b-45fb-9ddd-260716909c56";
-            var httpClient = new HttpClient();
-            var imageData = await httpClient.GetByteArrayAsync(url);
-            var base64String = Convert.ToBase64String(imageData);
-            var imageSource = $"data:image/png;base64,{base64String}";
-            Source1 = imageSource;*/
+            Url = "https://mobilemediastorage.blob.core.windows.net/pictures/665e813e-7e0b-45fb-9ddd-260716909c56";
+            Url2 = "https://mobilemediastorage.blob.core.windows.net/videos/1ff70c40-f620-4519-818b-e09819ee7f96";
+            //1ff70c40-f620-4519-818b-e09819ee7f96
         }
+
+
+        //If media type is audio or video, turn on video, turn off image
+        //if media type is visual, turn on image, turn off video
     }
 }
