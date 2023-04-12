@@ -43,6 +43,12 @@ public static class MauiProgram
         var config = new ConfigurationBuilder().AddJsonStream(stream).Build(); 
         builder.Configuration.AddConfiguration(config);
 
+        //builder.Services.AddSingleton(c => new HttpClient()
+        //{ 
+        //    BaseAddress = new Uri("https://localhost:5210")
+        //});
+
+
         builder.Services.AddSingleton<UploadFileViewModel>();
         builder.Services.AddSingleton<LoginViewModel>();
         builder.Services.AddSingleton<INavigationService, NavigationService>();

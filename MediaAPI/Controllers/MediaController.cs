@@ -53,10 +53,9 @@ namespace MediaAPI.Controllers
                 UserId = user.Id,
             };
             await database.PostMediaAsync(newMedia);
-            Thread.Sleep(500);
             Media mediawithID = await database.GetMediaByKey(blobName);
-            Thread.Sleep(500);
-            var cat = database.GetCategory("Videos");
+            
+            Category cat = await database.GetCategory("Videos");
             var mediaCat = new MediaCategory()
             {
                 CategoryId = cat.Id,
@@ -65,7 +64,6 @@ namespace MediaAPI.Controllers
             database.AddMediaCategory(mediaCat);
             return blobName;
         }
-
 
         [HttpPut("uploadfile/audio/{username}")]
         public async Task<string> UploadAudioFile(IFormFile file, string username)
