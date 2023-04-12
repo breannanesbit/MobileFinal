@@ -65,7 +65,6 @@ namespace MediaAPI.Controllers
             return blobName;
         }
 
-
         [HttpPut("uploadfile/audio/{username}")]
         public async Task<string> UploadAudioFile(IFormFile file, string username)
         {
