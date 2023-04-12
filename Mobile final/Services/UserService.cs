@@ -50,6 +50,11 @@ namespace Mobile_final.Services
             return mediaList;
         }
 
-     
+        internal async Task<Category> GetCategory(int categoryId)
+        {
+            var category = await http.GetFromJsonAsync<Category>($"/media/category/{categoryId}");
+
+            return category;
+        }
     }
 }
