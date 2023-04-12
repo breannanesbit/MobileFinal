@@ -23,11 +23,19 @@ namespace Mobile_final.ViewModels
 
         [ObservableProperty]
         private string url;
+
+        [ObservableProperty]
+        private string url2;
         [RelayCommand]
         public async Task Start()
         {
             Url = "https://mobilemediastorage.blob.core.windows.net/pictures/665e813e-7e0b-45fb-9ddd-260716909c56";
-           
+            Url2 = "https://mobilemediastorage.blob.core.windows.net/videos/1ff70c40-f620-4519-818b-e09819ee7f96";
+            //1ff70c40-f620-4519-818b-e09819ee7f96
         }
+
+
+        //If media type is audio or video, turn on video, turn off image
+        //if media type is visual, turn on image, turn off video
     }
 }
