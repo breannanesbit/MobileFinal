@@ -40,6 +40,8 @@ namespace Mobile_final.ViewModels
         private string lastName;
         [ObservableProperty]
         private string name;
+        [ObservableProperty]
+        private string noMedia;
 
         [RelayCommand]
         public async Task GetUser()
@@ -56,19 +58,29 @@ namespace Mobile_final.ViewModels
         public async Task Start()
         {
             GetUser();
+
+            var mediaList = await service.GetUserMedia();
             /*var response = await client.GetAsync($"getusermedia/{Username}");
              var list = await response.Content.ReadFromJsonAsync<List<Media>>();*/
-            var list = await service.GetUserMedia();
-            foreach ( var item in list)
+          
+            if(mediaList.Count != 0)
             {
-                var medcat = item.MediaCategories;
-                foreach( var item2 in medcat)
+                foreach ( var item in mediaList)
                 {
-                    if(item2.Category.Category1 == "Videos")
+                    var medcat = item.MediaCategories;
+                    foreach( var item2 in medcat)
                     {
-                        PersonsMedia.Add(item);
+                        if(item2.Category.Category1 == "Videos")
+                        {
+                            PersonsMedia.Add(item);
+                        }
                     }
                 }
+
+            }
+            else
+            {
+                NoMedia = "You have not uploaded anything";
             }
         }
     }
