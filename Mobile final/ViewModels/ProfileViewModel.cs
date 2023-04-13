@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Mobile_final.Pages;
 using Mobile_final.Services;
 using Shared;
 using System;
@@ -16,11 +17,12 @@ namespace Mobile_final.ViewModels
     {
         private readonly HttpClient client;
         private readonly UserService service;
-
-        public ProfileViewModel(HttpClient cli, UserService service)
+        private readonly INavigationService nav;
+        public ProfileViewModel(HttpClient cli, UserService service, INavigationService nav)
         {
             this.client = cli;
             this.service = service;
+            this.nav = nav;
         }
 
         public ObservableCollection<Media> PersonsMedia { get; set; } = new();
@@ -67,14 +69,14 @@ namespace Mobile_final.ViewModels
             {
                 foreach ( var item in mediaList)
                 {
-                    var medcat = item.MediaCategories;
+                    /*var medcat = item.MediaCategories;
                     foreach( var item2 in medcat)
                     {
-                        if(item2.Category.Category1 == "Videos")
+                        if(item2.Category.Category1 == "Visual")
                         {
-                            PersonsMedia.Add(item);
                         }
-                    }
+                    }*/
+                    PersonsMedia.Add(item);
                 }
 
             }
@@ -82,6 +84,16 @@ namespace Mobile_final.ViewModels
             {
                 NoMedia = "You have not uploaded anything";
             }
+        }
+
+        [RelayCommand]
+        public void NavToPlayer(Media media)
+        {
+            /*var parameterDic = new Dictionary<string, object>();
+            parameterDic.Add("selectedMedia", media);*/
+            nav.NaviagteToAsync($"{nameof(PlayMediaPage)}?mediaKey={media.MediaKey}&mediaCategory={media.MediaCategories}");
+            //nav to play page
+            //attach as parameter the media object
         }
     }
 }

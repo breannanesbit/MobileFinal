@@ -96,5 +96,11 @@ namespace MediaAPI.services
             Context.Categories.Add(category);
             Context.SaveChangesAsync();
         }
+
+        public async Task<Category> GetCategoryById(int categoryId)
+        {
+            Category category = await Context.Categories.Where(u => u.Id == categoryId).FirstOrDefaultAsync();
+            return category;
+        }
     }
 }

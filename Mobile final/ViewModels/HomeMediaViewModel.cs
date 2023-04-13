@@ -34,8 +34,11 @@ namespace Mobile_final.ViewModels
             //1ff70c40-f620-4519-818b-e09819ee7f96
         }
 
+        //accept media as paramters
+        //make function to determine what type it is. Audio and video are category 2 and 1, visual is 3
 
         //If media type is audio or video, turn on video, turn off image
         //if media type is visual, turn on image, turn off video
+        //use media key as source
     }
 }

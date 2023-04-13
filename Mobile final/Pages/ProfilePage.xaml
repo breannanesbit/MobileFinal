@@ -39,18 +39,22 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 FontSize="30"
+                
                 Text="{Binding Name}"
+                TextColor="#A90CD1"
                 HorizontalOptions="Center"/>
             <Label
                 Grid.Row="6"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 FontSize="30"
+                TextColor="#A90CD1"
                 Text="{Binding UserName}"
                 HorizontalOptions="Center"/>
             <Label
                 Grid.Row="7"
                 Grid.Column="0"
+                TextColor="#A90CD1"
                 Text="Upload History"/>
             
             <Label
@@ -59,17 +63,25 @@
                 Text="{Binding NoMedia}"/>
         </Grid>
 
-        <CollectionView ItemsSource="{Binding PersonsMedia}">
+        <CollectionView ItemsSource="{Binding PersonsMedia}"
+                      BackgroundColor="#ECC8F5" >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid
                         RowDefinitions="*"
                         ColumnDefinitions="*,*">
                         <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
                             Text="{Binding MediaKey}"/>
                         <Button
+                            BackgroundColor="LightGray"
+                            Grid.Row="0"
+                            Grid.Column="1"
                             Text="View"
-                            Command="{Binding NavToPlayerCommand}"/>
+                            Command="{Binding NavToPlayerCommand}"
+                            CommandParameter="{Binding .}"
+                            HorizontalOptions="End"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
