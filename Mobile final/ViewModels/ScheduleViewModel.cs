@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Mobile_final.ViewModels
 {
-    public class ScheduleViewModel: ObservableObject
+    public partial class ScheduleViewModel: ObservableObject
     {
         public ObservableCollection<SchedulerAppointment> Events { get; set; }
 
