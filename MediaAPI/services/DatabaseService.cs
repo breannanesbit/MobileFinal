@@ -97,10 +97,14 @@ namespace MediaAPI.services
             Context.SaveChangesAsync();
         }
 
-        public async Task<Category> GetCategoryById(int categoryId)
+        public List<Media> GetLatestMediaAsync()
         {
-            Category category = await Context.Categories.Where(u => u.Id == categoryId).FirstOrDefaultAsync();
-            return category;
+            return Context.Media.Include(c => c.MediaCategories).OrderByDescending(m => m.DateUpload).Take(15).ToList();
+        }
+
+        public Category GetCategoryById(int categoryId)
+        {
+           return Context.Categories.Where(u => u.Id == categoryId).FirstOrDefault();
         }
     }
 }

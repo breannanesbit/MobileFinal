@@ -174,13 +174,19 @@ namespace MediaAPI.Controllers
         [HttpGet("category/{categoryId}")]
          public async Task<Category> GetCategory(int categoryId)
         {
-            return await database.GetCategoryById(categoryId);
+            return database.GetCategoryById(categoryId);
         }
 
         [HttpGet("getusermedia/{username}")]
         public async Task<IEnumerable<Media>> GetUserMedia(string username)
         {
             return database.GetMediaByUsername(username);
+        }
+
+        [HttpGet("getlatestmedia")]
+        public async Task<List<Media>> GetLatestMediaAsync()
+        {
+            return database.GetLatestMediaAsync();
         }
 
        /* [HttpGet("test/{test}")]

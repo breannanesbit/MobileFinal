@@ -56,5 +56,24 @@ namespace Mobile_final.Services
 
             return category;
         }
+
+        internal async Task<List<Media>> GetMostRecentUploaded()
+        {
+            var mediaList = await http.GetFromJsonAsync<List<Media>>($"/api/user/getlatestmedia");
+            return mediaList;
+        }
+
+        internal async Task<string> GetMediaCategory(Media media)
+        {
+            foreach(var medcat in media.MediaCategories)
+            {
+                if(medcat.CategoryId < 3)
+                {
+                    Category cat = await GetCategory(medcat.CategoryId);
+                    return cat.Category1;
+                }
+            }
+            return "";
+        }
     }
 }
