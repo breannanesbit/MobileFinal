@@ -42,5 +42,18 @@ namespace MediaAPI.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        [HttpGet("getusermedia/{user}")]
+        public async Task<List<Media>> GetCurrentUsersMediaAsync(string user)
+        {
+            try
+            {
+                return await Context.Media.Where(u => u.User.Username == user).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

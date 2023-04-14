@@ -13,14 +13,19 @@
 
     <VerticalStackLayout>
         <Grid
-            RowDefinitions="*,*,*,*"
-            ColumnDefinitions="*">
+            RowDefinitions="50,*,*,*,*,55,55,30,55"
+            RowSpacing="15"
+            ColumnDefinitions="*,*"
+            >
             
         
 
             <avatarview:SfAvatarView 
                 Grid.Row="1"
+                Grid.RowSpan="3"
                 Grid.Column="0"
+                Grid.ColumnSpan="2"
+                
                 
                                ContentType="Custom"
                                ImageSource="dotnet_bot.svg"
@@ -30,30 +35,53 @@
                                WidthRequest="125"
                                CornerRadius="60" />
             <Label
-                Grid.Row="2"
+                Grid.Row="5"
                 Grid.Column="0"
+                Grid.ColumnSpan="2"
                 FontSize="30"
+                
                 Text="{Binding Name}"
+                TextColor="#A90CD1"
                 HorizontalOptions="Center"/>
             <Label
-                Grid.Row="3"
+                Grid.Row="6"
                 Grid.Column="0"
+                Grid.ColumnSpan="2"
                 FontSize="30"
+                TextColor="#A90CD1"
                 Text="{Binding UserName}"
                 HorizontalOptions="Center"/>
+            <Label
+                Grid.Row="7"
+                Grid.Column="0"
+                TextColor="#A90CD1"
+                Text="Upload History"/>
+            
+            <Label
+                Grid.Row="8"
+                Grid.Column="0"
+                Text="{Binding NoMedia}"/>
         </Grid>
 
-        <CollectionView ItemsSource="{Binding PersonsMedia}">
+        <CollectionView ItemsSource="{Binding PersonsMedia}"
+                      BackgroundColor="#ECC8F5" >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid
                         RowDefinitions="*"
                         ColumnDefinitions="*,*">
                         <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
                             Text="{Binding MediaKey}"/>
                         <Button
+                            BackgroundColor="LightGray"
+                            Grid.Row="0"
+                            Grid.Column="1"
                             Text="View"
-                            Command="{Binding NavToPlayerCommand}"/>
+                            Command="{Binding NavToPlayerCommand}"
+                            CommandParameter="{Binding .}"
+                            HorizontalOptions="End"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

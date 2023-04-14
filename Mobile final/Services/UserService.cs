@@ -43,10 +43,37 @@ namespace Mobile_final.Services
             return test;
         }
 
-        public Task<List<Media>> GetUserMedia()
+        public async Task<List<Media>> GetUserMedia()
         {
             var user = current.Username;
-            return http.GetFromJsonAsync<List<Media>>($"getusermedia/{user}");
+            var mediaList = await http.GetFromJsonAsync<List<Media>>($"/api/user/getusermedia/{user}");
+            return mediaList;
+        }
+
+        internal async Task<Category> GetCategory(int categoryId)
+        {
+            var category = await http.GetFromJsonAsync<Category>($"/media/category/{categoryId}");
+
+            return category;
+        }
+
+        internal async Task<List<Media>> GetMostRecentUploaded()
+        {
+            var mediaList = await http.GetFromJsonAsync<List<Media>>($"/media/getlatestmedia");
+            return mediaList;
+        }
+
+        internal async Task<string> GetMediaCategory(Media media)
+        {
+            foreach(var medcat in media.MediaCategories)
+            {
+                if(medcat.CategoryId <= 3)
+                {
+                    Category cat = await GetCategory(medcat.CategoryId);
+                    return cat.Category1;
+                }
+            }
+            return "";
         }
     }
 }

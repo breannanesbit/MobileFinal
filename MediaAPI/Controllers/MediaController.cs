@@ -53,10 +53,9 @@ namespace MediaAPI.Controllers
                 UserId = user.Id,
             };
             await database.PostMediaAsync(newMedia);
-            Thread.Sleep(500);
             Media mediawithID = await database.GetMediaByKey(blobName);
-            Thread.Sleep(500);
-            var cat = database.GetCategory("Videos");
+            
+            Category cat = await database.GetCategory("Videos");
             var mediaCat = new MediaCategory()
             {
                 CategoryId = cat.Id,
@@ -65,7 +64,6 @@ namespace MediaAPI.Controllers
             database.AddMediaCategory(mediaCat);
             return blobName;
         }
-
 
         [HttpPut("uploadfile/audio/{username}")]
         public async Task<string> UploadAudioFile(IFormFile file, string username)
@@ -173,25 +171,22 @@ namespace MediaAPI.Controllers
             return blobName;
         }
 
-        [HttpGet("downloadfile/{blobKey}")]
-        public async Task<IActionResult> DownloadFile(string blobKey)
+        [HttpGet("category/{categoryId}")]
+         public async Task<Category> GetCategory(int categoryId)
         {
-
-
-            // Get a reference to the blob
-            BlobClient blobClient = video.GetBlobClient(blobKey);
-
-            // Download the blob content
-            var response = await blobClient.DownloadAsync();
-            // Return the blob content as a stream
-            var content = response.Value;
-            return File(content.Content, content.ContentType);
+            return database.GetCategoryById(categoryId);
         }
 
         [HttpGet("getusermedia/{username}")]
         public async Task<IEnumerable<Media>> GetUserMedia(string username)
         {
             return database.GetMediaByUsername(username);
+        }
+
+        [HttpGet("getlatestmedia")]
+        public async Task<List<Media>> GetLatestMediaAsync()
+        {
+            return database.GetLatestMediaAsync();
         }
 
        /* [HttpGet("test/{test}")]

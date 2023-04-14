@@ -103,20 +103,5 @@ namespace Mobile_final.ViewModels
             return form;
         }
 
-
-        [RelayCommand]
-        public async Task DownloadFile()
-        {
-            var response = await client.GetAsync($"downloadfile/{Blobkey}");
-
-            if (response.IsSuccessStatusCode)
-            {
-                byte[] fileBytes = await response.Content.ReadAsByteArrayAsync();
-
-                // Create a MemoryStream from the byte[] array
-                MemoryStream memoryStream = new MemoryStream(fileBytes);
-                VideoFile = memoryStream;
-            }
-        }
     }
 }

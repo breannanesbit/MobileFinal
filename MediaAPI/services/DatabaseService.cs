@@ -96,5 +96,15 @@ namespace MediaAPI.services
             Context.Categories.Add(category);
             Context.SaveChangesAsync();
         }
+
+        public List<Media> GetLatestMediaAsync()
+        {
+            return Context.Media.Include(c => c.MediaCategories).ThenInclude(m => m.Category).OrderByDescending(m => m.DateUpload).Take(15).ToList();
+        }
+
+        public Category GetCategoryById(int categoryId)
+        {
+           return Context.Categories.Where(u => u.Id == categoryId).FirstOrDefault();
+        }
     }
 }

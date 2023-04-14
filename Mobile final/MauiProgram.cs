@@ -43,6 +43,12 @@ public static class MauiProgram
         var config = new ConfigurationBuilder().AddJsonStream(stream).Build(); 
         builder.Configuration.AddConfiguration(config);
 
+        //builder.Services.AddSingleton(c => new HttpClient()
+        //{ 
+        //    BaseAddress = new Uri("https://localhost:5210")
+        //});
+
+
         builder.Services.AddSingleton<UploadFileViewModel>();
         builder.Services.AddSingleton<LoginViewModel>();
         builder.Services.AddSingleton<INavigationService, NavigationService>();
@@ -50,11 +56,13 @@ public static class MauiProgram
         builder.Services.AddSingleton<UploadPage>();
         builder.Services.AddSingleton<ProfilePage>();
         builder.Services.AddSingleton<SchedulePage>();
+        builder.Services.AddSingleton<PlayMediaPage>();
         builder.Services.AddSingleton<HomeMediaPage>();
         builder.Services.AddSingleton<ProfileViewModel>();
         builder.Services.AddSingleton<ScheduleViewModel>();
         builder.Services.AddSingleton<ProfileViewModel>();
         builder.Services.AddSingleton<HomeMediaViewModel>();
+        builder.Services.AddSingleton<PlayMediaViewModel>();
         builder.Services.AddSingleton<UserService>();
         builder.Services.AddSingleton<CurrentUser>();
 
@@ -70,7 +78,7 @@ public static class MauiProgram
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
-        //Routing.RegisterRoute(nameof(UploadPage), typeof(UploadPage));  
+        Routing.RegisterRoute(nameof(PlayMediaPage), typeof(PlayMediaPage));  
 
         return builder.Build();
     }
