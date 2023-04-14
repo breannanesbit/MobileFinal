@@ -43,10 +43,18 @@ namespace Mobile_final.Services
             return test;
         }
 
-        public Task<List<Media>> GetUserMedia()
+        public async Task<List<Media>> GetUserMedia()
         {
             var user = current.Username;
-            return http.GetFromJsonAsync<List<Media>>($"getusermedia/{user}");
+            var mediaList = await http.GetFromJsonAsync<List<Media>>($"/api/user/getusermedia/{user}");
+            return mediaList;
+        }
+
+        internal async Task<Category> GetCategory(int categoryId)
+        {
+            var category = await http.GetFromJsonAsync<Category>($"/media/category/{categoryId}");
+
+            return category;
         }
     }
 }

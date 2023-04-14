@@ -10,17 +10,24 @@ using System.Threading.Tasks;
 
 namespace Mobile_final.ViewModels
 {
-    public partial class ScheduleViewModel: ObservableObject
+    public partial class ScheduleViewModel : ObservableObject
     {
         public ObservableCollection<SchedulerAppointment> Events { get; set; }
 
         [RelayCommand]
-        public void AddEventPopUp()
+        public async void AddEventPopUp()
         {
-            //display pop up that gets all the infomation then creates and adds an event to the Events 
+            string result = await Application.Current.MainPage.DisplayPromptAsync("Make appointment", "");
+            //display pop up that gets all the infomation then creates and adds an event to the Events 
+            var n = new SchedulerAppointment()
+            {
+                Subject = result
+            };
+
+
+            Events.Add(n);
         }
     }
-
     /// <summary>    
     /// Represents the custom data properties.    
     /// </summary>  
