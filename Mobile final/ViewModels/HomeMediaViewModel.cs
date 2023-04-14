@@ -30,18 +30,23 @@ namespace Mobile_final.ViewModels
         ObservableCollection<Media> videoList = new();
         ObservableCollection<Media> audioList = new();
         ObservableCollection<Media> visualList= new();
+
+        [RelayCommand]
         public async Task Start()
         {
             var latestMediaList = await service.GetMostRecentUploaded();
             foreach(var media in latestMediaList)
             {
-                if(await service.GetMediaCategory(media) == "Videos")
+                var mediaCategory = media.MediaCategories.FirstOrDefault();
+                if (mediaCategory.Category.Category1 == "Videos")
                 {
                     videoList.Add(media);
-                }else if(await service.GetMediaCategory(media) == "Audios")
+                }
+                else if(mediaCategory.Category.Category1 == "Audios")
                 {
                     audioList.Add(media);
-                }else if(await service.GetMediaCategory(media) == "Pictures")
+                }
+                else if(mediaCategory.Category.Category1 == "Pictures")
                 {
                     visualList.Add(media);
                 }
