@@ -14,15 +14,15 @@ namespace MediaAPI.services
 {
     public class MediaControllerSource
     {
-        private readonly BlobContainerClient video;
-        private readonly BlobContainerClient audio;
-        private readonly BlobContainerClient visual;
+        private readonly BlobContainerClient videoclient;
+        private readonly BlobContainerClient audioclient;
+        private readonly BlobContainerClient visualclient;
         private readonly DatabaseService database;
         public MediaControllerSource(BlobServiceClient blobclient, DatabaseService service)
         {
-            video = blobclient.GetBlobContainerClient("videos");
-            audio = blobclient.GetBlobContainerClient("audio");
-            visual = blobclient.GetBlobContainerClient("pictures");
+            videoclient = blobclient.GetBlobContainerClient("videos");
+            audioclient = blobclient.GetBlobContainerClient("audio");
+            visualclient = blobclient.GetBlobContainerClient("pictures");
             database = service;
         }
 
@@ -37,15 +37,15 @@ namespace MediaAPI.services
             switch (type)
             {
                 case "video":
-                    blobClient = video.GetBlobClient(blobName);
+                    blobClient = videoclient.GetBlobClient(blobName);
                     await blobClient.UploadAsync(file.OpenReadStream());
                     break;
                 case "audio":
-                    blobClient = audio.GetBlobClient(blobName);
+                    blobClient = audioclient.GetBlobClient(blobName);
                     await blobClient.UploadAsync(file.OpenReadStream());
                     break;
                 case "visual":
-                    blobClient = visual.GetBlobClient(blobName);
+                    blobClient = visualclient.GetBlobClient(blobName);
                     await blobClient.UploadAsync(file.OpenReadStream());
                     break;
             }
@@ -62,14 +62,14 @@ namespace MediaAPI.services
             createMediaCategory(mediawithID, cat);
         }
 
-        private void createMediaCategory(Media mediawithID, Category cat)
+        private void createMediaCategory(Media media, Category category)
         {
-            var mediaCat = new MediaCategory()
+            var mediaCategory = new MediaCategory()
             {
-                CategoryId = cat.Id,
-                MediaId = mediawithID.Id,
+                CategoryId = category.Id,
+                MediaId = media.Id,
             };
-            database.AddMediaCategory(mediaCat);
+            database.AddMediaCategory(mediaCategory);
         }
 
         public async Task<string> AddMedia(IFormFile file, string username, string clientname)

@@ -20,6 +20,7 @@ builder.Services.AddDbContext<MultiMediaAppContext>(options => {
     options.UseNpgsql(database);
     });
 builder.Services.AddScoped<DatabaseService>();
+builder.Services.AddScoped<MediaControllerSource>();
 builder.Services.AddScoped<MultiMediaAppContext>();
 builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);

@@ -17,12 +17,12 @@ namespace MediaAPI.Controllers
     public class MediaController : Controller
     {
         private readonly DatabaseService database;
-        private readonly MediaControllerSource mediaSource;
+        private readonly MediaControllerSource mediaHelpSource;
         public MediaController(BlobServiceClient blobclient, DatabaseService service, MediaControllerSource mediasource)
         {
            
             database = service;
-            mediaSource = mediasource;
+            mediaHelpSource = mediasource;
         }
 
    /*     [HttpPut("uploadfile/video/{username}")]
@@ -72,8 +72,8 @@ namespace MediaAPI.Controllers
                 default:
                     return "Error: Not an accepted format";
             }
-            string blobName = await mediaSource.AddMedia(file, username, mediaBlobClient);
-            await mediaSource.addMediaCategory(mediaCategory, blobName);
+            string blobName = await mediaHelpSource.AddMedia(file, username, mediaBlobClient);
+            await mediaHelpSource.addMediaCategory(mediaCategory, blobName);
 
             return blobName;
         }
