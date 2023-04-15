@@ -77,7 +77,7 @@ namespace MediaAPI.services
             User user = await database.GetUserByUsername(username); ;
 
             // Generate a unique name for the new blob
-            var blobName = await UploadFile(file, "video");
+            var blobName = await UploadFile(file, clientname);
             await createAndAddMedia(user, blobName);
             return blobName;
         }
