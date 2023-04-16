@@ -186,7 +186,7 @@ namespace MediaAPI.Controllers
         [HttpGet("getlatestmedia")]
         public async Task<List<Media>> GetLatestMediaAsync()
         {
-            return database.GetLatestMediaAsync();
+            return await database.GetLatestMediaAsync();
         }
 
        /* [HttpGet("test/{test}")]

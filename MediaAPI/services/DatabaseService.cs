@@ -97,9 +97,9 @@ namespace MediaAPI.services
             Context.SaveChangesAsync();
         }
 
-        public List<Media> GetLatestMediaAsync()
+        public async Task<List<Media>> GetLatestMediaAsync()
         {
-            return Context.Media.Include(c => c.MediaCategories).ThenInclude(m => m.Category).OrderByDescending(m => m.DateUpload).Take(15).ToList();
+            return await Context.Media.Include(c => c.MediaCategories).ThenInclude(m => m.Category).OrderByDescending(m => m.DateUpload).Take(15).ToListAsync();
         }
 
         public Category GetCategoryById(int categoryId)
