@@ -1,5 +1,6 @@
 using Azure.Storage.Blobs;
 using MediaAPI;
+using MediaAPI.Data;
 using MediaAPI.services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

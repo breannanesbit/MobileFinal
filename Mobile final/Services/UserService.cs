@@ -65,14 +65,14 @@ namespace Mobile_final.Services
 
         internal async Task<string> GetMediaCategory(Media media)
         {
-            foreach(var medcat in media.MediaCategories)
+            /*foreach(var medcat in media)
             {
                 if(medcat.CategoryId <= 3)
                 {
                     Category cat = await GetCategory(medcat.CategoryId);
                     return cat.Category1;
                 }
-            }
+            }*/
             return "";
         }
     }

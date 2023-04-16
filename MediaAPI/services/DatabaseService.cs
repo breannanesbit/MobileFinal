@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using MediaAPI.Data;
 
 namespace MediaAPI.services
 {
@@ -73,11 +74,11 @@ namespace MediaAPI.services
             return Context.Categories.Where(u => u.Category1 == name).FirstOrDefault();
         }
 
-        public void AddMediaCategory(MediaCategory mediaCat)
+        /*public void AddMediaCategory(MediaCategory mediaCat)
         {
             Context.MediaCategories.Add(mediaCat);
             Context.SaveChangesAsync();
-        }
+        }*/
 
         public IEnumerable<Media> GetMediaByUsername(string username)
         {
@@ -99,7 +100,7 @@ namespace MediaAPI.services
 
         public async Task<List<Media>> GetLatestMediaAsync()
         {
-            return await Context.Media.Include(c => c.MediaCategories).ThenInclude(m => m.Category).OrderByDescending(m => m.DateUpload).Take(15).ToListAsync();
+            return await Context.Media.Include(m => m.Category).OrderByDescending(m => m.DateUpload).Take(15).ToListAsync();
         }
 
         public Category GetCategoryById(int categoryId)

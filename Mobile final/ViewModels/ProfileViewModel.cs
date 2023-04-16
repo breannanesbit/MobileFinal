@@ -91,7 +91,7 @@ namespace Mobile_final.ViewModels
         {
             /*var parameterDic = new Dictionary<string, object>();
             parameterDic.Add("selectedMedia", media);*/
-            nav.NaviagteToAsync($"{nameof(PlayMediaPage)}?mediaKey={media.MediaKey}&mediaCategory={media.MediaCategories}");
+            nav.NaviagteToAsync($"{nameof(PlayMediaPage)}?mediaKey={media.MediaKey}");
             //nav to play page
             //attach as parameter the media object
         }
