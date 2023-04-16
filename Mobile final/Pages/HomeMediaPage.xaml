@@ -13,26 +13,5 @@
             Text="Page Unintentionally left blank"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-
-        <CollectionView ItemsSource="{Binding VideoList}"
-                      BackgroundColor="#ECC8F5"
-                        Header="Videos">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid
-                        RowDefinitions="*"
-                        ColumnDefinitions="*,*">
-                        <Label
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Text="{Binding MediaKey}"/>
-                    
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-
-
-
     </VerticalStackLayout>
 </ContentPage>

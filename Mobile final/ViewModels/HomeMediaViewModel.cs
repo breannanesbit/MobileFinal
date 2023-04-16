@@ -1,4 +1,8 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Mobile_final.Services;
+using Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -19,56 +23,7 @@ using Shared;
 
 namespace Mobile_final.ViewModels
 {
-    public partial class HomeMediaViewModel : ObservableObject
+    public class HomeMediaViewModel
     {
-        private UserService service;
-        public HomeMediaViewModel(UserService service)
-        {
-            this.service = service;
-        }
-
-        ObservableCollection<Media> videoList = new();
-        ObservableCollection<Media> audioList = new();
-        ObservableCollection<Media> visualList= new();
-
-        [RelayCommand]
-        public async Task Start()
-        {
-            var latestMediaList = await service.GetMostRecentUploaded();
-            foreach(var media in latestMediaList)
-            {
-                var mediaCategory = media.MediaCategories.FirstOrDefault();
-                if (mediaCategory.Category.Category1 == "Videos")
-                {
-                    videoList.Add(media);
-                }
-                else if(mediaCategory.Category.Category1 == "Audios")
-                {
-                    audioList.Add(media);
-                }
-                else if(mediaCategory.Category.Category1 == "Pictures")
-                {
-                    visualList.Add(media);
-                }
-
-
-
-            }
-        }
-        /*
-         * CollectionView of what happens in PlayMedia
-         * 
-         * 3 collection views, one for each type (Maybe audio with video?
-         * 
-         * 
-         * How to do it?
-         * 
-         * Get top 10-15 media by when uploaded
-         * get the category a media is in
-         * Depending on the category, put it into 1 of 3 lists
-         * Use each list as  a CollectionView source
-         * 
-         * 
-         */
     }
 }
