@@ -28,6 +28,9 @@ namespace Mobile_final.ViewModels
         private MemoryStream videoFile;
 
         [ObservableProperty]
+        private string fileName;
+
+        [ObservableProperty]
         private bool mediaOptionSelected;
 
         [ObservableProperty]
@@ -71,22 +74,30 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task UploadFile()
         {
-            MultipartFormDataContent form;
-            FileStream fileStream;
-            StreamContent fileContent;
-            var convertedForm = ConvertFileType(out form, out fileStream, out fileContent);
-            switch (SelectedOption)
+           if(FileName.Length > 0 && FileName != "Please enter a file name")
             {
-                case "Video":
-                    await client.PutAsync($"uploadfile/video/{Username}", convertedForm);
-                    break;
-                case "Audio":
-                    await client.PutAsync($"uploadfile/audio/{Username}", convertedForm);
-                    break;
-                case "Visual":
-                    await client.PutAsync($"uploadfile/pictures/{Username}", convertedForm);
-                    break;
+                MultipartFormDataContent form;
+                FileStream fileStream;
+                StreamContent fileContent;
+                var convertedForm = ConvertFileType(out form, out fileStream, out fileContent);
+                switch (SelectedOption)
+                {
+                    case "Video":
+                        await client.PutAsync($"uploadfile/video/{Username}/{FileName}", convertedForm);
+                        break;
+                    case "Audio":
+                        await client.PutAsync($"uploadfile/audio/{Username}/{FileName}", convertedForm);
+                        break;
+                    case "Visual":
+                        await client.PutAsync($"uploadfile/pictures/{Username}/{FileName}", convertedForm);
+                        break;
+                }
             }
+            else
+            {
+                FileName = "Please enter a file name";
+            }
+           
             
             //Blobkey = await response.Content.ReadAsStringAsync();
 
