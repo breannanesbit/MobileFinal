@@ -46,6 +46,8 @@
                 Command="{Binding UploadFileCommand}"
                 />
         <Label Text="{Binding Blobkey}"/>
+        <Label Text="File Name:"/>
+        <Entry Text="{Binding FileName}"/>
         <Entry Text="{Binding Username}"/>
       
         <toolkit:MediaElement x:Name="mediaElement"
