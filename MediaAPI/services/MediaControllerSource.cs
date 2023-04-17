@@ -75,7 +75,7 @@ namespace MediaAPI.services
         public async Task<string> AddMedia(IFormFile file, string username, string clientname, string mediaCategory)
         {
             User user = await database.GetUserByUsername(username);
-
+            
             // Generate a unique name for the new blob
             var blobName = await UploadFile(file, clientname);
             await createAndAddMedia(user, blobName, mediaCategory);
@@ -84,12 +84,13 @@ namespace MediaAPI.services
 
         public async Task createAndAddMedia(User user, string blobName, string clientname)
         {
+            Category category = await database.GetCategory(clientname);
             var newMedia = new Media()
             {
                 DateUpload = DateTime.Now,
                 MediaKey = blobName,
                 UserId = user.Id,
-               
+                CategoryId = category.Id
             };
             await database.PostMediaAsync(newMedia);
         }
