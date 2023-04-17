@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using MediaAPI.Data;
 
 namespace MediaAPI.Controllers
 {
@@ -18,11 +19,13 @@ namespace MediaAPI.Controllers
     public class AppointmentController : Controller
     {
         private readonly DatabaseService database;
+        private readonly MultiMediaAppContext context;
 
-        public AppointmentController(DatabaseService service)
+        public AppointmentController(DatabaseService service, MultiMediaAppContext context )
         {
 
             database = service;
+            this.context = context;
         }
 
 
@@ -41,6 +44,13 @@ namespace MediaAPI.Controllers
         public void DeleteAppointments(int id)
         {
             database.DeleteAppointment(id);
+        }
+
+        [HttpPost("AddAppointment")]
+        public async Task AddAppointment(Appointment appointment)
+        {
+            await context.Appointments.AddAsync(appointment);
+            context.SaveChanges();
         }
     }
 }

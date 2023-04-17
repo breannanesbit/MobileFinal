@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Mobile_final.Pages.popups.SchedulePopUpContent">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid
+                RowDefinitions="*,*"
+                ColumnDefinitions="*,*,*,*,*,*,*">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Date"/>
+                <DatePicker
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    MinimumDate="{Binding DateNow}"
+                    Date="{Binding Date}"/>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    Text="Start and End time"/>
+                <TimePicker
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Time="{Binding TimeStart}"/>
+                <TimePicker
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Time="{Binding TimeEnd}"/>
+                <Editor
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Grid.Column="4"
+                    Grid.ColumnSpan="2"
+                    Placeholder="Description"
+                    Text="{Binding Description}"/>
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="6"
+                    Text="Submit"
+                    Command="{Binding MakeAppointmentCommand}"/>
+
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</toolkit:Popup>
