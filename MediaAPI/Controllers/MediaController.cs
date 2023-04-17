@@ -55,19 +55,23 @@ namespace MediaAPI.Controllers
         {
             string mediaBlobClient;
             string mediaCategory;
+            int categoryId;
             switch (type)
             {
                 case "video":
                     mediaBlobClient = "video";
                     mediaCategory = "Videos";
+                    categoryId = 1;
                     break;
                 case "audio":
                     mediaBlobClient = "audio";
                     mediaCategory = "Audios";
+                    categoryId = 2;
                     break;
                 case "visual":
                     mediaBlobClient = "visual";
                     mediaCategory = "Pictures";
+                    categoryId = 3;
                     break;
                 default:
                     return "Error: Not an accepted format";
@@ -93,7 +97,7 @@ namespace MediaAPI.Controllers
         [HttpGet("getlatestmedia")]
         public async Task<List<Media>> GetLatestMediaAsync()
         {
-            return database.GetLatestMediaAsync();
+            return await database.GetLatestMediaAsync();
         }
 
        /* [HttpGet("test/{test}")]

@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using MediaAPI.Data;
+using Shared;
 
 namespace MediaAPI.services
 {

@@ -30,7 +30,7 @@
 
         <Label
             Text="{Binding FilePath}"/>
-        <HorizontalStackLayout RadioButtonGroup.SelectedValue="{Binding SelectedOption}" HorizontalOptions="Center" >
+        <HorizontalStackLayout RadioButtonGroup.SelectedValue="{Binding SelectedOption}" HorizontalOptions="Center">
             <RadioButton Content="Visual" Value="Visual" CheckedChanged= "OnRadioSelected"/>
             <RadioButton Content="Audio" Value="Audio" CheckedChanged= "OnRadioSelected"/>
             <RadioButton Content="Video" Value="Video" CheckedChanged= "OnRadioSelected"/>

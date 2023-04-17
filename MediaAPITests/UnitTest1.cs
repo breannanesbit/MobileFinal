@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Shared;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Moq;
+using MediaAPI.Data;
 
 namespace MediaAPITests
 {

@@ -18,7 +18,7 @@ using Mobile_final.Services;
 namespace Mobile_final.ViewModels
 {
     [QueryProperty(nameof(MediaKey), "mediaKey")]
-    [QueryProperty(nameof(MediaCategories), "mediaCategories")]
+    //[QueryProperty(nameof(MediaCategories), "mediaCategories")]
     public partial class PlayMediaViewModel : ObservableObject
     {
         private UserService client;
@@ -35,8 +35,6 @@ namespace Mobile_final.ViewModels
         [ObservableProperty]
         private string mediaKey;
 
-        [ObservableProperty]
-        private ICollection<MediaCategory> mediaCategories;
 
         [ObservableProperty]
         private bool isplayer;
@@ -50,9 +48,9 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task Start()
         {
-            foreach( var item in MediaCategories)
-            {
-                Category cat = await client.GetCategory(item.CategoryId);
+            
+            
+                /*Category cat = await client.GetCategory(item.CategoryId);
 
                 if (cat.Category1 == "Videos" || cat.Category1 == "Audios")
                 {
@@ -66,22 +64,22 @@ namespace Mobile_final.ViewModels
                     {
                         Url = $"https://mobilemediastorage.blob.core.windows.net/audios/{MediaKey}";
                     }
-                    break;
+                    
                 }
                 else if (cat.Category1 == "Pictures")
                 {
                     Isplayer = false;
                     Isimage = true;
                     Url = $"https://mobilemediastorage.blob.core.windows.net/pictures/{MediaKey}";
-                    break;
+                    
                 }
                 else
                 {
                     Isplayer = false;
                     Isimage = false;
-                    break;
-                }
-            }
+                    
+                }*/
+            
         }
 
         //accept media as paramters

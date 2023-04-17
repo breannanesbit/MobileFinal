@@ -64,12 +64,12 @@ namespace MediaAPI.services
 
         private void createMediaCategory(Media media, Category category)
         {
-            var mediaCategory = new MediaCategory()
+            /*var mediaCategory = new MediaCategory()
             {
                 CategoryId = category.Id,
                 MediaId = media.Id,
             };
-            database.AddMediaCategory(mediaCategory);
+            database.AddMediaCategory(mediaCategory);*/
         }
 
         public async Task<string> AddMedia(IFormFile file, string username, string clientname, string mediaCategory)
