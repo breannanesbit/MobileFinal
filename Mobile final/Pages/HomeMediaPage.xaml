@@ -33,6 +33,40 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </VerticalStackLayout>
+
+            <CollectionView ItemsSource="{Binding AudioList}"
+                        Header="Audio" 
+                        >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                        RowDefinitions="*"
+                        ColumnDefinitions="*,*">
+                            <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Text="{Binding MediaKey}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <CollectionView ItemsSource="{Binding VideoList}"
+                        Header="Video" 
+                        >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                        RowDefinitions="*"
+                        ColumnDefinitions="*,*">
+                            <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Text="{Binding MediaKey}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

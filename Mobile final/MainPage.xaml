@@ -32,12 +32,14 @@
                     Text="Sign up"
                     SemanticProperties.Hint="Click to sign up"
                     Command="{Binding SignUpViewToShowUpCommand}"
+                    BackgroundColor="#3D0883"
                     HorizontalOptions="Center" />
                 <Button 
                     Grid.Row="2"
                     Grid.Column="1"
                     Text="Log In"
                     SemanticProperties.Hint="Click to log in"
+                    BackgroundColor="#3D0883"
                     Command="{Binding LoginCommand}"
                     HorizontalOptions="Center" />
             </Grid>
@@ -73,6 +75,7 @@
                     Grid.Row="5"
                     Grid.Column="0"
                     Text="Sign up"
+                    BackgroundColor="#3D0883"
                     Command="{Binding LoginCommand}"/>
 
             </Grid>
