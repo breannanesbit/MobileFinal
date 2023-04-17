@@ -72,23 +72,24 @@ namespace MediaAPI.services
             database.AddMediaCategory(mediaCategory);
         }
 
-        public async Task<string> AddMedia(IFormFile file, string username, string clientname)
+        public async Task<string> AddMedia(IFormFile file, string username, string clientname, string mediaCategory)
         {
-            User user = await database.GetUserByUsername(username); ;
+            User user = await database.GetUserByUsername(username);
 
             // Generate a unique name for the new blob
             var blobName = await UploadFile(file, clientname);
-            await createAndAddMedia(user, blobName);
+            await createAndAddMedia(user, blobName, mediaCategory);
             return blobName;
         }
 
-        private async Task createAndAddMedia(User user, string blobName)
+        public async Task createAndAddMedia(User user, string blobName, string clientname)
         {
             var newMedia = new Media()
             {
                 DateUpload = DateTime.Now,
                 MediaKey = blobName,
                 UserId = user.Id,
+               
             };
             await database.PostMediaAsync(newMedia);
         }

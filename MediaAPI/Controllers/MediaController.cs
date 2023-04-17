@@ -72,8 +72,7 @@ namespace MediaAPI.Controllers
                 default:
                     return "Error: Not an accepted format";
             }
-            string blobName = await mediaHelpSource.AddMedia(file, username, mediaBlobClient);
-            await mediaHelpSource.addMediaCategory(mediaCategory, blobName);
+            string blobName = await mediaHelpSource.AddMedia(file, username, mediaBlobClient, mediaCategory);
 
             return blobName;
         }
