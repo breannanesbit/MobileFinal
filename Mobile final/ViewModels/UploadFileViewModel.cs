@@ -33,7 +33,7 @@ namespace Mobile_final.ViewModels
         [ObservableProperty]
         private string username;
 
-
+        //[ObservableProperty]
         private string selectedOption;
 
 

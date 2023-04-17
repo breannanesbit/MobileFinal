@@ -55,25 +55,29 @@ namespace MediaAPI.Controllers
         {
             string mediaBlobClient;
             string mediaCategory;
+            int categoryId;
             switch (type)
             {
                 case "video":
                     mediaBlobClient = "video";
                     mediaCategory = "Videos";
+                    categoryId = 1;
                     break;
                 case "audio":
                     mediaBlobClient = "audio";
                     mediaCategory = "Audios";
+                    categoryId = 2;
                     break;
                 case "visual":
                     mediaBlobClient = "visual";
                     mediaCategory = "Pictures";
+                    categoryId = 3;
                     break;
                 default:
                     return "Error: Not an accepted format";
             }
-            string blobName = await mediaHelpSource.AddMedia(file, username, mediaBlobClient);
-            await mediaHelpSource.addMediaCategory(mediaCategory, blobName);
+            string blobName = await mediaHelpSource.AddMedia(file, username, mediaBlobClient, categoryId);
+            //await mediaHelpSource.addMediaCategory(mediaCategory, blobName);
 
             return blobName;
         }

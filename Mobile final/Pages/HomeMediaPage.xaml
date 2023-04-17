@@ -8,10 +8,31 @@
         <toolkit:EventToCommandBehavior EventName="Loaded"
                                         Command="{Binding StartCommand}" />
     </ContentPage.Behaviors>
+    <ScrollView>
+        
+   
     <VerticalStackLayout>
         <Label 
             Text="Page Unintentionally left blank"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <CollectionView ItemsSource="{Binding VisualList}"
+                        Header="Visual" 
+                        >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        RowDefinitions="*"
+                        ColumnDefinitions="*,*">
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Text="{Binding MediaKey}"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

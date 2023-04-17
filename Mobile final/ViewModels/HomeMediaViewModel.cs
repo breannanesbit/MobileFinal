@@ -10,9 +10,9 @@ namespace Mobile_final.ViewModels
 {
     public partial class HomeMediaViewModel : ObservableObject
     {
-        ObservableCollection<Media> videoList = new();
-        ObservableCollection<Media> audioList = new();
-        ObservableCollection<Media> visualList = new();
+        public ObservableCollection<Media> VideoList { get; set; } = new();
+        public ObservableCollection<Media> AudioList { get; set; } = new();
+        public ObservableCollection<Media> VisualList { get; set; } = new();
         private readonly UserService service;
 
         public HomeMediaViewModel(UserService service)
@@ -28,15 +28,15 @@ namespace Mobile_final.ViewModels
             {
                 if (media.Category.Category1 == "Videos")
                 {
-                    videoList.Add(media);
+                    VideoList.Add(media);
                 }
                 else if (media.Category.Category1 == "Audios")
                 {
-                    audioList.Add(media);
+                    AudioList.Add(media);
                 }
                 else if (media.Category.Category1 == "Pictures")
                 {
-                    visualList.Add(media);
+                    VisualList.Add(media);
                 }
             }
         }

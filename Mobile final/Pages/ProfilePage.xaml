@@ -11,6 +11,10 @@
                                         Command="{Binding StartCommand}" />
     </ContentPage.Behaviors>
 
+    <ScrollView>
+        
+    
+
     <VerticalStackLayout>
         <Grid
             RowDefinitions="50,*,*,*,*,55,55,30,55"
@@ -88,4 +92,5 @@
         </CollectionView>
 
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
