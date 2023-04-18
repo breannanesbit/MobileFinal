@@ -8,6 +8,8 @@
         <toolkit:EventToCommandBehavior EventName="Loaded"
                                         Command="{Binding StartCommand}" />
     </ContentPage.Behaviors>
+    <ScrollView>
+
     <VerticalStackLayout>
 
         <Border
@@ -30,7 +32,9 @@
 
         <Label
             Text="{Binding FilePath}"/>
-        <HorizontalStackLayout RadioButtonGroup.SelectedValue="{Binding SelectedOption}" HorizontalOptions="Center">
+        <HorizontalStackLayout
+            RadioButtonGroup.GroupName="Type"
+            RadioButtonGroup.SelectedValue="{Binding SelectedOption}" HorizontalOptions="Center">
             <RadioButton Content="Visual" Value="Visual" CheckedChanged= "OnRadioSelected"/>
             <RadioButton Content="Audio" Value="Audio" CheckedChanged= "OnRadioSelected"/>
             <RadioButton Content="Video" Value="Video" CheckedChanged= "OnRadioSelected"/>
@@ -48,7 +52,7 @@
         <Label Text="{Binding Blobkey}"/>
         <Label Text="File Name:"/>
         <Entry Text="{Binding FileName}"/>
-        <Entry Text="{Binding Username}"/>
+        <!--<Entry Text="{Binding Username}"/>-->
       
         <toolkit:MediaElement x:Name="mediaElement"
                       ShouldAutoPlay="True"
@@ -59,6 +63,6 @@
 
         
     </VerticalStackLayout>
-   
-    
+
+    </ScrollView>
 </ContentPage>

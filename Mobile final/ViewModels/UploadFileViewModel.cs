@@ -75,7 +75,7 @@ namespace Mobile_final.ViewModels
         public async Task UploadFile()
         {
            if(FileName.Length > 0 && FileName != "Please enter a file name")
-            {
+           {
                 MultipartFormDataContent form;
                 FileStream fileStream;
                 StreamContent fileContent;
@@ -92,11 +92,11 @@ namespace Mobile_final.ViewModels
                         await client.PutAsync($"uploadfile/pictures/{Username}/{FileName}", convertedForm);
                         break;
                 }
-            }
-            else
-            {
+           }
+           else
+           {
                 FileName = "Please enter a file name";
-            }
+           }
            
             
             //Blobkey = await response.Content.ReadAsStringAsync();
