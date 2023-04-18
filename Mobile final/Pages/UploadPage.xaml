@@ -39,30 +39,50 @@
             <RadioButton Content="Audio" Value="Audio" CheckedChanged= "OnRadioSelected"/>
             <RadioButton Content="Video" Value="Video" CheckedChanged= "OnRadioSelected"/>
         </HorizontalStackLayout>
-        
-        <Label Text="{Binding SelectedOption}"/>
-        <Button
-            BackgroundColor="#817F7F"
-            FontSize="Large"
+
+            <Grid
+                RowDefinitions="20,35,50,35"
+                ColumnDefinitions="*,*">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Type selected:"/>
+                <Label 
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="{Binding SelectedOption}"/>
+
+                <Label 
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="File Name:"/>
+                <Entry 
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{Binding FileName}"/>
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Text="{Binding Output}"
+                    FontSize="24"
+                    HorizontalOptions="Center"/>
+
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                BackgroundColor="#817F7F"
+                FontSize="Large"
                 HorizontalOptions="Center"
                 Text="Upload File"
                 IsVisible="{Binding MediaOptionSelected}"
                 Command="{Binding UploadFileCommand}"
                 />
-        <Label Text="{Binding Blobkey}"/>
-        <Label Text="File Name:"/>
-        <Entry Text="{Binding FileName}"/>
-        <!--<Entry Text="{Binding Username}"/>-->
-      
-        <toolkit:MediaElement x:Name="mediaElement"
-                      ShouldAutoPlay="True"
-                      ShouldShowPlaybackControls="True"
-                      Source="{Binding FilePath}"
-                      HeightRequest="600"
-                      WidthRequest="400" />
 
-        
-    </VerticalStackLayout>
+            </Grid>
+
+        </VerticalStackLayout>
 
     </ScrollView>
 </ContentPage>

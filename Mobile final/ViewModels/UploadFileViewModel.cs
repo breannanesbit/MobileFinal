@@ -24,9 +24,6 @@ namespace Mobile_final.ViewModels
         private string filePath;
 
         [ObservableProperty]
-        private string blobkey;
-
-        [ObservableProperty]
         private MemoryStream videoFile;
 
         [ObservableProperty]
@@ -38,7 +35,9 @@ namespace Mobile_final.ViewModels
         [ObservableProperty]
         private string username;
 
-        //[ObservableProperty]
+        [ObservableProperty]
+        private string output;
+
         private string selectedOption;
 
 
@@ -95,7 +94,17 @@ namespace Mobile_final.ViewModels
                         type = "visual";
                         break;
                 }
-                await service.UploadNewFile(type, FileName, convertedForm);
+                try
+                {
+                    await service.UploadNewFile(type, FileName, convertedForm);
+                    Output = "File Uploaded";
+                    FilePath = null;
+
+                }
+                catch (Exception ex)
+                {
+                    Output = ex.ToString();
+                }
            }
            else
            {

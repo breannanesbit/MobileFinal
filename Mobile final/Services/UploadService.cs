@@ -23,7 +23,7 @@ namespace Mobile_final.Services
         public async Task UploadNewFile(string type, string fileName, MultipartFormDataContent convertedForm)
         {
             var username = user.Username;
-            var test = await http.PostAsJsonAsync<MultipartFormDataContent>($"/media/uploadfile/{type}/{username}/{fileName}", convertedForm);
+            var test = await http.PostAsync($"/media/uploadfile/{type}/{username}/{fileName}", convertedForm);
             
         }
     }
