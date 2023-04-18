@@ -36,18 +36,18 @@ namespace Mobile_final.ViewModels
         [ObservableProperty]
         private string username;
 
-        //[ObservableProperty]
+        [ObservableProperty]
         private string selectedOption;
 
 
-        public string SelectedOption
+        /*public string SelectedOption
         {
             get { return selectedOption; }
             set
             {
                 SetProperty(ref selectedOption, value);
             }
-        }
+        }*/
 
         [RelayCommand]
         public void Start()

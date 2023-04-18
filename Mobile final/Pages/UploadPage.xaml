@@ -41,6 +41,7 @@
         </HorizontalStackLayout>
         
         <Label Text="{Binding SelectedOption}"/>
+        
         <Button
             BackgroundColor="#817F7F"
             FontSize="Large"
