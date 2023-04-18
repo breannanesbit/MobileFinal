@@ -64,6 +64,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<HomeMediaViewModel>();
         builder.Services.AddSingleton<PlayMediaViewModel>();
         builder.Services.AddSingleton<UserService>();
+        builder.Services.AddSingleton<UploadService>();
+        builder.Services.AddSingleton<AppointmentService>();
         builder.Services.AddSingleton<CurrentUser>();
 
 

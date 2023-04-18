@@ -50,11 +50,11 @@ namespace MediaAPI.Controllers
             return blobName;
         }*/
 
-        [HttpPut("uploadfile/{type}/{username}/{filename}")]
-        public async Task<string> UploadAnyFile(IFormFile file, string username, string type, string filename)
+        [HttpPost("uploadfile/{type}/{username}/{filename}")]
+        public async Task UploadAnyFile(string username, string type, string filename, IFormFile file)
         {
-            string mediaBlobClient;
-            string mediaCategory;
+            string mediaBlobClient = "";
+            string mediaCategory = "";
             int categoryId;
             switch (type)
             {
@@ -74,11 +74,12 @@ namespace MediaAPI.Controllers
                     categoryId = 3;
                     break;
                 default:
-                    return "Error: Not an accepted format";
+                    Console.Write( "Error: Not an accepted format");
+                    break;
             }
             string blobName = await mediaHelpSource.AddMedia(file, username, mediaBlobClient, mediaCategory, filename);
 
-            return blobName;
+           // return blobName;
         }
 
 

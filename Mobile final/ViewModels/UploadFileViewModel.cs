@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.Http;
-
+using Mobile_final.Services;
 
 namespace Mobile_final.ViewModels
 {
     public partial class UploadFileViewModel : ObservableObject
     {
         private readonly HttpClient client;
-        public UploadFileViewModel(HttpClient client)
+        private readonly UploadService service;
+
+        public UploadFileViewModel(UploadService service)
         {
-            this.client = client;
+            this.service = service;
         }
         [ObservableProperty]
         private string filePath;
@@ -79,19 +81,21 @@ namespace Mobile_final.ViewModels
                 MultipartFormDataContent form;
                 FileStream fileStream;
                 StreamContent fileContent;
+                string type = ""; 
                 var convertedForm = ConvertFileType(out form, out fileStream, out fileContent);
                 switch (SelectedOption)
                 {
                     case "Video":
-                        await client.PutAsync($"uploadfile/video/{Username}/{FileName}", convertedForm);
+                        type = "video";
                         break;
                     case "Audio":
-                        await client.PutAsync($"uploadfile/audio/{Username}/{FileName}", convertedForm);
+                        type = "audio";
                         break;
                     case "Visual":
-                        await client.PutAsync($"uploadfile/pictures/{Username}/{FileName}", convertedForm);
+                        type = "visual";
                         break;
                 }
+                await service.UploadNewFile(type, FileName, convertedForm);
            }
            else
            {
