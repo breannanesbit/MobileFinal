@@ -5,15 +5,20 @@
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              Title="SCHEDULE">
     <VerticalStackLayout>
-        <Button
-            Text="Add an Event"
-            HorizontalOptions="End"
-            Command="{Binding AddEventPopUpCommand}"/>
+        
         <scheduler:SfScheduler x:Name="Scheduler" 
                                View="Month"
                                AppointmentsSource="{Binding Events}"
+                               
                                />
-            
-        
+        <ImageButton
+            Source="plus.png"
+            HeightRequest="80"
+            WidthRequest="80"
+            HorizontalOptions="End"
+            Margin="20"
+            Padding="8"
+            Command="{Binding AddEventPopUpCommand}"/>
+
     </VerticalStackLayout>
 </ContentPage>

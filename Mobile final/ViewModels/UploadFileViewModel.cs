@@ -7,22 +7,24 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.Http;
-
+using Mobile_final.Pages;
+using Mobile_final.Services;
 
 namespace Mobile_final.ViewModels
 {
     public partial class UploadFileViewModel : ObservableObject
     {
         private readonly HttpClient client;
-        public UploadFileViewModel(HttpClient client)
+        private readonly UploadService service;
+        private readonly INavigationService nag;
+
+        public UploadFileViewModel(UploadService service, INavigationService nag)
         {
-            this.client = client;
+            this.service = service;
+            this.nag = nag;
         }
         [ObservableProperty]
         private string filePath;
-
-        [ObservableProperty]
-        private string blobkey;
 
         [ObservableProperty]
         private MemoryStream videoFile;
@@ -37,17 +39,19 @@ namespace Mobile_final.ViewModels
         private string username;
 
         [ObservableProperty]
+        private string output;
+
         private string selectedOption;
 
 
-        /*public string SelectedOption
+        public string SelectedOption
         {
             get { return selectedOption; }
             set
             {
                 SetProperty(ref selectedOption, value);
             }
-        }*/
+        }
 
         [RelayCommand]
         public void Start()
@@ -79,18 +83,30 @@ namespace Mobile_final.ViewModels
                 MultipartFormDataContent form;
                 FileStream fileStream;
                 StreamContent fileContent;
+                string type = ""; 
                 var convertedForm = ConvertFileType(out form, out fileStream, out fileContent);
                 switch (SelectedOption)
                 {
                     case "Video":
-                        await client.PutAsync($"uploadfile/video/{Username}/{FileName}", convertedForm);
+                        type = "video";
                         break;
                     case "Audio":
-                        await client.PutAsync($"uploadfile/audio/{Username}/{FileName}", convertedForm);
+                        type = "audio";
                         break;
                     case "Visual":
-                        await client.PutAsync($"uploadfile/pictures/{Username}/{FileName}", convertedForm);
+                        type = "visual";
                         break;
+                }
+                try
+                {
+                    await service.UploadNewFile(type, FileName, convertedForm);
+                    FilePath = null;
+                    await nag.NaviagteToAsync(nameof(HomeMediaPage));
+
+                }
+                catch (Exception ex)
+                {
+                    Output = ex.ToString();
                 }
            }
            else
