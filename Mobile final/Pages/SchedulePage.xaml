@@ -12,11 +12,11 @@
                                
                                />
         <ImageButton
-            Source="plussolid.svg"
-            HeightRequest="50"
-            WidthRequest="50"
+            Source="plus.svg"
+            HeightRequest="55"
+            WidthRequest="55"
             HorizontalOptions="End"
-            Margin="25"
+            Margin="20"
             Padding="8"
             CornerRadius="25"
             BackgroundColor="#D97AF1"
