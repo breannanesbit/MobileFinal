@@ -7,6 +7,7 @@ using Mobile_final.Pages;
 using Mobile_final.Services;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
+using Mobile_final.Pages.popups;
 //using Mobile_final.Auth0;
 
 namespace Mobile_final;
@@ -63,6 +64,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<ProfileViewModel>();
         builder.Services.AddSingleton<HomeMediaViewModel>();
         builder.Services.AddSingleton<PlayMediaViewModel>();
+        builder.Services.AddSingleton<SchedulePopUpViewModel>();
+        builder.Services.AddSingleton<SchedulePopUpContent>();
         builder.Services.AddSingleton<UserService>();
         builder.Services.AddSingleton<UploadService>();
         builder.Services.AddSingleton<AppointmentService>();
