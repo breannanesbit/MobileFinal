@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.AspNetCore.Http;
+using Mobile_final.Pages;
 using Mobile_final.Services;
 
 namespace Mobile_final.ViewModels
@@ -15,10 +16,12 @@ namespace Mobile_final.ViewModels
     {
         private readonly HttpClient client;
         private readonly UploadService service;
+        private readonly INavigationService nag;
 
-        public UploadFileViewModel(UploadService service)
+        public UploadFileViewModel(UploadService service, INavigationService nag)
         {
             this.service = service;
+            this.nag = nag;
         }
         [ObservableProperty]
         private string filePath;
@@ -97,8 +100,8 @@ namespace Mobile_final.ViewModels
                 try
                 {
                     await service.UploadNewFile(type, FileName, convertedForm);
-                    Output = "File Uploaded";
                     FilePath = null;
+                    await nag.NaviagteToAsync(nameof(HomeMediaPage));
 
                 }
                 catch (Exception ex)

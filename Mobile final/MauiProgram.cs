@@ -81,6 +81,7 @@ public static class MauiProgram
         builder.Logging.AddDebug();
 #endif
         Routing.RegisterRoute(nameof(PlayMediaPage), typeof(PlayMediaPage));  
+        Routing.RegisterRoute(nameof(HomeMediaPage), typeof(HomeMediaPage));
 
         return builder.Build();
     }
