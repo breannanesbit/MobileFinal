@@ -12,14 +12,12 @@
                                
                                />
         <ImageButton
-            Source="plus.svg"
-            HeightRequest="55"
-            WidthRequest="55"
+            Source="plus.png"
+            HeightRequest="80"
+            WidthRequest="80"
             HorizontalOptions="End"
             Margin="20"
             Padding="8"
-            CornerRadius="25"
-            BackgroundColor="#D97AF1"
             Command="{Binding AddEventPopUpCommand}"/>
 
     </VerticalStackLayout>
