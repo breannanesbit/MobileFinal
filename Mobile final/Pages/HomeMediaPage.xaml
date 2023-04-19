@@ -9,30 +9,36 @@
                                         Command="{Binding StartCommand}" />
     </ContentPage.Behaviors>
     <ScrollView>
-        
-   
-    <VerticalStackLayout>
-        <Label 
+
+
+        <VerticalStackLayout>
+            <Label 
             Text="Page Unintentionally left blank"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <CollectionView ItemsSource="{Binding VisualList}"
+            <CollectionView ItemsSource="{Binding VisualList}"
                         Header="Visual" 
                         >
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
                         RowDefinitions="*"
                         ColumnDefinitions="*,*">
-                        <Label
+                            <Label
                             Grid.Row="0"
                             Grid.Column="0"
-                            Text="{Binding MediaKey}"/>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                            Text="{Binding FileName}"/>
+                            <toolkit:MediaElement x:Name="mediaElement"
+                      ShouldAutoPlay="True"
+                      ShouldShowPlaybackControls="True"
+                      Source="{Binding MediaKey}"
+                      HeightRequest="600"
+                      WidthRequest="400" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
             <CollectionView ItemsSource="{Binding AudioList}"
                         Header="Audio" 
@@ -45,7 +51,13 @@
                             <Label
                             Grid.Row="0"
                             Grid.Column="0"
-                            Text="{Binding MediaKey}"/>
+                            Text="{Binding FileName}"/>
+                            <toolkit:MediaElement x:Name="mediaElement"
+                      ShouldAutoPlay="True"
+                      ShouldShowPlaybackControls="True"
+                      Source="{Binding MediaKey}"
+                      HeightRequest="600"
+                      WidthRequest="400" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -62,7 +74,8 @@
                             <Label
                             Grid.Row="0"
                             Grid.Column="0"
-                            Text="{Binding MediaKey}"/>
+                            Text="{Binding FileName}"/>
+                            <Image Source="{Binding MediaKey}"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
