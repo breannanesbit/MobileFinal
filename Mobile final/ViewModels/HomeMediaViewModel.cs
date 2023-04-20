@@ -30,17 +30,20 @@ namespace Mobile_final.ViewModels
                 if (media.Category.Category1 == "Videos")
                 {
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/videos/" + media.MediaKey;
+                    //media.UserName = media.User.Username;
                     VideoList.Add(media);
                 }
                 else if (media.Category.Category1 == "Audios")
                 {
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/audios/" + media.MediaKey;
+                    //media.UserName = media.User.Username;
                     AudioList.Add(media);
                
                 }
                 else if (media.Category.Category1 == "Pictures")
                 {
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/pictures/" + media.MediaKey;
+                    //media.UserName = media.User.Username;
                     VisualList.Add(media);
                 }
             }

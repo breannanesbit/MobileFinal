@@ -24,4 +24,6 @@ public partial class Media
     public virtual ICollection<Comment> Comments { get; } = new List<Comment>();
 
     public virtual User User { get; set; } = null!;
+
+   // public string UserName { get; set; }
 }
