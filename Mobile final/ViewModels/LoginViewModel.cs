@@ -49,8 +49,8 @@ public partial class LoginViewModel : ObservableObject
         [RelayCommand]
         public async Task Login()
         {
-            if (Microsoft.Maui.Devices.DeviceInfo.Platform == Microsoft.Maui.Devices.DevicePlatform.Android)
-            {
+            //if (Microsoft.Maui.Devices.DeviceInfo.Platform == Microsoft.Maui.Devices.DevicePlatform.Android)
+            //{
                 var loginResult = await auth0Client.LoginAsync();
 
                 if (!loginResult.IsError)
@@ -70,7 +70,7 @@ public partial class LoginViewModel : ObservableObject
 
             currentUser.Username = loginResult.User.Identity.Name;
             currentUser.AuthenticationID = loginResult.AccessToken;
-            }
+           // }
 
             Application.Current.MainPage = new AppShell();
         }

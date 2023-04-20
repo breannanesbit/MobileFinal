@@ -12,12 +12,11 @@ namespace Mobile_final.Services
     public class AppointmentService
     {
         private readonly HttpClient http;
-        private readonly CurrentUser current;
 
-        public AppointmentService(HttpClient http, CurrentUser current)
+        public AppointmentService(HttpClient http)
         {
             this.http = http;
-            this.current = current;
+       
         }
         public async Task CreateAppointment(Appointment appoint)
         {

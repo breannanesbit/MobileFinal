@@ -29,7 +29,7 @@ public static class MauiProgram
             });
 
         builder.Services.AddSingleton(c =>
-        { 
+        {
             var config = c.GetRequiredService<IConfiguration>();
             return new HttpClient()
             {
@@ -41,8 +41,8 @@ public static class MauiProgram
         var a = Assembly.GetExecutingAssembly();
         var m = a.Modules;
         var names = a.GetManifestResourceNames();
-        using var stream = a.GetManifestResourceStream("Mobile_final.appsettings.json"); 
-        var config = new ConfigurationBuilder().AddJsonStream(stream).Build(); 
+        using var stream = a.GetManifestResourceStream("Mobile_final.appsettings.json");
+        var config = new ConfigurationBuilder().AddJsonStream(stream).Build();
         builder.Configuration.AddConfiguration(config);
 
         //builder.Services.AddSingleton(c => new HttpClient()
@@ -76,13 +76,17 @@ public static class MauiProgram
             Domain = "dev-hpm6gkxhfq3nifhv.us.auth0.com",
             ClientId = "kXRZK1rKsIcu8ELWUhULepnbcqPwP2QT",
             Scope = "openid profile",
+#if WINDOWS
+            RedirectUri = "http://localhost/callback"
+#else
             RedirectUri = "myapp://callback"
+#endif
         }));
 
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
-        Routing.RegisterRoute(nameof(PlayMediaPage), typeof(PlayMediaPage));  
+        Routing.RegisterRoute(nameof(PlayMediaPage), typeof(PlayMediaPage));
         Routing.RegisterRoute(nameof(HomeMediaPage), typeof(HomeMediaPage));
 
         return builder.Build();

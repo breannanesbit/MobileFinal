@@ -6,11 +6,16 @@ namespace Mobile_final;
 
 public partial class MainPage : ContentPage
 {
-	public MainPage(LoginViewModel model)
-	{
+    private readonly Auth0Client auth0Client;
+    public MainPage(LoginViewModel model, Auth0Client client)
+    {
         InitializeComponent();
         BindingContext = model;
+        auth0Client= client;
+
+#if WINDOWS
+    auth0Client.Browser = new WebViewBrowserAuthenticator(WebViewInstance);
+#endif
     }
 
 }
-    
