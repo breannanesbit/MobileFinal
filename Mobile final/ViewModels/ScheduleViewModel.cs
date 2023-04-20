@@ -25,12 +25,7 @@ namespace Mobile_final.ViewModels
             this.userService = userService;
         }
 
-        public ScheduleViewModel(AppointmentService appointmentService, UserService userService)
-        {
-            this.appointmentService = appointmentService;
-            this.userService = userService;
-        }
-
+        
         [RelayCommand]
         public async void AddEventPopUp()
         {
