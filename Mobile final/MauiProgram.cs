@@ -33,7 +33,8 @@ public static class MauiProgram
             var config = c.GetRequiredService<IConfiguration>();
             return new HttpClient()
             {
-                BaseAddress = new Uri(config["ApiAddress"])
+                //BaseAddress = new Uri(config["ApiAddress"])
+                BaseAddress = new Uri("https://multimediaapi.azurewebsites.net")
             };
         });
 

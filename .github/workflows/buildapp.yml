@@ -37,13 +37,18 @@ jobs:
             run: dotnet restore ./'Mobile final'/'Mobile final'.csproj
 
           - name: Build MAUI Android
-            run: dotnet build ./'Mobile final'/'Mobile final'.csproj -c Release -f net7.0-android --no-restore
+            run: | 
+              dotnet build ./'Mobile final'/'Mobile final'.csproj -c Release -f net7.0-android --no-restore
+              dir ./'Mobile final'
+              dir ./'Mobile final'/bin
+              dir ./'Mobile final'/bin/Release
+              dir ./'Mobile final'/bin/Release/net7.0-android
 
           - name: Upload Android Artifact
             uses: actions/upload-artifact@v2.3.1
             with:
               name: android-ci-build
-              path: ./'Mobile final'/bin/Release/net7.0-android/*Signed.a*
+              path: com.companyname.mobile_final-Signed.apk
 
     build-windows:
         runs-on: windows-2022
@@ -77,6 +82,6 @@ jobs:
             uses: actions/upload-artifact@v2.3.1
             with:
               name: windows-ci-build
-              path: src/'Mobile final'/bin/Release/net7.0-windows*/**/'Mobile final'*.msix
+              path: ./'Mobile final'/bin/Release/net7.0-windows10.0.19041.0/wind10-x64/AppPackages/'Mobile final'_1.0.0.1_Test/'Mobile final'_1.0.0.1_x64
 
     #https://blog.taranissoftware.com/build-net-maui-apps-with-github-actions

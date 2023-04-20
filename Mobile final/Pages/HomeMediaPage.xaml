@@ -12,33 +12,38 @@
 
 
         <VerticalStackLayout>
-            <Label 
-            Text="Page Unintentionally left blank"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
 
+            <Label
+                Text="Visual Art"
+                FontSize="30"/>
             <CollectionView ItemsSource="{Binding VisualList}"
-                        Header="Visual" 
-                        >
+                  >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid
-                        RowDefinitions="*"
+                        RowDefinitions="*,*,*"
                         ColumnDefinitions="*,*">
                             <Label
-                            Grid.Row="0"
+                                Margin="5"
+                            Grid.Row="2"
                             Grid.Column="0"
                             Text="{Binding FileName}"/>
-                            <toolkit:MediaElement x:Name="mediaElement"
-                      ShouldAutoPlay="True"
-                      ShouldShowPlaybackControls="True"
-                      Source="{Binding MediaKey}"
-                      HeightRequest="600"
-                      WidthRequest="400" />
+                            
+                            <Image 
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Source="{Binding MediaKey}"/>
+                            
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <Label
+                Text="Audio Art"
+                FontSize="30"/>
 
             <CollectionView ItemsSource="{Binding AudioList}"
                         Header="Audio" 
@@ -46,22 +51,32 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid
-                        RowDefinitions="*"
+                        RowDefinitions="*,*,*"
                         ColumnDefinitions="*,*">
                             <Label
                             Grid.Row="0"
                             Grid.Column="0"
                             Text="{Binding FileName}"/>
                             <toolkit:MediaElement x:Name="mediaElement"
-                      ShouldAutoPlay="True"
+                      ShouldAutoPlay="False"
                       ShouldShowPlaybackControls="True"
                       Source="{Binding MediaKey}"
                       HeightRequest="600"
                       WidthRequest="400" />
+
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Text="{Binding FileName}"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <Label
+                Text="Video Art"
+                FontSize="30"/>
 
             <CollectionView ItemsSource="{Binding VideoList}"
                         Header="Video" 
@@ -69,13 +84,24 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid
-                        RowDefinitions="*"
+                        RowDefinitions="*,*,*"
                         ColumnDefinitions="*,*">
                             <Label
                             Grid.Row="0"
                             Grid.Column="0"
+                                Grid.ColumnSpan="2"
                             Text="{Binding FileName}"/>
-                            <Image Source="{Binding MediaKey}"/>
+                            <toolkit:MediaElement x:Name="mediaElement"
+                      ShouldAutoPlay="False"
+                      ShouldShowPlaybackControls="True"
+                      Source="{Binding MediaKey}"
+                      HeightRequest="600"
+                      WidthRequest="400" />
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Text="{Binding FileName}"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

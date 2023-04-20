@@ -19,13 +19,13 @@ namespace Mobile_final.ViewModels
         private readonly UserService userService;
         public ContentPage Page { get; set; } = new();
         public ObservableCollection<SchedulerAppointment> Events { get; set; }
-
         public ScheduleViewModel(AppointmentService appointmentService, UserService userService)
         {
             this.appointmentService = appointmentService;
             this.userService = userService;
         }
 
+        
         [RelayCommand]
         public async void AddEventPopUp()
         {
