@@ -25,8 +25,10 @@ namespace Mobile_final.ViewModels
         public async Task Start()
         {
             var latestMediaList = await service.GetMostRecentUploaded();
+            var userList = await service.GetAllUsers();
             foreach (var media in latestMediaList)
             {
+                media.User = userList.Find(m => m.Id == media.UserId);
                 if (media.Category.Category1 == "Videos")
                 {
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/videos/" + media.MediaKey;

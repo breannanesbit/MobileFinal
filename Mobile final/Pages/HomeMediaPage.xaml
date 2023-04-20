@@ -20,29 +20,38 @@
                   >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
+                          <Border
+                              Stroke="#D97AF1">
                         <Grid
-                        RowDefinitions="*,*,*"
-                        ColumnDefinitions="*,*">
+                              
+                            RowDefinitions="*,*,*"
+                            ColumnDefinitions="2*,*"
+                            Margin="20">
                             <Label
                                 Grid.Row="2"
                                 Grid.Column="0"
-                                Text="{Binding UserName}"
-                                HorizontalOptions="Center"/>
+                                Text="{Binding User.Username}"
+                                Margin="10"/>
                             <Label
-                                Margin="5"
+                                Margin="10"
                                 Grid.Row="2"
                                 Grid.Column="1"
                                 Text="{Binding FileName}"
-                                HorizontalOptions="Center"/>
+                                HorizontalOptions="Center"
+                                />
+
                             
+                                
                             <Image 
                                 Grid.Row="0"
                                 Grid.RowSpan="2"
                                 Grid.Column="0"
                                 Grid.ColumnSpan="2"
                                 Source="{Binding MediaKey}"/>
+                           
                             
                         </Grid>
+                            </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -55,13 +64,17 @@
                         >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid
-                        RowDefinitions="*,*,*"
-                        ColumnDefinitions="*,*">
+                        <Border
+                            Stroke="#D97AF1">
+
+                            <Grid
+                                Margin="20"
+                                RowDefinitions="*,*,*"
+                                ColumnDefinitions="*,*">
                             <Label
                                 Grid.Row="2"
                                 Grid.Column="0"
-                                Text="{Binding UserName}"
+                                Text="{Binding User.Username}"
                                 HorizontalOptions="Center"/>
                             <Label
                                 Grid.Row="2"
@@ -80,6 +93,7 @@
                                 WidthRequest="400" />
 
                         </Grid>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -92,9 +106,13 @@
                         >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
+                        <Border
+                              Stroke="#D97AF1">
+                            
                         <Grid
-                        RowDefinitions="*,*,*"
-                        ColumnDefinitions="*,*">
+                            RowDefinitions="*,*,*"
+                            ColumnDefinitions="*,*"
+                            Margin="20">
                             <toolkit:MediaElement 
                                 Grid.Row="0"
                                 Grid.Column="0"
@@ -114,9 +132,10 @@
                             <Label
                                 Grid.Row="2"
                                 Grid.Column="0"
-                                Text="{Binding UserName}"
+                                Text="{Binding User.Username}"
                                 HorizontalOptions="Center"/>
                         </Grid>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
