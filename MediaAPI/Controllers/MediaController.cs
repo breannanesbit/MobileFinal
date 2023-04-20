@@ -122,17 +122,23 @@ namespace MediaAPI.Controllers
             return database.GetMediaByUsername(username);
         }
 
-        [HttpGet("getlatestmedia")]
+        [HttpGet("v1/getlatestmedia")]
         public async Task<List<Media>> GetLatestMediaAsync()
         {
             return await database.GetLatestMediaAsync();
         }
 
-       /* [HttpGet("test/{test}")]
-        public long SquareNumber(int test)
+        [HttpGet("v2/getlatestmedia/{count}")]
+        public async Task<List<Media>> GetLatestMediaDynamicCountAsync(int count)
         {
-            var newtest = (long)test;
-            return newtest * newtest;
-        }*/
+            return await database.GetLatestMediaAsync(count);
+        }
+
+        /* [HttpGet("test/{test}")]
+         public long SquareNumber(int test)
+         {
+             var newtest = (long)test;
+             return newtest * newtest;
+         }*/
     }
 }

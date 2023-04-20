@@ -135,5 +135,10 @@ namespace MediaAPI.services
                 Context.SaveChanges();
             }
         }
+
+        public async Task<List<Media>> GetLatestMediaAsync(int count)
+        {
+            return await Context.Media.Include(m => m.Category).Include(n => n.User).Where(n => n.User.Id == n.UserId).OrderByDescending(m => m.DateUpload).Take(count).ToListAsync();
+        }
     }
 }

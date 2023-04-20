@@ -59,7 +59,7 @@ namespace Mobile_final.Services
 
         internal async Task<List<Media>> GetMostRecentUploaded()
         {
-            var mediaList = await http.GetFromJsonAsync<List<Media>>($"/media/getlatestmedia");
+            var mediaList = await http.GetFromJsonAsync<List<Media>>($"/media/v1/getlatestmedia");
             return mediaList;
         }
 
