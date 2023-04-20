@@ -6,7 +6,8 @@ public partial class SchedulePage : ContentPage
 {
 	public SchedulePage(ScheduleViewModel vm)
 	{
-		InitializeComponent();
 		BindingContext= vm;
+		vm.Page = this;
+		InitializeComponent();
 	}
 }

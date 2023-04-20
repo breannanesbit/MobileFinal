@@ -24,10 +24,16 @@
                         RowDefinitions="*,*,*"
                         ColumnDefinitions="*,*">
                             <Label
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Text="{Binding UserName}"
+                                HorizontalOptions="Center"/>
+                            <Label
                                 Margin="5"
-                            Grid.Row="2"
-                            Grid.Column="0"
-                            Text="{Binding FileName}"/>
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="{Binding FileName}"
+                                HorizontalOptions="Center"/>
                             
                             <Image 
                                 Grid.Row="0"
@@ -46,7 +52,6 @@
                 FontSize="30"/>
 
             <CollectionView ItemsSource="{Binding AudioList}"
-                        Header="Audio" 
                         >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -54,21 +59,26 @@
                         RowDefinitions="*,*,*"
                         ColumnDefinitions="*,*">
                             <Label
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Text="{Binding FileName}"/>
-                            <toolkit:MediaElement x:Name="mediaElement"
-                      ShouldAutoPlay="False"
-                      ShouldShowPlaybackControls="True"
-                      Source="{Binding MediaKey}"
-                      HeightRequest="600"
-                      WidthRequest="400" />
-
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Text="{Binding UserName}"
+                                HorizontalOptions="Center"/>
                             <Label
-                                Grid.Row="3"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="{Binding FileName}"
+                                HorizontalOptions="Center"/>
+                            <toolkit:MediaElement 
+                                Grid.Row="0"
                                 Grid.Column="0"
                                 Grid.ColumnSpan="2"
-                                Text="{Binding FileName}"/>
+                                x:Name="mediaElement"
+                                ShouldAutoPlay="False"
+                                ShouldShowPlaybackControls="True"
+                                Source="{Binding MediaKey}"
+                                HeightRequest="600"
+                                WidthRequest="400" />
+
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -79,29 +89,33 @@
                 FontSize="30"/>
 
             <CollectionView ItemsSource="{Binding VideoList}"
-                        Header="Video" 
                         >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid
                         RowDefinitions="*,*,*"
                         ColumnDefinitions="*,*">
-                            <Label
-                            Grid.Row="0"
-                            Grid.Column="0"
-                                Grid.ColumnSpan="2"
-                            Text="{Binding FileName}"/>
-                            <toolkit:MediaElement x:Name="mediaElement"
-                      ShouldAutoPlay="False"
-                      ShouldShowPlaybackControls="True"
-                      Source="{Binding MediaKey}"
-                      HeightRequest="600"
-                      WidthRequest="400" />
-                            <Label
-                                Grid.Row="3"
+                            <toolkit:MediaElement 
+                                Grid.Row="0"
                                 Grid.Column="0"
                                 Grid.ColumnSpan="2"
-                                Text="{Binding FileName}"/>
+                                x:Name="mediaElement"
+                                ShouldAutoPlay="False"
+                                ShouldShowPlaybackControls="True"
+                                Source="{Binding MediaKey}"
+                                HeightRequest="600"
+                                WidthRequest="400" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Text="{Binding FileName}"
+                                HorizontalOptions="Center"/>
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Text="{Binding UserName}"
+                                HorizontalOptions="Center"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

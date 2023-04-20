@@ -65,8 +65,6 @@ public static class MauiProgram
         builder.Services.AddSingleton<ProfileViewModel>();
         builder.Services.AddSingleton<HomeMediaViewModel>();
         builder.Services.AddSingleton<PlayMediaViewModel>();
-        builder.Services.AddSingleton<SchedulePopUpViewModel>();
-        builder.Services.AddSingleton<SchedulePopUpContent>();
         builder.Services.AddSingleton<UserService>();
         builder.Services.AddSingleton<UploadService>();
         builder.Services.AddSingleton<AppointmentService>();

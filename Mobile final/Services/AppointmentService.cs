@@ -22,5 +22,10 @@ namespace Mobile_final.Services
         {
             await http.PostAsJsonAsync<Appointment>($"/appointment/AddAppointment", appoint);
         }
+
+        public async Task<List<Appointment>> GetAllAppointments()
+        {
+           return await http.GetFromJsonAsync<List<Appointment>>($"/appointment/getappointments");
+        }
     }
 }
