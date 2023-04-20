@@ -50,7 +50,7 @@ namespace MediaAPI.Controllers
             return blobName;
         }*/
 
-        [HttpPost("uploadfile/{type}/{username}/{filename}")]
+        [HttpPost("v1/uploadfile/{type}/{username}/{filename}")]
         public async Task UploadAnyFile(string username, string type, string filename, IFormFile file)
         {
             string mediaBlobClient = "";
@@ -82,6 +82,33 @@ namespace MediaAPI.Controllers
            // return blobName;
         }
 
+        [HttpPost("v2/uploadfile/{type}/{username}/{filename}")]
+        public async Task UploadAnyFileButAudio(string username, string type, string filename, IFormFile file)
+        {
+            string mediaBlobClient = "";
+            string mediaCategory = "";
+            int categoryId;
+            switch (type)
+            {
+                case "video":
+                    mediaBlobClient = "video";
+                    mediaCategory = "Videos";
+                    categoryId = 1;
+                    break;
+                case "visual":
+                    mediaBlobClient = "visual";
+                    mediaCategory = "Pictures";
+                    categoryId = 3;
+                    break;
+                default:
+                    Console.Write("Error: Not an accepted format");
+                    break;
+            }
+            string blobName = await mediaHelpSource.AddMedia(file, username, mediaBlobClient, mediaCategory, filename);
+
+            // return blobName;
+        }
+
 
         [HttpGet("category/{categoryId}")]
          public async Task<Category> GetCategory(int categoryId)
@@ -95,17 +122,23 @@ namespace MediaAPI.Controllers
             return database.GetMediaByUsername(username);
         }
 
-        [HttpGet("getlatestmedia")]
+        [HttpGet("v1/getlatestmedia")]
         public async Task<List<Media>> GetLatestMediaAsync()
         {
             return await database.GetLatestMediaAsync();
         }
 
-       /* [HttpGet("test/{test}")]
-        public long SquareNumber(int test)
+        [HttpGet("v2/getlatestmedia/{count}")]
+        public async Task<List<Media>> GetLatestMediaDynamicCountAsync(int count)
         {
-            var newtest = (long)test;
-            return newtest * newtest;
-        }*/
+            return await database.GetLatestMediaAsync(count);
+        }
+
+        /* [HttpGet("test/{test}")]
+         public long SquareNumber(int test)
+         {
+             var newtest = (long)test;
+             return newtest * newtest;
+         }*/
     }
 }

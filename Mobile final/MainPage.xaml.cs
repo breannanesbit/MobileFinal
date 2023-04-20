@@ -15,7 +15,16 @@ public partial class MainPage : ContentPage
 
 #if WINDOWS
     auth0Client.Browser = new WebViewBrowserAuthenticator(WebViewInstance);
+     //model.Login();
 #endif
+    }
+
+    public async Task IfWindows(LoginViewModel model, Auth0Client auth0Client)
+    {
+
+        var loginResult = await auth0Client.LoginAsync();
+        model.currentUser.Username = loginResult.User.Identity.Name;
+        model.currentUser.AuthenticationID = loginResult.AccessToken;
     }
 
 }
