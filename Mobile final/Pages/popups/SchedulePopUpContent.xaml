@@ -11,6 +11,7 @@
                 <Label
                     Grid.Row="0"
                     Grid.Column="0"
+                    Grid.ColumnSpan="2"
                     FontSize="25"
                     Text="Make an appointment"
                     HorizontalOptions="Center"/>

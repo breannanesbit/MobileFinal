@@ -2,16 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Mobile_final.Pages.SchedulePage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              Title="SCHEDULE">
+        <ContentPage.Behaviors>
+            <toolkit:EventToCommandBehavior EventName="Loaded"
+                                        Command="{Binding StartCommand}" />
+        </ContentPage.Behaviors>
+        <ScrollView>
     <VerticalStackLayout>
-        
+            
+
+
         <scheduler:SfScheduler x:Name="Scheduler" 
                                View="Month"
                                AppointmentsSource="{Binding Events}"
                                
                                />
-        <ImageButton
+            <ImageButton
             Source="plus.png"
             HeightRequest="80"
             WidthRequest="80"
@@ -20,5 +28,8 @@
             Padding="8"
             Command="{Binding AddEventPopUpCommand}"/>
 
+
+
     </VerticalStackLayout>
+        </ScrollView>
 </ContentPage>

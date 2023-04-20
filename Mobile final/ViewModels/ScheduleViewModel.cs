@@ -18,11 +18,33 @@ namespace Mobile_final.ViewModels
         private readonly AppointmentService appointmentService;
         private readonly UserService userService;
         public ContentPage Page { get; set; } = new();
-        public ObservableCollection<SchedulerAppointment> Events { get; set; }
+        public ObservableCollection<SchedulerAppointment> Events { get; set; } = new();
         public ScheduleViewModel(AppointmentService appointmentService, UserService userService)
         {
             this.appointmentService = appointmentService;
             this.userService = userService;
+        }
+
+        [RelayCommand]
+        public async void Start()
+        {
+            var appointmentList = await appointmentService.GetAllAppointments();
+            foreach (var appointment in appointmentList)
+            {
+                var sa = new SchedulerAppointment()
+                {
+                    StartTime = appointment.StartTime,
+                    EndTime = appointment.EndTime,
+                    Notes = appointment.Description,
+                    Id = appointment.UserId,
+                    IsAllDay = false,
+                    Subject = "subject",
+                    Location = "studio",
+                  
+                };
+
+                Events.Add(sa);
+            }
         }
 
         
