@@ -16,7 +16,7 @@ namespace Mobile_final.ViewModels;
 public partial class LoginViewModel : ObservableObject
 {
     private readonly Auth0Client auth0Client;
-    private readonly CurrentUser currentUser;
+    public readonly CurrentUser currentUser;
     private readonly UserService service;
 
     public LoginViewModel(Auth0Client client, CurrentUser currentUser, UserService service)

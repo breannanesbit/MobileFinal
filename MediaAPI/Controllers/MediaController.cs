@@ -50,7 +50,7 @@ namespace MediaAPI.Controllers
             return blobName;
         }*/
 
-        [HttpPost("uploadfile/{type}/{username}/{filename}")]
+        [HttpPost("v1/uploadfile/{type}/{username}/{filename}")]
         public async Task UploadAnyFile(string username, string type, string filename, IFormFile file)
         {
             string mediaBlobClient = "";
@@ -80,6 +80,33 @@ namespace MediaAPI.Controllers
             string blobName = await mediaHelpSource.AddMedia(file, username, mediaBlobClient, mediaCategory, filename);
 
            // return blobName;
+        }
+
+        [HttpPost("v2/uploadfile/{type}/{username}/{filename}")]
+        public async Task UploadAnyFileButAudio(string username, string type, string filename, IFormFile file)
+        {
+            string mediaBlobClient = "";
+            string mediaCategory = "";
+            int categoryId;
+            switch (type)
+            {
+                case "video":
+                    mediaBlobClient = "video";
+                    mediaCategory = "Videos";
+                    categoryId = 1;
+                    break;
+                case "visual":
+                    mediaBlobClient = "visual";
+                    mediaCategory = "Pictures";
+                    categoryId = 3;
+                    break;
+                default:
+                    Console.Write("Error: Not an accepted format");
+                    break;
+            }
+            string blobName = await mediaHelpSource.AddMedia(file, username, mediaBlobClient, mediaCategory, filename);
+
+            // return blobName;
         }
 
 
