@@ -75,7 +75,7 @@ public static class MauiProgram
         {
             Domain = "dev-hpm6gkxhfq3nifhv.us.auth0.com",
             ClientId = "kXRZK1rKsIcu8ELWUhULepnbcqPwP2QT",
-            Scope = "openid profile",
+            Scope = "openid profile email",
 #if WINDOWS
             RedirectUri = "http://localhost/callback"
 #else
