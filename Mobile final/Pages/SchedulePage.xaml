@@ -5,17 +5,18 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              Title="SCHEDULE">
-        <ContentPage.Behaviors>
-            <toolkit:EventToCommandBehavior EventName="Loaded"
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Loaded"
                                         Command="{Binding StartCommand}" />
-        </ContentPage.Behaviors>
-        <ScrollView>
-    <VerticalStackLayout>
-            
+    </ContentPage.Behaviors>
+    <ScrollView>
+        <VerticalStackLayout>
 
 
-        <scheduler:SfScheduler x:Name="Scheduler" 
-                               View="Month"
+
+            <scheduler:SfScheduler x:Name="Scheduler" 
+                               View="Week"
+                               AllowedViews="Day,Week"
                                AppointmentsSource="{Binding Events}"
                                
                                />
@@ -30,6 +31,6 @@
 
 
 
-    </VerticalStackLayout>
-        </ScrollView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

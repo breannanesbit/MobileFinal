@@ -33,8 +33,8 @@ public static class MauiProgram
             var config = c.GetRequiredService<IConfiguration>();
             return new HttpClient()
             {
-                BaseAddress = new Uri(config["ApiAddress"])
-                //BaseAddress = new Uri("https://multimediaapi.azurewebsites.net")
+                //BaseAddress = new Uri(config["ApiAddress"])
+                BaseAddress = new Uri("https://multimediaapi.azurewebsites.net")
             };
         });
 
@@ -75,7 +75,7 @@ public static class MauiProgram
         {
             Domain = "dev-hpm6gkxhfq3nifhv.us.auth0.com",
             ClientId = "kXRZK1rKsIcu8ELWUhULepnbcqPwP2QT",
-            Scope = "openid profile",
+            Scope = "openid profile email",
 #if WINDOWS
             RedirectUri = "http://localhost/callback"
 #else
