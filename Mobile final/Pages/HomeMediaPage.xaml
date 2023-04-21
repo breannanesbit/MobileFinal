@@ -17,17 +17,18 @@
                 Text="Visual Art"
                 FontSize="30"/>
             <CollectionView ItemsSource="{Binding VisualList}"
+                            x:Name="visualListView"
                   >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                          <Border
+                        <Border
                               Stroke="#D97AF1">
                         <Grid
                               
                             RowDefinitions="2*,*,*,*,*"
                             ColumnDefinitions="2*,*"
                             Margin="20">
-                            <Label
+                                <Label
                                 Grid.Row="2"
                                 Grid.Column="0"
                                 Text="{Binding User.Username}"
@@ -59,8 +60,15 @@
                                     Grid.Column="1"
                                     Grid.Row="4"
                                     HorizontalOptions="End"
-                                    Command="{Binding SubmitCommentCommand}"
-                                    CommandParameter="{Binding Id}"/>
+                                    Command="{Binding Path=BindingContext.SubmitCommentCommand, Source=VisualListView}"
+                                    CommandParameter="{Binding .}"/>
+                                <Button
+                                    Grid.Column="0"
+                                    Grid.Row="4"
+                                    Text="test"
+                                    Command="{Binding Path=BindingContext.SubmitCommentCommand, Source=visualListView}"
+                                    CommandParameter="{Binding .}"
+                                    />
 
 
                             </Grid>
@@ -151,7 +159,6 @@
                             <Label
                                 Grid.Row="2"
                                 Grid.Column="1"
-                                Grid.ColumnSpan="2"
                                 Text="{Binding FileName}"
                                 HorizontalOptions="Center"/>
                             <Label
@@ -167,6 +174,8 @@
                                     Text="{Binding Comment}"/>
                                 <ImageButton
                                     Source="plus.png"
+                                    HeightRequest="40"
+                                    WidthRequest="40"
                                     Grid.Column="1"
                                     Grid.Row="4"
                                     HorizontalOptions="End"
