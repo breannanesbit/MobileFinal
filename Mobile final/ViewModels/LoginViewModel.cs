@@ -46,34 +46,34 @@ public partial class LoginViewModel : ObservableObject
         await service.NewUserEntry(FirstName, LastName, username);
     }
 
-        [RelayCommand]
-        public async Task Login()
+    [RelayCommand]
+    public async Task Login()
+    {
+        //if (Microsoft.Maui.Devices.DeviceInfo.Platform == Microsoft.Maui.Devices.DevicePlatform.Android)
+        //{
+        var loginResult = await auth0Client.LoginAsync();
+
+        if (!loginResult.IsError)
         {
-            //if (Microsoft.Maui.Devices.DeviceInfo.Platform == Microsoft.Maui.Devices.DevicePlatform.Android)
-            //{
-                var loginResult = await auth0Client.LoginAsync();
-
-                if (!loginResult.IsError)
-                {
-                    LoginView = false;
-                }
-                else
-                {
-                    Console.WriteLine("Error", loginResult.ErrorDescription, "OK");
-                }
-
-                if (FirstName != null && LastName != null)
-                {
-                    await AddUserToDatabase(loginResult.User.Identity.Name);
-
-                }
-
-            currentUser.Username = loginResult.User.Identity.Name;
-            currentUser.AuthenticationID = loginResult.AccessToken;
-           // }
-
-            Application.Current.MainPage = new AppShell();
+            LoginView = false;
         }
+        else
+        {
+            Console.WriteLine("Error", loginResult.ErrorDescription, "OK");
+        }
+
+        if (FirstName != null && LastName != null)
+        {
+            await AddUserToDatabase(loginResult.User.Identity.Name);
+
+        }
+
+        currentUser.Username = loginResult.User.Claims.FirstOrDefault(c => c.Type == "email").Value;
+        currentUser.AuthenticationID = loginResult.AccessToken;
+        // }
+
+        Application.Current.MainPage = new AppShell();
+    }
 
 
 }

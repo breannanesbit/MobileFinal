@@ -8,5 +8,6 @@ public partial class PlayMediaPage : ContentPage
 	{
 		InitializeComponent();
 		BindingContext = viewModel;
+		Shell.SetTabBarIsVisible(this, false);
 	}
 }
