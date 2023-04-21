@@ -100,7 +100,7 @@ namespace MediaAPI.services
 
         public async Task<List<Media>> GetLatestMediaAsync()
         {
-            return await Context.Media.Include(m => m.Category).Include(n => n.User).Where(n => n.User.Id == n.UserId).OrderByDescending(m => m.DateUpload).Take(15).ToListAsync();
+            return await Context.Media.Include(m => m.Category).OrderByDescending(m => m.DateUpload).Take(15).ToListAsync();
         }
 
         public Category GetCategoryById(int categoryId)

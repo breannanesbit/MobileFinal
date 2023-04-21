@@ -20,29 +20,51 @@
                   >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
+                          <Border
+                              Stroke="#D97AF1">
                         <Grid
-                        RowDefinitions="*,*,*"
-                        ColumnDefinitions="*,*">
+                              
+                            RowDefinitions="2*,*,*,*,*"
+                            ColumnDefinitions="2*,*"
+                            Margin="20">
                             <Label
                                 Grid.Row="2"
                                 Grid.Column="0"
-                                Text="{Binding UserName}"
-                                HorizontalOptions="Center"/>
-                            <Label
-                                Margin="5"
+                                Text="{Binding User.Username}"
+                                Margin="10"/>
+                                <Label
+                                Margin="10"
                                 Grid.Row="2"
                                 Grid.Column="1"
                                 Text="{Binding FileName}"
-                                HorizontalOptions="Center"/>
-                            
-                            <Image 
+                                HorizontalOptions="Center"
+                                />
+                                <Image 
                                 Grid.Row="0"
                                 Grid.RowSpan="2"
                                 Grid.Column="0"
                                 Grid.ColumnSpan="2"
                                 Source="{Binding MediaKey}"/>
-                            
-                        </Grid>
+
+                                <Editor
+                                    Grid.Row="3"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Placeholder="Enter in comment"
+                                    Text="{Binding Comment}"/>
+                                <ImageButton
+                                    HeightRequest="40"
+                                    WidthRequest="40"
+                                    Source="plus.png"
+                                    Grid.Column="1"
+                                    Grid.Row="4"
+                                    HorizontalOptions="End"
+                                    Command="{Binding SubmitCommentCommand}"
+                                    CommandParameter="{Binding Id}"/>
+
+
+                            </Grid>
+                            </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -55,13 +77,17 @@
                         >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid
-                        RowDefinitions="*,*,*"
-                        ColumnDefinitions="*,*">
+                        <Border
+                            Stroke="#D97AF1">
+
+                            <Grid
+                                Margin="20"
+                                RowDefinitions="2*,*,*,*,*"
+                                ColumnDefinitions="*,*">
                             <Label
                                 Grid.Row="2"
                                 Grid.Column="0"
-                                Text="{Binding UserName}"
+                                Text="{Binding User.Username}"
                                 HorizontalOptions="Center"/>
                             <Label
                                 Grid.Row="2"
@@ -78,8 +104,21 @@
                                 Source="{Binding MediaKey}"
                                 HeightRequest="600"
                                 WidthRequest="400" />
+                            <Editor
+                                    Grid.Row="3"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Placeholder="Enter in comment"
+                                    Text="{Binding Comment}"/>
+                            <ImageButton
+                                    Source="plus.png"
+                                    Grid.Column="1"
+                                    Grid.Row="4"
+                                    HorizontalOptions="End"
+                                    Command="{Binding SubmitCommentCommand}"/>
 
-                        </Grid>
+                            </Grid>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -92,9 +131,13 @@
                         >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
+                        <Border
+                              Stroke="#D97AF1">
+                            
                         <Grid
-                        RowDefinitions="*,*,*"
-                        ColumnDefinitions="*,*">
+                            RowDefinitions="*,*,*"
+                            ColumnDefinitions="*,*"
+                            Margin="20">
                             <toolkit:MediaElement 
                                 Grid.Row="0"
                                 Grid.Column="0"
@@ -114,9 +157,22 @@
                             <Label
                                 Grid.Row="2"
                                 Grid.Column="0"
-                                Text="{Binding UserName}"
+                                Text="{Binding User.Username}"
                                 HorizontalOptions="Center"/>
-                        </Grid>
+                                <Editor
+                                    Grid.Row="3"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Placeholder="Enter in comment"
+                                    Text="{Binding Comment}"/>
+                                <ImageButton
+                                    Source="plus.png"
+                                    Grid.Column="1"
+                                    Grid.Row="4"
+                                    HorizontalOptions="End"
+                                    Command="{Binding SubmitCommentCommand}"/>
+                            </Grid>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

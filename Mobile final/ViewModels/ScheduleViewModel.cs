@@ -31,6 +31,7 @@ namespace Mobile_final.ViewModels
             var appointmentList = await appointmentService.GetAllAppointments();
             foreach (var appointment in appointmentList)
             {
+
                 var sa = new SchedulerAppointment()
                 {
                     StartTime = appointment.StartTime,
