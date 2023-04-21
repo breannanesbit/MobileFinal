@@ -21,6 +21,9 @@ namespace Mobile_final.ViewModels
             this.service = service;
         }
 
+        [ObservableProperty]
+        private string comment;
+
         [RelayCommand]
         public async Task Start()
         {
@@ -49,6 +52,13 @@ namespace Mobile_final.ViewModels
                     VisualList.Add(media);
                 }
             }
+        }
+
+        [RelayCommand]
+        public async void SubmitComment(int mediaid)
+        {
+            await service.SubmitComment(mediaid, Comment);
+            Comment = null;
         }
     }
 }
