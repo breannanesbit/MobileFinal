@@ -18,7 +18,9 @@ namespace Mobile_final.ViewModels
         private readonly AppointmentService appointmentService;
         private readonly UserService userService;
         public ContentPage Page { get; set; } = new();
-        public ObservableCollection<SchedulerAppointment> Events { get; set; } = new();
+
+        [ObservableProperty]
+        private ObservableCollection<SchedulerAppointment> events;
         public ScheduleViewModel(AppointmentService appointmentService, UserService userService)
         {
             this.appointmentService = appointmentService;
@@ -28,6 +30,7 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async void Start()
         {
+            Events = new();
             var appointmentList = await appointmentService.GetAllAppointments();
             foreach (var appointment in appointmentList)
             {
@@ -39,8 +42,7 @@ namespace Mobile_final.ViewModels
                     Notes = appointment.Description,
                     Id = appointment.UserId,
                     IsAllDay = false,
-                    Subject = "subject",
-                    Location = "studio",
+                    
                   
                 };
 
