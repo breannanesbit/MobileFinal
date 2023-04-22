@@ -77,14 +77,14 @@
                         <Label
                             Grid.Row="0"
                             Grid.Column="0"
-                            Text="{Binding MediaKey}"/>
+                            Text="{Binding FileName}"/>
                         <Button
                             BackgroundColor="LightGray"
                             Grid.Row="0"
                             Grid.Column="1"
                             Text="View"
                             Command="{Binding NavToPlayerCommand}"
-                            CommandParameter="{Binding .}"
+                            CommandParameter="{Binding MediaKey}"
                             HorizontalOptions="End"/>
                     </Grid>
                 </DataTemplate>

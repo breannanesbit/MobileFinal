@@ -48,7 +48,7 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task GetUser()
         {
-            var userList =  await service.GetCurrentUser();
+            var userList = await service.GetCurrentUser();
             FirstName = userList.FirstName;
             LastName = userList.LastName;
             UserName = userList.Username;
@@ -60,14 +60,13 @@ namespace Mobile_final.ViewModels
         public async Task Start()
         {
             GetUser();
-
             var mediaList = await service.GetUserMedia();
             /*var response = await client.GetAsync($"getusermedia/{Username}");
              var list = await response.Content.ReadFromJsonAsync<List<Media>>();*/
-          
-            if(mediaList.Count != 0)
+
+            if (mediaList.Count != 0)
             {
-                foreach ( var item in mediaList)
+                foreach (var item in mediaList)
                 {
                     /*var medcat = item.MediaCategories;
                     foreach( var item2 in medcat)
@@ -87,11 +86,27 @@ namespace Mobile_final.ViewModels
         }
 
         [RelayCommand]
-        public void NavToPlayer(Media media)
+        public async Task NavToPlayer(string mediaKey)
         {
-            /*var parameterDic = new Dictionary<string, object>();
-            parameterDic.Add("selectedMedia", media);*/
-            nav.NaviagteToAsync($"{nameof(PlayMediaPage)}?mediaKey={media.MediaKey}");
+        
+            Media media = await service.GetMediaByKey(mediaKey);
+
+            switch (media.Category.Category1)
+            {
+                case "Videos":
+                    media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/videos/" + media.MediaKey;
+                    break;
+                case "Audios":
+                    media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/audios/" + media.MediaKey;
+                    break;
+                case "Pictures":
+                    media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/pictures/" + media.MediaKey;
+                    break;
+                default:
+                    // Handle unexpected category
+                    break;
+            }
+            await nav.NaviagteToAsync($"{nameof(PlayMediaPage)}?mediaKey={media.MediaKey}");
             //nav to play page
             //attach as parameter the media object
         }

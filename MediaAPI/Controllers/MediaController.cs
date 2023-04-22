@@ -134,6 +134,12 @@ namespace MediaAPI.Controllers
             return await database.GetLatestMediaAsync(count);
         }
 
+        [HttpGet("v1/getmediabykey/{mediaKey}")]
+        public async Task<Media> GetMediaByKey(string mediaKey)
+        {
+            return await database.GetMediaByKey(mediaKey);
+        }
+
         /* [HttpGet("test/{test}")]
          public long SquareNumber(int test)
          {

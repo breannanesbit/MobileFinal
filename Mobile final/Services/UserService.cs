@@ -86,5 +86,10 @@ namespace Mobile_final.Services
 
             await http.PostAsJsonAsync<Comment>($"/comment/v2/submitcommit", c);
         }
+
+        public async Task<Media> GetMediaByKey(string mediaKey)
+        {
+           return await http.GetFromJsonAsync<Media>($"/media/v1/getmediabykey/{mediaKey}");
+        }
     }
 }

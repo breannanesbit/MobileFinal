@@ -48,45 +48,20 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task Start()
         {
-            
-            
-                /*Category cat = await client.GetCategory(item.CategoryId);
 
-                if (cat.Category1 == "Videos" || cat.Category1 == "Audios")
-                {
-                    Isplayer = true;
-                    Isimage = false;
-                    if(cat.Category1 == "Videos")
-                    {
-                        Url = $"https://mobilemediastorage.blob.core.windows.net/videos/{MediaKey}";
-                    }
-                    else
-                    {
-                        Url = $"https://mobilemediastorage.blob.core.windows.net/audios/{MediaKey}";
-                    }
-                    
-                }
-                else if (cat.Category1 == "Pictures")
-                {
-                    Isplayer = false;
-                    Isimage = true;
-                    Url = $"https://mobilemediastorage.blob.core.windows.net/pictures/{MediaKey}";
-                    
-                }
-                else
-                {
-                    Isplayer = false;
-                    Isimage = false;
-                    
-                }*/
-            
+            if (MediaKey.Contains("videos") || MediaKey.Contains("audios"))
+            {
+                Isplayer = true;
+                Isimage = false;
+            }
+            else if (MediaKey.Contains("pictures"))
+            {
+                Isplayer = false;
+                Isimage = true;
+            }
+            Url = MediaKey;
+ 
         }
 
-        //accept media as paramters
-        //make function to determine what type it is. Audio and video are category 2 and 1, visual is 3
-
-        //If media type is audio or video, turn on video, turn off image
-        //if media type is visual, turn on image, turn off video
-        //use media key as source
     }
 }
