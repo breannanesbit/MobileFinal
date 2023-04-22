@@ -48,12 +48,12 @@
                                 Grid.ColumnSpan="2"
                                 Source="{Binding MediaKey}"/>
 
-                                <Editor
+                                <Entry
                                     Grid.Row="3"
                                     Grid.Column="0"
                                     Grid.ColumnSpan="2"
                                     Placeholder="Enter in comment"
-                                    Text="{Binding Comment}"/>
+                                    Text="{Binding Source={RelativeSource AncestorType={x:Type vm:HomeMediaViewModel}}, Path=Comment}"/>
                                 <ImageButton
                                     HeightRequest="40"
                                     WidthRequest="40"
