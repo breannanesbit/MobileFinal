@@ -78,13 +78,14 @@ namespace Mobile_final.Services
 
         public async Task SubmitComment(int id, string comment)
         {
+
             var c = new Comment()
             { 
                 Comment1 = comment,
                 MediaId = id
             };
 
-            await http.PostAsJsonAsync<Comment>($"/comment/v2/submitcommit", c);
+            var test = await http.PostAsJsonAsync<Comment>($"/comment/v2/submitcomment", c);
         }
     }
 }

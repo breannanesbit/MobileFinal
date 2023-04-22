@@ -1,5 +1,6 @@
 ﻿using MediaAPI.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Shared;
 
 namespace MediaAPI.Controllers
@@ -15,11 +16,18 @@ namespace MediaAPI.Controllers
             this.context = context;
         }
 
-        [HttpPost("v2/submitcommit")]
+        [HttpPost("v2/submitcomment")]
         public async Task SubmitComment(Comment comment) 
         {
-            await context.Comments.AddAsync(comment);
+            context.Comments.Add(comment);
+
             await context.SaveChangesAsync();   
+        }
+
+        [HttpGet("allcomments")]
+        public List<Comment> allComments()
+        {
+            return context.Comments.ToList();
         }
 
     }
