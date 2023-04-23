@@ -9,11 +9,6 @@
                                         Command="{Binding StartCommand}" />
     </ContentPage.Behaviors>
     <VerticalStackLayout>
-        <Label 
-            Text="Page Unintentionally left blank"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
         <toolkit:MediaElement x:Name="mediaElement"
                       ShouldAutoPlay="True"
                       ShouldShowPlaybackControls="True"

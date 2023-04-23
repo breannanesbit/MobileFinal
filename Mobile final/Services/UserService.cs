@@ -52,14 +52,14 @@ namespace Mobile_final.Services
 
         internal async Task<Category> GetCategory(int categoryId)
         {
-            var category = await http.GetFromJsonAsync<Category>($"/media/category/{categoryId}");
+            var category = await http.GetFromJsonAsync<Category>($"/Media/category/{categoryId}");
 
             return category;
         }
 
         internal async Task<List<Media>> GetMostRecentUploaded()
         {
-            var mediaList = await http.GetFromJsonAsync<List<Media>>($"/media/v1/getlatestmedia");
+            var mediaList = await http.GetFromJsonAsync<List<Media>>($"Media/v1/getlatestmedia");
             return mediaList;
         }
 
@@ -90,7 +90,7 @@ namespace Mobile_final.Services
 
         public async Task<Media> GetMediaByKey(string mediaKey)
         {
-           return await http.GetFromJsonAsync<Media>($"/media/v1/getmediabykey/{mediaKey}");
+           return await http.GetFromJsonAsync<Media>($"/Media/v1/getmediabykey/{mediaKey}");
         }
     }
 }

@@ -91,15 +91,15 @@ namespace Mobile_final.ViewModels
         
             Media media = await service.GetMediaByKey(mediaKey);
 
-            switch (media.Category.Category1)
+            switch (media.CategoryId)
             {
-                case "Videos":
+                case 1:
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/videos/" + media.MediaKey;
                     break;
-                case "Audios":
+                case 2:
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/audios/" + media.MediaKey;
                     break;
-                case "Pictures":
+                case 3:
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/pictures/" + media.MediaKey;
                     break;
                 default:
