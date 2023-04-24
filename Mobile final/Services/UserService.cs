@@ -28,31 +28,31 @@ namespace Mobile_final.Services
                 LastName = lastname,
                 Username = username
             };
-            await http.PostAsJsonAsync<User>($"/api/user", user);
+            await http.PostAsJsonAsync<User>($"/api/v1/user", user);
         }
 
         public Task<List<User>> GetAllUsers()
         {
-            return http.GetFromJsonAsync<List<User>>("/api/user/all");
+            return http.GetFromJsonAsync<List<User>>("/api/user/v1/all");
         }
 
         public async Task<User> GetCurrentUser()
         {
             var user = current.Username;
-            var test = await http.GetFromJsonAsync<User>($"/api/user/{user}");
+            var test = await http.GetFromJsonAsync<User>($"/api/user/v1/{user}");
             return test;
         }
 
         public async Task<List<Media>> GetUserMedia()
         {
             var user = current.Username;
-            var mediaList = await http.GetFromJsonAsync<List<Media>>($"/api/user/getusermedia/{user}");
+            var mediaList = await http.GetFromJsonAsync<List<Media>>($"/api/user/v1/getusermedia/{user}");
             return mediaList;
         }
 
         internal async Task<Category> GetCategory(int categoryId)
         {
-            var category = await http.GetFromJsonAsync<Category>($"/Media/category/{categoryId}");
+            var category = await http.GetFromJsonAsync<Category>($"/Media/v1/category/{categoryId}");
 
             return category;
         }

@@ -24,7 +24,7 @@ namespace MediaAPI.Controllers
             await context.SaveChangesAsync();   
         }
 
-        [HttpGet("allcomments")]
+        [HttpGet("v1/allcomments")]
         public List<Comment> allComments()
         {
             return context.Comments.ToList();

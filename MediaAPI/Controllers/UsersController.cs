@@ -11,27 +11,27 @@ namespace MediaAPI.Controllers
     public class UserController : ControllerBase
     {
         public MultiMediaAppContext Context { get; }
-
+        
         public UserController(MultiMediaAppContext context)
         {
             Context = context;
         }
 
-        [HttpPost]
+        [HttpPost ("v1")]
         public async Task PostUserAsync(User user)
         {
             await Context.Users.AddAsync(user);
             await Context.SaveChangesAsync();
         }
 
-        [HttpGet("all")]
+        [HttpGet("v1/all")]
         public async Task<List<User>> GetUserList()
         {
             var result = Context.Users.ToList();
             return result;
         }
 
-        [HttpGet("{username}")]
+        [HttpGet("v1/{username}")]
         public async Task<User> GetCurrentUserAsync(string username)
         {
             try
@@ -44,7 +44,7 @@ namespace MediaAPI.Controllers
             }
         }
 
-        [HttpGet("getusermedia/{user}")]
+        [HttpGet("v1/getusermedia/{user}")]
         public async Task<List<Media>> GetCurrentUsersMediaAsync(string user)
         {
             try
