@@ -63,18 +63,6 @@ namespace Mobile_final.Services
             return mediaList;
         }
 
-        internal async Task<string> GetMediaCategory(Media media)
-        {
-            /*foreach(var medcat in media)
-            {
-                if(medcat.CategoryId <= 3)
-                {
-                    Category cat = await GetCategory(medcat.CategoryId);
-                    return cat.Category1;
-                }
-            }*/
-            return "";
-        }
 
         public async Task SubmitComment(int id, string comment)
         {
