@@ -78,11 +78,13 @@ namespace Mobile_final.Services
 
         public async Task SubmitComment(int id, string comment)
         {
+            var user = GetCurrentUser();
 
             var c = new Comment()
             { 
                 Comment1 = comment,
-                MediaId = id
+                MediaId = id,
+                UserId = user.Id
             };
 
             var test = await http.PostAsJsonAsync<Comment>($"/comment/v2/submitcomment", c);
