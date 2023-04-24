@@ -32,9 +32,6 @@ namespace Mobile_final.ViewModels
         }
 
         [ObservableProperty]
-        private Microsoft.Maui.Controls.Image imageView;
-
-        [ObservableProperty]
         private string mediaKey;
 
         [ObservableProperty]
@@ -53,7 +50,7 @@ namespace Mobile_final.ViewModels
         public ObservableCollection<Comment> Comments { get; set; } = new();
 
         [RelayCommand]
-        public async Task Start()
+        public void Start()
         {
             Comments.Clear();
 

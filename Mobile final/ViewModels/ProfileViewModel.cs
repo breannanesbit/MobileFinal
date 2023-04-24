@@ -68,16 +68,8 @@ namespace Mobile_final.ViewModels
             {
                 foreach (var item in mediaList)
                 {
-                    /*var medcat = item.MediaCategories;
-                    foreach( var item2 in medcat)
-                    {
-                        if(item2.Category.Category1 == "Visual")
-                        {
-                        }
-                    }*/
                     PersonsMedia.Add(item);
                 }
-
             }
             else
             {
@@ -88,7 +80,14 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task NavToPlayer(string mediaKey)
         {
-        
+            Media media = await MutateMediaKeyToURL(mediaKey);
+            await nav.NaviagteToAsync($"{nameof(PlayMediaPage)}?mediaKey={media.MediaKey}");
+            //nav to play page
+            //attach as parameter the media object
+        }
+
+        private async Task<Media> MutateMediaKeyToURL(string mediaKey)//TEST
+        {
             Media media = await service.GetMediaByKey(mediaKey);
 
             switch (media.CategoryId)
