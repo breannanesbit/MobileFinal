@@ -81,7 +81,7 @@ namespace Mobile_final.ViewModels
         public async Task NavToPlayer(string mediaKey)
         {
             Media media = await MutateMediaKeyToURL(mediaKey);
-            await nav.NaviagteToAsync($"{nameof(PlayMediaPage)}?mediaKey={media.MediaKey}");
+            await nav.NaviagteToAsync($"{nameof(PlayMediaPage)}?mediaKey={media.MediaKey}&id={media.Id}");
             //nav to play page
             //attach as parameter the media object
         }
@@ -105,7 +105,7 @@ namespace Mobile_final.ViewModels
                     // Handle unexpected category
                     break;
             }
-            await nav.NaviagteToAsync($"{nameof(PlayMediaPage)}?mediaKey={media.MediaKey}&id={media.Id}");
+           return media;
             //nav to play page
             //attach as parameter the media object
         }

@@ -50,7 +50,7 @@ namespace Mobile_final.ViewModels
         public ObservableCollection<Comment> Comments { get; set; } = new();
 
         [RelayCommand]
-        public void Start()
+        public async Task StartAsync()
         {
             Comments.Clear();
 
