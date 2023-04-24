@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ReadMe\**" />
+    <Content Remove="ReadMe\**" />
+    <EmbeddedResource Remove="ReadMe\**" />
+    <None Remove="ReadMe\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Azure.Storage.Blobs" Version="12.15.0" />
     <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
@@ -25,7 +32,6 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="ReadMe\" />
   </ItemGroup>
 
   <ItemGroup>
