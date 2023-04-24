@@ -32,7 +32,6 @@
                                View="Week"
                                AllowedViews="Day,Week"
                                AppointmentsSource="{Binding Events}"
-                               SelectedAppointmentBackground="#A90CD1"
                                Grid.Row="0"
                                Grid.Column="0"
                                />
