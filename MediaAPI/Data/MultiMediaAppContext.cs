@@ -86,15 +86,15 @@ public partial class MultiMediaAppContext : DbContext
             entity.Property(e => e.MediaId).HasColumnName("media_id");
             entity.Property(e => e.UserId).HasColumnName("user_id");
 
-            entity.HasOne(d => d.Media).WithMany(p => p.Comments)
-                .HasForeignKey(d => d.MediaId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("comments_media_id_fkey");
+            //entity.HasOne(d => d.Media).WithMany(p => p.Comments)
+            //    .HasForeignKey(d => d.MediaId)
+            //    .OnDelete(DeleteBehavior.ClientSetNull)
+            //    .HasConstraintName("comments_media_id_fkey");
 
-            entity.HasOne(d => d.User).WithMany(p => p.Comments)
-                .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("comments_user_id_fkey");
+            //entity.HasOne(d => d.User).WithMany(p => p.Comments)
+            //    .HasForeignKey(d => d.UserId)
+            //    .OnDelete(DeleteBehavior.ClientSetNull)
+            //    .HasConstraintName("comments_user_id_fkey");
         });
 
         modelBuilder.Entity<Media>(entity =>

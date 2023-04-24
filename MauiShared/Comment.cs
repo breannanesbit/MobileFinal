@@ -13,7 +13,7 @@ public partial class Comment
 
     public int MediaId { get; set; }
 
-    public virtual Media Media { get; set; } = null!;
+    //public virtual Media Media { get; set; } = null!;
 
-    public virtual User User { get; set; } = null!;
+    //public virtual User User { get; set; } = null!;
 }
