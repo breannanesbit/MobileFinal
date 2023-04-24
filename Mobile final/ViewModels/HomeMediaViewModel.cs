@@ -25,7 +25,7 @@ namespace Mobile_final.ViewModels
         private string comment;
 
         [RelayCommand]
-        public async Task Start()
+        public async Task Start()//Possible testing opportunity, mock out the API results
         {
             var latestMediaList = await service.GetMostRecentUploaded();
             var userList = await service.GetAllUsers();

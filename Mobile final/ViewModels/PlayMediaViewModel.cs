@@ -30,9 +30,6 @@ namespace Mobile_final.ViewModels
         }
 
         [ObservableProperty]
-        private Microsoft.Maui.Controls.Image imageView;
-
-        [ObservableProperty]
         private string mediaKey;
 
 
@@ -46,7 +43,7 @@ namespace Mobile_final.ViewModels
         private string url;
 
         [RelayCommand]
-        public async Task Start()
+        public void Start()
         {
 
             if (MediaKey.Contains("videos") || MediaKey.Contains("audios"))
