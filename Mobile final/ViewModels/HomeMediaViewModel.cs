@@ -54,6 +54,7 @@ namespace Mobile_final.ViewModels
             }
         }
 
+
         [RelayCommand]
         public async void SubmitComment(Media media)
         {
