@@ -39,7 +39,7 @@ namespace Mobile_final.ViewModels
                 {
                     StartTime = appointment.StartTime,
                     EndTime = appointment.EndTime,
-                    Notes = appointment.Description,
+                    Subject = appointment.Description,
                     Id = appointment.UserId,
                     IsAllDay = false,
                     

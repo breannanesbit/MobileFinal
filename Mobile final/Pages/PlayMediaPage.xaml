@@ -18,5 +18,33 @@
                       WidthRequest="400" />
         <Image Source="{Binding Url}"
                IsVisible="{Binding Isimage}"/>
+
+        <Label
+            FontSize="25"
+            Text="Comments:"/>
+        
+        <CollectionView ItemsSource="{Binding Comments}"
+                            x:Name="CommentList"
+                  >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        Margin="15"
+                        RowDefinitions="*"
+                        ColumnDefinitions="*,*"
+                        >
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Text="{Binding Comment1}"/>
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="{Binding UserId}"/>
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>

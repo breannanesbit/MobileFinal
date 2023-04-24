@@ -27,6 +27,10 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task Start()
         {
+            VideoList.Clear(); 
+            AudioList.Clear(); 
+            VisualList.Clear();
+
             var latestMediaList = await service.GetMostRecentUploaded();
             var userList = await service.GetAllUsers();
             foreach (var media in latestMediaList)

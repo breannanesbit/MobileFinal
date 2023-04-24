@@ -18,6 +18,8 @@ namespace Mobile_final.ViewModels
         private readonly UploadService service;
         private readonly INavigationService nag;
 
+        public ContentPage Page { get; set; } = new();
+
         public UploadFileViewModel(UploadService service, INavigationService nag)
         {
             this.service = service;
@@ -100,8 +102,12 @@ namespace Mobile_final.ViewModels
                 try
                 {
                     await service.UploadNewFile(type, FileName, convertedForm);
+                  
+                    await Page.DisplayAlert("Yeah", "Your file has been uploaded", "OK");
+                    SelectedOption = null;
+                    FileName = null;
                     FilePath = null;
-                    await nag.NaviagteToAsync(nameof(HomeMediaPage));
+                    //await nag.NaviagteToAsync(nameof(HomeMediaPage));
 
                 }
                 catch (Exception ex)

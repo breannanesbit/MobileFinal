@@ -14,10 +14,12 @@ using Microsoft.Maui.ApplicationModel;
 using System.Drawing;
 using Shared;
 using Mobile_final.Services;
+using System.Collections.ObjectModel;
 
 namespace Mobile_final.ViewModels
 {
     [QueryProperty(nameof(MediaKey), "mediaKey")]
+    [QueryProperty(nameof(Id), "id")]
     //[QueryProperty(nameof(MediaCategories), "mediaCategories")]
     public partial class PlayMediaViewModel : ObservableObject
     {
@@ -35,6 +37,9 @@ namespace Mobile_final.ViewModels
         [ObservableProperty]
         private string mediaKey;
 
+        [ObservableProperty]
+        private int id;
+
 
         [ObservableProperty]
         private bool isplayer;
@@ -45,9 +50,12 @@ namespace Mobile_final.ViewModels
         [ObservableProperty]
         private string url;
 
+        public ObservableCollection<Comment> Comments { get; set; } = new();
+
         [RelayCommand]
         public async Task Start()
         {
+            Comments.Clear();
 
             if (MediaKey.Contains("videos") || MediaKey.Contains("audios"))
             {
@@ -60,6 +68,13 @@ namespace Mobile_final.ViewModels
                 Isimage = true;
             }
             Url = MediaKey;
+
+            var commentList = await client.GetAllCommentsForMediaElement(Id);
+            
+            foreach (Comment comment in commentList)
+            {
+                Comments.Add(comment);
+            }
  
         }
 

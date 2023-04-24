@@ -106,7 +106,7 @@ namespace Mobile_final.ViewModels
                     // Handle unexpected category
                     break;
             }
-            await nav.NaviagteToAsync($"{nameof(PlayMediaPage)}?mediaKey={media.MediaKey}");
+            await nav.NaviagteToAsync($"{nameof(PlayMediaPage)}?mediaKey={media.MediaKey}&id={media.Id}");
             //nav to play page
             //attach as parameter the media object
         }

@@ -9,28 +9,47 @@
         <toolkit:EventToCommandBehavior EventName="Loaded"
                                         Command="{Binding StartCommand}" />
     </ContentPage.Behaviors>
-    <ScrollView>
+   
         <VerticalStackLayout>
-
-
-
+       
+            
+        
+        <Label
+            Text="Add an appointment with Sad Trombone productions"
+            FontSize="20"
+            TextColor="#A90CD1"
+            Margin="5,20"
+            HorizontalOptions="Center"
+            />
+        
+        <Grid
+                RowDefinitions="15*,*"
+                ColumnDefinitions="*"
+                RowSpacing="100">
+                
+            
             <scheduler:SfScheduler x:Name="Scheduler" 
                                View="Week"
                                AllowedViews="Day,Week"
                                AppointmentsSource="{Binding Events}"
-                               
+                               SelectedAppointmentBackground="#A90CD1"
+                               Grid.Row="0"
+                               Grid.Column="0"
                                />
-            <ImageButton
-            Source="plus.png"
-            HeightRequest="80"
-            WidthRequest="80"
-            HorizontalOptions="End"
-            Margin="20"
-            Padding="8"
-            Command="{Binding AddEventPopUpCommand}"/>
+                <ImageButton
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Source="plus.png"
+                    HeightRequest="80"
+                    WidthRequest="80"
+                    HorizontalOptions="End"
+                    Margin="20"
+                    Padding="8"
+                    Command="{Binding AddEventPopUpCommand}"/>
+            </Grid>
 
 
 
         </VerticalStackLayout>
-    </ScrollView>
+    
 </ContentPage>

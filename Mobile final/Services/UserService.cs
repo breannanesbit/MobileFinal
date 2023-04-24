@@ -90,6 +90,11 @@ namespace Mobile_final.Services
             var test = await http.PostAsJsonAsync<Comment>($"/comment/v2/submitcomment", c);
         }
 
+        public async Task<List<Comment>> GetAllCommentsForMediaElement(int id)
+        {
+            return await http.GetFromJsonAsync<List<Comment>>($"/comment/v1/allcomments/{id}");
+        }
+
         public async Task<Media> GetMediaByKey(string mediaKey)
         {
            return await http.GetFromJsonAsync<Media>($"/Media/v1/getmediabykey/{mediaKey}");

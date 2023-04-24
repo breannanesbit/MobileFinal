@@ -30,5 +30,12 @@ namespace MediaAPI.Controllers
             return context.Comments.ToList();
         }
 
+        [HttpGet("v1/allcomments/{id}")]
+        public List<Comment> allCommentsForMediaElement(int id)
+        {
+            return context.Comments.Where(m => m.MediaId == id).ToList();
+        }
+
+
     }
 }
