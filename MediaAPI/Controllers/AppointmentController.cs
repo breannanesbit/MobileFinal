@@ -29,24 +29,24 @@ namespace MediaAPI.Controllers
         }
 
 
-        [HttpPost("uploadappointment/{username}/{starttime}/{endtime}")]
+        [HttpPost("v1/uploadappointment/{username}/{starttime}/{endtime}")]
         public void UploadAppoinment(string username, DateTime starttime, DateTime endtime)
         {
             database.AddAppointment(username, starttime, endtime);
         }
 
-        [HttpGet("getappointments")]
+        [HttpGet("v1/getappointments")]
         public List<Appointment> GetAppointments()
         {
             return database.GetAllAppointments();
         }
-        [HttpDelete("deleteappointment/{id}")]
+        [HttpDelete("v1/deleteappointment/{id}")]
         public void DeleteAppointments(int id)
         {
             database.DeleteAppointment(id);
         }
 
-        [HttpPost("AddAppointment")]
+        [HttpPost("v1/AddAppointment")]
         public async Task AddAppointment(Appointment appointment)
         {
             await context.Appointments.AddAsync(appointment);

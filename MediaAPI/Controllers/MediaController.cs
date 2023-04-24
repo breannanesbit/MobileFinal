@@ -25,30 +25,7 @@ namespace MediaAPI.Controllers
             mediaHelpSource = mediasource;
         }
 
-   /*     [HttpPut("uploadfile/video/{username}")]
-        public async Task<string> UploadVideoFile(IFormFile file, string username)
-        {
-            string blobName = await mediaSource.AddMedia(file, username, "video");
-            await mediaSource.addMediaCategory("Videos", blobName);
-            return blobName;
-        }
-
-
-        [HttpPut("uploadfile/audio/{username}")]
-        public async Task<string> UploadAudioFile(IFormFile file, string username)
-        {
-            string blobName = await mediaSource.AddMedia(file, username, "audio");
-            await mediaSource.addMediaCategory("Audios", blobName);
-            return blobName;
-        }
-
-        [HttpPut("uploadfile/visual/{username}")]
-        public async Task<string> UploadVisualFile(IFormFile file, string username)
-        {
-            string blobName = await mediaSource.AddMedia(file, username, "visual");
-            await mediaSource.addMediaCategory("Pictures", blobName);
-            return blobName;
-        }*/
+  
 
         [HttpPost("v1/uploadfile/{type}/{username}/{filename}")]
         public async Task UploadAnyFile(string username, string type, string filename, IFormFile file)
@@ -110,13 +87,13 @@ namespace MediaAPI.Controllers
         }
 
 
-        [HttpGet("category/{categoryId}")]
+        [HttpGet("v1/category/{categoryId}")]
          public async Task<Category> GetCategory(int categoryId)
         {
             return database.GetCategoryById(categoryId);
         }
 
-        [HttpGet("getusermedia/{username}")]
+        [HttpGet("v1/getusermedia/{username}")]
         public async Task<IEnumerable<Media>> GetUserMedia(string username)
         {
             return database.GetMediaByUsername(username);
