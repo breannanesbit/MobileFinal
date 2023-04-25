@@ -15,7 +15,9 @@ namespace Mobile_final.Services
         private readonly HttpClient http2;
         private readonly CurrentUser current;
 
-        public UserService(HttpClient http1, HttpClient http2, CurrentUser current)
+        public UserService(HttpClient http1, 
+            HttpClient http2, 
+            CurrentUser current)
         {
             this.http1 = http1;
             this.http2 = http2;

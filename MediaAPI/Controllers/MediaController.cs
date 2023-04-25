@@ -100,10 +100,12 @@ namespace MediaAPI.Controllers
         }
 
         [HttpGet, Route("v1/getlatestmedia"), HttpHeader("version", "1.0")]
+        //[HttpGet("v1/getlatestmedia")]
         public async Task<IActionResult> GetLatestMediaAsync()
         {
             var media = await database.GetLatestMediaAsync();
-            return Ok(media);
+           // return media;
+           return Ok(media);
         }
 
         [HttpGet, Route("v2/getlatestmedia/{count}"), HttpHeader("version", "2.0")]
