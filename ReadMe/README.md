@@ -50,6 +50,11 @@ You will be taken to the main home page with the navigation bar at the bottom. O
 ### Scedule Page
 This page is were people can schedule appointments with Sad Trombone productions for records, or infomation. There is a calendar displaying what times are already taken and the plus buttom that'll display the popup page that people can create their appointments. 
 
+### Upload Page
+This page is where you can upload your art or music. Just make sure you select the media type and give the file a name
+
+### Profile Page
+Here you can see your personal information. Your name, username, profile picture, and your upload history. You can view each one of your uploads to see the comments that have been posted on them and how posted the comment.  
 
 
 
