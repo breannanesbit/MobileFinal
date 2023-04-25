@@ -14,12 +14,10 @@ namespace Mobile_final.ViewModels
     public partial class SchedulePopUpViewModel: ObservableObject
     {
         public Popup popup { get; set; }
-        private readonly AppointmentService aService;
         private readonly UserService uService;
 
-        public SchedulePopUpViewModel(AppointmentService aService, UserService uService)
+        public SchedulePopUpViewModel( UserService uService)
         {
-            this.aService = aService;
             this.uService = uService;
         }
 
@@ -54,7 +52,7 @@ namespace Mobile_final.ViewModels
                 UserId = user.Id,
             };
 
-            await aService.CreateAppointment(appoint);
+            await uService.CreateAppointment(appoint);
 
         }
 

@@ -46,11 +46,11 @@ public static class MauiProgram
             var clientV1 = provider.GetRequiredService<IHttpClientFactory>().CreateClient("v1");
             var clientV2 = provider.GetRequiredService<IHttpClientFactory>().CreateClient("v2");
 
-            return new UserService(clientV1, clientV2, null);
+            return new UserService(clientV1, clientV2);
 
         });
 
-        builder.Services.AddTransient(
+        /*builder.Services.AddTransient(
             sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("Api")
         );
 
@@ -92,7 +92,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<ProfileViewModel>();
         builder.Services.AddSingleton<HomeMediaViewModel>();
         builder.Services.AddSingleton<PlayMediaViewModel>();
-        builder.Services.AddSingleton<UserService>();
+        //builder.Services.AddSingleton<UserService>();
         builder.Services.AddSingleton<UploadService>();
         builder.Services.AddSingleton<AppointmentService>();
         builder.Services.AddSingleton<CurrentUser>();

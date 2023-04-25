@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace Mobile_final.Services
 {
@@ -16,13 +17,14 @@ namespace Mobile_final.Services
         private readonly CurrentUser current;
 
         public UserService(HttpClient http1, 
-            HttpClient http2, 
-            CurrentUser current)
+            HttpClient http2)
         {
             this.http1 = http1;
             this.http2 = http2;
-            this.current = current;
         }
+
+        public string Username { get; set; }
+        public string AuthenticationID { get; set; }
 
         public async Task NewUserEntry(string firstname, string lastname, string username)
         {
@@ -42,15 +44,15 @@ namespace Mobile_final.Services
 
         public async Task<User> GetCurrentUser()
         {
-            var user = current.Username;
-            var test = await http1.GetFromJsonAsync<User>($"/api/user/v1/{user}");
+            //var user = current.Username;
+            var test = await http1.GetFromJsonAsync<User>($"/api/user/v1/{Username}");
             return test;
         }
 
         public async Task<List<Media>> GetUserMedia()
         {
-            var user = current.Username;
-            var mediaList = await http1.GetFromJsonAsync<List<Media>>($"/api/user/v1/getusermedia/{user}");
+            //var user = current.Username;
+            var mediaList = await http1.GetFromJsonAsync<List<Media>>($"/api/user/v1/getusermedia/{Username}");
             return mediaList;
         }
 
@@ -90,6 +92,16 @@ namespace Mobile_final.Services
         public async Task<Media> GetMediaByKey(string mediaKey)
         {
            return await http1.GetFromJsonAsync<Media>($"/Media/v1/getmediabykey/{mediaKey}");
+        }
+
+        public async Task CreateAppointment(Appointment appoint)
+        {
+            await http1.PostAsJsonAsync<Appointment>($"/appointment/v1/AddAppointment", appoint);
+        }
+
+        public async Task<List<Appointment>> GetAllAppointments()
+        {
+            return await http1.GetFromJsonAsync<List<Appointment>>($"/appointment/v1/getappointments");
         }
     }
 }

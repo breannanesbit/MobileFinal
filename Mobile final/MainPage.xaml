@@ -19,7 +19,7 @@
                     Grid.Row="0"
                     Grid.ColumnSpan="2"
                     Grid.Column="0"
-                    Text="SAD TROMBONE PRODUCTS"
+                    Text="SAD TROMBONE PRODUCTIONS"
                     HorizontalOptions="Fill"
                     FontSize="24"/>
                 <Image
