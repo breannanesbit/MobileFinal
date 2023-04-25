@@ -48,7 +48,7 @@ jobs:
             uses: actions/upload-artifact@v2.3.1
             with:
               name: android-ci-build
-              path: com.companyname.mobile_final-Signed.apk
+              path: ./'Mobile final'/bin/Release/net7.0-android/com.companyname.mobile_final-Signed.apk
 
     build-windows:
         runs-on: windows-2022
