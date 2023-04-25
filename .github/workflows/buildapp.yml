@@ -85,6 +85,6 @@ jobs:
             uses: actions/upload-artifact@v2.3.1
             with:
               name: windows-ci-build
-              path: ./'Mobile final'/bin/Release/net7.0-windows10.0.19041.0/wind10-x64/AppPackages/'Mobile final'_1.0.0.1_Test/'Mobile final'_1.0.0.1_x64
+              path: ./'Mobile final'/bin/Release/net7.0-windows10.0.19041.0/wind10-x64/*
 
     #https://blog.taranissoftware.com/build-net-maui-apps-with-github-actions

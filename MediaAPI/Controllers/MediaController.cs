@@ -27,7 +27,7 @@ namespace MediaAPI.Controllers
 
   
         
-        [HttpPost("v1/uploadfile/{type}/{username}/{filename}"), HttpHeader("version", "1.0")]
+        [HttpPost, Route("v1/uploadfile/{type}/{username}/{filename}"), HttpHeader("version", "1.0")]
         public async Task UploadAnyFile(string username, string type, string filename, IFormFile file)
         {
             string mediaBlobClient = "";
