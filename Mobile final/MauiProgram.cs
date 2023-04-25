@@ -50,15 +50,15 @@ public static class MauiProgram
 
         });
 
-        builder.Services.AddSingleton(c =>
-        {
-            var config = c.GetRequiredService<IConfiguration>();
-            return new HttpClient()
-            {
-                BaseAddress = new Uri(config["ApiAddress"])
-                //BaseAddress = new Uri("https://multimediaapi.azurewebsites.net")
-            };
-        });
+        //builder.Services.AddSingleton(c =>
+        //{
+        //    var config = c.GetRequiredService<IConfiguration>();
+        //    return new HttpClient()
+        //    {
+        //        BaseAddress = new Uri(config["ApiAddress"])
+        //        //BaseAddress = new Uri("https://multimediaapi.azurewebsites.net")
+        //    };
+        //});
 
 
         var a = Assembly.GetExecutingAssembly();
