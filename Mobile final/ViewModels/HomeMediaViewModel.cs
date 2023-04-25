@@ -27,12 +27,17 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async Task Start()//Possible testing opportunity, mock out the API results
         {
-            VideoList.Clear(); 
-            AudioList.Clear(); 
+            VideoList.Clear();
+            AudioList.Clear();
             VisualList.Clear();
 
             var latestMediaList = await service.GetMostRecentUploaded();
             var userList = await service.GetAllUsers();
+            SortMediaIntoLists(latestMediaList, userList, VideoList, AudioList, VisualList);
+        }
+
+        public void SortMediaIntoLists(List<Media> latestMediaList, List<User> userList, ObservableCollection<Media> videoList, ObservableCollection<Media> audioList, ObservableCollection<Media> visualList)
+        {
             foreach (var media in latestMediaList)
             {
                 media.User = userList.Find(m => m.Id == media.UserId);
@@ -40,24 +45,23 @@ namespace Mobile_final.ViewModels
                 {
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/videos/" + media.MediaKey;
                     //media.UserName = media.User.Username;
-                    VideoList.Add(media);
+                    videoList.Add(media);
                 }
                 else if (media.Category.Category1 == "Audios")
                 {
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/audios/" + media.MediaKey;
                     //media.UserName = media.User.Username;
-                    AudioList.Add(media);
-               
+                    audioList.Add(media);
+
                 }
                 else if (media.Category.Category1 == "Pictures")
                 {
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/pictures/" + media.MediaKey;
                     //media.UserName = media.User.Username;
-                    VisualList.Add(media);
+                    visualList.Add(media);
                 }
             }
         }
-
 
         [RelayCommand]
         public async void SubmitComment(Media media)
