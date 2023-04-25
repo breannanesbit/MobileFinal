@@ -75,8 +75,8 @@ jobs:
           - name: Restore Dependencies
             run: dotnet restore ./'Mobile final'/'Mobile final'.csproj
 
-          - name: Build MAUI Windows
-            run: msbuild ./'Mobile final'/'Mobile final'.csproj -r -p:Configuration=Release -p:RestorePackages=false -p:TargetFramework=net7.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true
+          #- name: Build MAUI Windows
+          #  run: msbuild ./'Mobile final'/'Mobile final'.csproj -r -p:Configuration=Release -p:RestorePackages=false -p:TargetFramework=net7.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true
 
           - name: Publish MAUI Windows
             run: msbuild ./'Mobile final'/'Mobile final'.csproj /restore /t:build /p:TargetFramework=net7.0-windows10.0.19041.0 /p:Configuration=release /p:WindowsAppSDKSelfContained=true /p:Platform=x64 /p:WindowsPackageType=None /p:RuntimeIdentifier=win10-x64
