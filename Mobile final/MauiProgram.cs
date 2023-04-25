@@ -7,7 +7,6 @@ using Mobile_final.Pages;
 using Mobile_final.Services;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
-using Mobile_final.Pages.popups;
 //using Mobile_final.Auth0;
 
 namespace Mobile_final;
@@ -28,6 +27,29 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
+        builder.Services.AddHttpClient("v1", c =>
+        {
+            c.BaseAddress = new Uri("https://multimediaapi.azurewebsites.net");
+            c.DefaultRequestHeaders.Add("version", "1.0");
+        }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler());
+        //.AddHttpMessageHandler<TokenHandler>();
+
+        builder.Services.AddHttpClient("v2", c =>
+        {
+            c.BaseAddress = new Uri("https://multimediaapi.azurewebsites.net");
+            c.DefaultRequestHeaders.Add("version", "2.0");
+        }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler());
+       //.AddHttpMessageHandler<TokenHandler>();
+
+        builder.Services.AddSingleton<UserService>(provider =>
+        {
+            var clientV1 = provider.GetRequiredService<IHttpClientFactory>().CreateClient("v1");
+            var clientV2 = provider.GetRequiredService<IHttpClientFactory>().CreateClient("v2");
+
+            return new UserService(clientV1, clientV2, null);
+
+        });
+
         builder.Services.AddSingleton(c =>
         {
             var config = c.GetRequiredService<IConfiguration>();
@@ -37,6 +59,7 @@ public static class MauiProgram
                 //BaseAddress = new Uri("https://multimediaapi.azurewebsites.net")
             };
         });
+
 
         var a = Assembly.GetExecutingAssembly();
         var m = a.Modules;

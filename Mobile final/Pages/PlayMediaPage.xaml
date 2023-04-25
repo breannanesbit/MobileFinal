@@ -36,11 +36,13 @@
                         <Label
                             Grid.Row="0"
                             Grid.Column="0"
-                            Text="{Binding Comment1}"/>
+                            Text="{Binding Comment1}"
+                            HorizontalOptions="Center"/>
                         <Label
                             Grid.Row="0"
                             Grid.Column="1"
-                            Text="{Binding UserId}"/>
+                            Text="{Binding User.Username}"
+                            HorizontalOptions="Center"/>
 
                     </Grid>
                 </DataTemplate>

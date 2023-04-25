@@ -15,5 +15,5 @@ public partial class Comment
 
     //public virtual Media Media { get; set; } = null!;
 
-    //public virtual User User { get; set; } = null!;
+    public virtual User User { get; set; } = null!;
 }

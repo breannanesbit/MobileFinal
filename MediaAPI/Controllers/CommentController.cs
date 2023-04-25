@@ -16,7 +16,7 @@ namespace MediaAPI.Controllers
             this.context = context;
         }
 
-        [HttpPost("v2/submitcomment")]
+        [HttpPost("v2/submitcomment"), HttpHeader("version", "2.0")]
         public async Task SubmitComment(Comment comment) 
         {
             context.Comments.Add(comment);

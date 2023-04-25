@@ -54,6 +54,8 @@ namespace Mobile_final.ViewModels
         {
             Comments.Clear();
 
+            var userList = await client.GetAllUsers();
+
             if (MediaKey.Contains("videos") || MediaKey.Contains("audios"))
             {
                 Isplayer = true;
@@ -70,6 +72,7 @@ namespace Mobile_final.ViewModels
             
             foreach (Comment comment in commentList)
             {
+                comment.User = userList.Find(m => m.Id == comment.UserId);
                 Comments.Add(comment);
             }
  
