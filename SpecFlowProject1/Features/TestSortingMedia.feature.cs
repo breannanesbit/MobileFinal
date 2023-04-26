@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace MobileTesting.Features
+namespace MobileTests.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,22 +20,22 @@ namespace MobileTesting.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Sorting Media into Lists")]
-    public partial class SortingMediaIntoListsFeature
+    [NUnit.Framework.DescriptionAttribute("Test Sorting Media")]
+    public partial class TestSortingMediaFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "SortMedia.feature"
+#line 1 "TestSortingMedia.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Sorting Media into Lists", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Test Sorting Media", "Sorting the media into different lists", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,15 +74,15 @@ namespace MobileTesting.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Sorting latest media into video, audio, and visual lists")]
+        [NUnit.Framework.DescriptionAttribute("Media Goes where it should")]
         [NUnit.Framework.CategoryAttribute("tag1")]
-        public void SortingLatestMediaIntoVideoAudioAndVisualLists()
+        public virtual void MediaGoesWhereItShould()
         {
             string[] tagsOfScenario = new string[] {
                     "tag1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sorting latest media into video, audio, and visual lists", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Media Goes where it should", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -128,7 +128,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "null",
                             "3",
                             "Pictures"});
-#line 6
+#line 7
  testRunner.Given("a latest media list with the following items:", ((string)(null)), table1, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -146,13 +146,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "Jane",
                             "Smith",
                             "janesmith"});
-#line 11
+#line 12
  testRunner.And("a user list with the following items:", ((string)(null)), table2, "And ");
 #line hidden
-#line 15
+#line 16
  testRunner.And("empty video, audio, and visual lists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 16
+#line 17
  testRunner.When("sorting the media into the video, audio, and visual lists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -173,7 +173,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "null",
                             "1",
                             "Videos"});
-#line 17
+#line 18
  testRunner.Then("the video list should contain the following items:", ((string)(null)), table3, "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -194,7 +194,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "null",
                             "2",
                             "Audios"});
-#line 20
+#line 21
  testRunner.And("the audio list should contain the following items:", ((string)(null)), table4, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -215,7 +215,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "null",
                             "3",
                             "Pictures"});
-#line 23
+#line 24
  testRunner.And("the visual list should contain the following items:", ((string)(null)), table5, "And ");
 #line hidden
             }
