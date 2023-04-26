@@ -30,6 +30,8 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async void Start()
         {
+            Color pinkypurple = Color.FromHex("ECC8F5");
+            var solidBrush = new SolidColorBrush(pinkypurple);
             Events = new();
             var appointmentList = await userService.GetAllAppointments();
             foreach (var appointment in appointmentList)
@@ -41,6 +43,7 @@ namespace Mobile_final.ViewModels
                     EndTime = appointment.EndTime,
                     Subject = appointment.Description,
                     Id = appointment.UserId,
+                    Background = pinkypurple,
                     IsAllDay = false,
                     
                   

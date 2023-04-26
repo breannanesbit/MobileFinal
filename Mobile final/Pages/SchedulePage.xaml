@@ -9,7 +9,8 @@
         <toolkit:EventToCommandBehavior EventName="Loaded"
                                         Command="{Binding StartCommand}" />
     </ContentPage.Behaviors>
-   
+    <ScrollView>
+        
         <VerticalStackLayout>
        
             
@@ -23,9 +24,9 @@
             />
         
         <Grid
-                RowDefinitions="10*,*"
+                RowDefinitions="15*,*"
                 ColumnDefinitions="*"
-                RowSpacing="0">
+                RowSpacing="10">
                 
             
             <scheduler:SfScheduler x:Name="Scheduler" 
@@ -36,7 +37,7 @@
                                Grid.Column="0"
                                />
                 <ImageButton
-                    Grid.Row="5"
+                    Grid.Row="1"
                     Grid.Column="0"
                     Source="plus.png"
                     HeightRequest="80"
@@ -50,5 +51,6 @@
 
 
         </VerticalStackLayout>
+    </ScrollView>
     
 </ContentPage>
