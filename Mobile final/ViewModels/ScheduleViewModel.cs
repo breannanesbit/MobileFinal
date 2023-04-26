@@ -45,8 +45,6 @@ namespace Mobile_final.ViewModels
                     Id = appointment.UserId,
                     Background = pinkypurple,
                     IsAllDay = false,
-                    
-                  
                 };
 
                 Events.Add(sa);
