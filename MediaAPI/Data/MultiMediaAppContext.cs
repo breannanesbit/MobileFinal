@@ -91,10 +91,10 @@ public partial class MultiMediaAppContext : DbContext
             //    .OnDelete(DeleteBehavior.ClientSetNull)
             //    .HasConstraintName("comments_media_id_fkey");
 
-            //entity.HasOne(d => d.User).WithMany(p => p.Comments)
-            //    .HasForeignKey(d => d.UserId)
-            //    .OnDelete(DeleteBehavior.ClientSetNull)
-            //    .HasConstraintName("comments_user_id_fkey");
+            entity.HasOne(d => d.User).WithMany(p => p.Comments)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("comments_user_id_fkey");
         });
 
         modelBuilder.Entity<Media>(entity =>

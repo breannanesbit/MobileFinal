@@ -66,8 +66,8 @@ public partial class LoginViewModel : ObservableObject
 
         }
 
-        currentUser.Username = loginResult.User.Claims.FirstOrDefault(c => c.Type == "email").Value;
-        currentUser.AuthenticationID = loginResult.AccessToken;
+        service.Username = loginResult.User.Claims.FirstOrDefault(c => c.Type == "email").Value;
+        service.AuthenticationID = loginResult.AccessToken;
         // }
 
         Application.Current.MainPage = new AppShell();

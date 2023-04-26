@@ -30,8 +30,10 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async void Start()
         {
+            Color pinkypurple = Color.FromHex("ECC8F5");
+            var solidBrush = new SolidColorBrush(pinkypurple);
             Events = new();
-            var appointmentList = await appointmentService.GetAllAppointments();
+            var appointmentList = await userService.GetAllAppointments();
             foreach (var appointment in appointmentList)
             {
 
@@ -41,6 +43,7 @@ namespace Mobile_final.ViewModels
                     EndTime = appointment.EndTime,
                     Subject = appointment.Description,
                     Id = appointment.UserId,
+                    Background = pinkypurple,
                     IsAllDay = false,
                     
                   
@@ -54,7 +57,7 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async void AddEventPopUp()
         {
-            var VMpopup = new SchedulePopUpViewModel(appointmentService, userService);
+            var VMpopup = new SchedulePopUpViewModel(userService);
             var popup = new SchedulePopUpContent(VMpopup);
             await Page.ShowPopupAsync(popup);
             //string result = await Application.Current.MainPage.DisplayPromptAsync("Make appointment", "");
