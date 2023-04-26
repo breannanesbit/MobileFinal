@@ -1,11 +1,12 @@
-using Mobile_final.Services;
-using Mobile_final.ViewModels;
 using Moq;
 using NUnit.Framework;
-using Shared;
 using System.Collections.ObjectModel;
 using TechTalk.SpecFlow.Assist;
 using FluentAssertions;
+using Shared;
+using Mobile_final.Services;
+using Mobile_final.ViewModels;
+
 namespace SpecFlowProject1.StepDefinitions
 {
     [Binding]
