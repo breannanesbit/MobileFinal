@@ -26,8 +26,8 @@ namespace MediaAPI.Controllers
         }
 
   
-
-        [HttpPost("v1/uploadfile/{type}/{username}/{filename}")]
+        
+        [HttpPost, Route("v1/uploadfile/{type}/{username}/{filename}"), HttpHeader("version", "1.0")]
         public async Task UploadAnyFile(string username, string type, string filename, IFormFile file)
         {
             string mediaBlobClient = "";
@@ -59,7 +59,7 @@ namespace MediaAPI.Controllers
            // return blobName;
         }
 
-        [HttpPost("v2/uploadfile/{type}/{username}/{filename}")]
+        [HttpPost, Route("v2/uploadfile/{type}/{username}/{filename}"), HttpHeader("version", "2.0")]
         public async Task UploadAnyFileButAudio(string username, string type, string filename, IFormFile file)
         {
             string mediaBlobClient = "";
@@ -99,16 +99,20 @@ namespace MediaAPI.Controllers
             return database.GetMediaByUsername(username);
         }
 
-        [HttpGet("v1/getlatestmedia")]
-        public async Task<List<Media>> GetLatestMediaAsync()
+        [HttpGet, Route("v1/getlatestmedia"), HttpHeader("version", "1.0")]
+        //[HttpGet("v1/getlatestmedia")]
+        public async Task<IActionResult> GetLatestMediaAsync()
         {
-            return await database.GetLatestMediaAsync();
+            var media = await database.GetLatestMediaAsync();
+           // return media;
+           return Ok(media);
         }
 
-        [HttpGet("v2/getlatestmedia/{count}")]
-        public async Task<List<Media>> GetLatestMediaDynamicCountAsync(int count)
+        [HttpGet, Route("v2/getlatestmedia/{count}"), HttpHeader("version", "2.0")]
+        public async Task<IActionResult> GetLatestMediaDynamicCountAsync(int count)
         {
-            return await database.GetLatestMediaAsync(count);
+            var media = await database.GetLatestMediaAsync(count);
+            return Ok(media);
         }
 
         [HttpGet("v1/getmediabykey/{mediaKey}")]

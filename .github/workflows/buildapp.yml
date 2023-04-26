@@ -75,13 +75,16 @@ jobs:
           - name: Restore Dependencies
             run: dotnet restore ./'Mobile final'/'Mobile final'.csproj
 
-          - name: Build MAUI Windows
-            run: msbuild ./'Mobile final'/'Mobile final'.csproj -r -p:Configuration=Release -p:RestorePackages=false -p:TargetFramework=net7.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true
+          #- name: Build MAUI Windows
+          #  run: msbuild ./'Mobile final'/'Mobile final'.csproj -r -p:Configuration=Release -p:RestorePackages=false -p:TargetFramework=net7.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true
+
+          - name: Publish MAUI Windows
+            run: msbuild ./'Mobile final'/'Mobile final'.csproj /restore /t:build /p:TargetFramework=net7.0-windows10.0.19041.0 /p:Configuration=release /p:WindowsAppSDKSelfContained=true /p:Platform=x64 /p:WindowsPackageType=None /p:RuntimeIdentifier=win10-x64
 
           - name: Upload Windows Artifact
             uses: actions/upload-artifact@v2.3.1
             with:
               name: windows-ci-build
-              path: ./'Mobile final'/bin/Release/net7.0-windows10.0.19041.0/wind10-x64/AppPackages/'Mobile final'_1.0.0.1_Test/'Mobile final'_1.0.0.1_x64
+              path: ./'Mobile final'/bin/Release/net7.0-windows10.0.19041.0/wind10-x64/*
 
     #https://blog.taranissoftware.com/build-net-maui-apps-with-github-actions

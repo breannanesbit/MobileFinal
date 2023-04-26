@@ -23,9 +23,9 @@
             />
         
         <Grid
-                RowDefinitions="15*,*"
+                RowDefinitions="10*,*"
                 ColumnDefinitions="*"
-                RowSpacing="100">
+                RowSpacing="0">
                 
             
             <scheduler:SfScheduler x:Name="Scheduler" 

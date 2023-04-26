@@ -31,7 +31,7 @@ namespace Mobile_final.ViewModels
         public async void Start()
         {
             Events = new();
-            var appointmentList = await appointmentService.GetAllAppointments();
+            var appointmentList = await userService.GetAllAppointments();
             foreach (var appointment in appointmentList)
             {
 
@@ -54,7 +54,7 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async void AddEventPopUp()
         {
-            var VMpopup = new SchedulePopUpViewModel(appointmentService, userService);
+            var VMpopup = new SchedulePopUpViewModel(userService);
             var popup = new SchedulePopUpContent(VMpopup);
             await Page.ShowPopupAsync(popup);
             //string result = await Application.Current.MainPage.DisplayPromptAsync("Make appointment", "");
