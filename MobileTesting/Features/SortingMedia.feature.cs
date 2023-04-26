@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace MobileTests.Features
+namespace MobileTesting.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -28,7 +28,7 @@ namespace MobileTests.Features
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "TestSortingMedia.feature"
+#line 1 "SortingMedia.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]

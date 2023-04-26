@@ -8,6 +8,9 @@
         <toolkit:EventToCommandBehavior EventName="Loaded"
                                         Command="{Binding StartCommand}" />
     </ContentPage.Behaviors>
+
+    <ScrollView>
+        
     <VerticalStackLayout>
         <toolkit:MediaElement x:Name="mediaElement"
                       ShouldAutoPlay="True"
@@ -49,4 +52,5 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
