@@ -1,4 +1,6 @@
-# API
+# Building The API and App for Production
+
+## API
 
 When you are ready to push the current API to production, follow these steps:
 
@@ -10,7 +12,7 @@ When you are ready to push the current API to production, follow these steps:
 6. Click on '...' again, and select 'Push tags to-' and select 'origin'. 
 7. Once that is done, the build will commence. If it breaks, then chances are something is broken in the pipeline. Do not do anything with the pipeline unless you know what you're doing and/or have a more senior developer helping.
 
-# App
+## App
 
 To push the current app to production:
 
