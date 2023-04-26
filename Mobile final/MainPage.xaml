@@ -20,7 +20,7 @@
                     Grid.ColumnSpan="2"
                     Grid.Column="0"
                     Text="SAD TROMBONE PRODUCTIONS"
-                    HorizontalOptions="Fill"
+                    HorizontalOptions="Center"
                     FontSize="24"/>
                 <Image
                     Grid.Row="1"
