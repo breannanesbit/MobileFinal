@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,7 +23,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mobile final\Mobile final.csproj" />
+    <ProjectReference Include="..\Mobile final\MobileFinal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MauiShared">
+      <HintPath>..\MauiShared\obj\Debug\net7.0-windows10.0.19041.0\ref\MauiShared.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

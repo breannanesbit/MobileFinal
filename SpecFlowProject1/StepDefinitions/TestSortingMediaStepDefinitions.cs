@@ -5,8 +5,7 @@ using NUnit.Framework;
 using Shared;
 using System.Collections.ObjectModel;
 using TechTalk.SpecFlow.Assist;
-//using FluentAssertions;
-//using Mobile_final;
+using FluentAssertions;
 namespace SpecFlowProject1.StepDefinitions
 {
     [Binding]
@@ -40,14 +39,12 @@ namespace SpecFlowProject1.StepDefinitions
 
         [When(@"sorting the media into the video, audio, and visual lists")]
         public void WhenSortingTheMediaIntoTheVideoAudioAndVisualLists()
-        {// Create a mock instance of the UserService interface
+        {
 
             var userServiceMock = new Mock<UserService>();
 
-            // Set up the mock to return a dummy user when the GetUser method is called
-          
-            // Create an instance of the HomeMediaViewModel and pass in the mocked UserService
             var homeMediaViewModel = new HomeMediaViewModel(userServiceMock.Object);
+            homeMediaViewModel.SortMediaIntoLists(latestMediaList, userList, videoList, audioList, visualList);
         }
 
         [Then(@"the video list should contain the following items:")]

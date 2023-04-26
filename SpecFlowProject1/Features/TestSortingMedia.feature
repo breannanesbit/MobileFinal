@@ -1,6 +1,6 @@
 ﻿Feature: Test Sorting Media
 
-A short summary of the feature
+Sorting the media into different lists
 
 @tag1
 Scenario: Media Goes where it should
