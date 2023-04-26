@@ -67,6 +67,10 @@ namespace Mobile_final.Services
         {
             var mediaList = await http1.GetFromJsonAsync<List<Media>>($"Media/v1/getlatestmedia");
             return mediaList;
+
+            /*var count = 30;
+            var mediaList = await http2.GetFromJsonAsync<List<Media>>($"v2/getlatestmedia/{count}");
+            return mediaList;*/
         }
 
 
@@ -81,12 +85,13 @@ namespace Mobile_final.Services
                 UserId = user.Id
             };
 
-            var test = await http2.PostAsJsonAsync<Comment>($"/comment/v2/submitcomment", c);
+            var test = await http1.PostAsJsonAsync<Comment>($"/comment/v1/submitcomment", c);
         }
 
         public async Task<List<Comment>> GetAllCommentsForMediaElement(int id)
         {
-            return await http1.GetFromJsonAsync<List<Comment>>($"/comment/v1/allcomments/{id}");
+            //var test1 = await http1.GetFromJsonAsync<List<Comment>>($"v1/allcomments");
+            return await http2.GetFromJsonAsync<List<Comment>>($"/comment/v2/allcomments/{id}");
         }
 
         public async Task<Media> GetMediaByKey(string mediaKey)
@@ -102,6 +107,14 @@ namespace Mobile_final.Services
         public async Task<List<Appointment>> GetAllAppointments()
         {
             return await http1.GetFromJsonAsync<List<Appointment>>($"/appointment/v1/getappointments");
+        }
+
+        public async Task UploadNewFile(string type, string fileName, MultipartFormDataContent convertedForm)
+        {
+            var test = await http1.PostAsync($"/media/v1/uploadfile/{type}/{Username}/{fileName}", convertedForm);
+            //var test2 = await http2.PostAsync($"/media/v2/uploadfile/{type}/{Username}/{fileName}", convertedForm);
+
+
         }
     }
 }

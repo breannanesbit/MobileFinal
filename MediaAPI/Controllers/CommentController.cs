@@ -16,7 +16,7 @@ namespace MediaAPI.Controllers
             this.context = context;
         }
 
-        [HttpPost, Route("v2/submitcomment"), HttpHeader("version", "2.0")]
+        [HttpPost("v1/submitcomment")]
         public async Task SubmitComment(Comment comment) 
         {
             context.Comments.Add(comment);
@@ -24,16 +24,18 @@ namespace MediaAPI.Controllers
             await context.SaveChangesAsync();   
         }
 
-        [HttpGet("v1/allcomments")]
-        public List<Comment> allComments()
+        [HttpGet, Route("v1/allcomments"), HttpHeader("version", "1.0")]
+        public async Task<IActionResult> AllComments()
         {
-            return context.Comments.ToList();
+            var comments = context.Comments.ToList();
+            return Ok(comments);
         }
 
-        [HttpGet("v1/allcomments/{id}")]
-        public List<Comment> allCommentsForMediaElement(int id)
+        [HttpGet, Route("v2/allcomments/{id}"), HttpHeader("version", "2.0")]
+        public async Task<IActionResult> allCommentsForMediaElement(int id)
         {
-            return context.Comments.Where(m => m.MediaId == id).ToList();
+            var comments = context.Comments.Where(m => m.MediaId == id).ToList();
+            return Ok(comments);
         }
 
 

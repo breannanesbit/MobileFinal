@@ -111,8 +111,8 @@ namespace MediaAPI.Controllers
         [HttpGet, Route("v2/getlatestmedia/{count}"), HttpHeader("version", "2.0")]
         public async Task<IActionResult> GetLatestMediaDynamicCountAsync(int count)
         {
-            var meida = await database.GetLatestMediaAsync(count);
-            return Ok(meida);
+            var media = await database.GetLatestMediaAsync(count);
+            return Ok(media);
         }
 
         [HttpGet("v1/getmediabykey/{mediaKey}")]
