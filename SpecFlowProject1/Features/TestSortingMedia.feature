@@ -1,8 +1,9 @@
-﻿Feature: Sorting Media into Lists
+﻿Feature: Test Sorting Media
 
+Sorting the media into different lists
 
 @tag1
-Scenario: Sorting latest media into video, audio, and visual lists
+Scenario: Media Goes where it should
 	Given a latest media list with the following items:
 		| Id | MediaKey | UserId | DateUpload               | FileName | Likes | CategoryId | Category |
 		| 1  | video1   | 1      | 2023-04-20T10:30:00.000Z | null     | null  | 1          | Videos   |
@@ -23,4 +24,3 @@ Scenario: Sorting latest media into video, audio, and visual lists
 	And the visual list should contain the following items:
 		| Id | MediaKey                                                           | UserId | DateUpload               | FileName | Likes | CategoryId | Category |
 		| 3  | https://mobilemediastorage.blob.core.windows.net/pictures/picture1 | 1      | 2023-04-22T16:45:00.000Z | null     | null  | 3          | Pictures |
-

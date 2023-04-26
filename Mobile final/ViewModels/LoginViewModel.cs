@@ -3,8 +3,6 @@ using CommunityToolkit.Mvvm.Input;
 using Mobile_final.Auth0;
 using Mobile_final.Pages;
 using Mobile_final.Services;
-//using Mobile_final.Auth0;
-//using Shared.Auth0;
 using System;
 using System.Collections.Generic;
 using System.Linq;
