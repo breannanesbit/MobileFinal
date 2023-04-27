@@ -79,7 +79,6 @@ jobs:
           java-version: '11'
       - name: Install MAUI Workloads
         run: |
-          #dotnet workload install android --ignore-failed-sources
           dotnet workload install maui --ignore-failed-sources
       - name: Restore Dependencies
         run: dotnet restore ./'Mobile final'/MobileFinal.csproj
