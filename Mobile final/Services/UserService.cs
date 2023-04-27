@@ -48,8 +48,8 @@ namespace Mobile_final.Services
         public async Task<User> GetCurrentUser()
         {
             //var user = current.Username;
-            var test = await http1.GetFromJsonAsync<User>($"/api/user/v1/{Username}");
-            return test;
+            var currentuser = await http1.GetFromJsonAsync<User>($"/api/user/v1/{Username}");
+            return currentuser;
         }
 
         public async Task<List<Media>> GetUserMedia()
@@ -71,9 +71,6 @@ namespace Mobile_final.Services
             var mediaList = await http1.GetFromJsonAsync<List<Media>>($"Media/v1/getlatestmedia");
             return mediaList;
 
-            /*var count = 30;
-            var mediaList = await http2.GetFromJsonAsync<List<Media>>($"v2/getlatestmedia/{count}");
-            return mediaList;*/
         }
 
 
