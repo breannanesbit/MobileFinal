@@ -15,12 +15,12 @@ namespace Mobile_final.ViewModels
     public partial class UploadFileViewModel : ObservableObject
     {
         private readonly HttpClient client;
-        private readonly UserService service;
+        private readonly IUserService service;
         private readonly INavigationService nag;
 
         public ContentPage Page { get; set; } = new();
 
-        public UploadFileViewModel(UserService service, INavigationService nag)
+        public UploadFileViewModel(IUserService service, INavigationService nag)
         {
             this.service = service;
             this.nag = nag;

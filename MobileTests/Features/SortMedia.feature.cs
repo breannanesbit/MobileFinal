@@ -116,7 +116,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "video1",
                             "1",
                             "2023-04-20T10:30:00.000Z",
-                            "null",
+                            "Video",
                             "null",
                             "1",
                             "Videos"});
@@ -125,7 +125,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "audio1",
                             "2",
                             "2023-04-21T14:00:00.000Z",
-                            "null",
+                            "Audio",
                             "null",
                             "2",
                             "Audios"});
@@ -134,7 +134,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "picture1",
                             "1",
                             "2023-04-22T16:45:00.000Z",
-                            "null",
+                            "Visual",
                             "null",
                             "3",
                             "Pictures"});
@@ -179,7 +179,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "https://mobilemediastorage.blob.core.windows.net/videos/video1",
                             "1",
                             "2023-04-20T10:30:00.000Z",
-                            "null",
+                            "Video",
                             "null",
                             "1",
                             "Videos"});
@@ -200,7 +200,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "https://mobilemediastorage.blob.core.windows.net/audios/audio1",
                             "2",
                             "2023-04-21T14:00:00.000Z",
-                            "null",
+                            "Audio",
                             "null",
                             "2",
                             "Audios"});
@@ -221,7 +221,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "https://mobilemediastorage.blob.core.windows.net/pictures/picture1",
                             "1",
                             "2023-04-22T16:45:00.000Z",
-                            "null",
+                            "Visual",
                             "null",
                             "3",
                             "Pictures"});

@@ -14,9 +14,9 @@ namespace Mobile_final.ViewModels
     public partial class SchedulePopUpViewModel: ObservableObject
     {
         public Popup popup { get; set; }
-        private readonly UserService uService;
+        private readonly IUserService uService;
 
-        public SchedulePopUpViewModel( UserService uService)
+        public SchedulePopUpViewModel( IUserService uService)
         {
             this.uService = uService;
         }

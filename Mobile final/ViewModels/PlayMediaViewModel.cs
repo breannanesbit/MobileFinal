@@ -23,8 +23,8 @@ namespace Mobile_final.ViewModels
     //[QueryProperty(nameof(MediaCategories), "mediaCategories")]
     public partial class PlayMediaViewModel : ObservableObject
     {
-        private UserService client;
-        public PlayMediaViewModel(UserService service)
+        private IUserService client;
+        public PlayMediaViewModel(IUserService service)
         {
 
             client = service;
