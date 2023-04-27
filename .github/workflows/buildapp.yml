@@ -48,7 +48,7 @@ jobs:
     
       - name: zip_file
         run: |
-          Compress-Archive -Path ./'Mobile final'/bin/x64/release/net7.0-windows10.0.19041.0/win10-x64 -DestinationPath ./windows.zip
+          Compress-Archive -Path ./'Mobile final'/bin/x64/release/net7.0-windows10.0.19041.0/win10-x64 -DestinationPath ./windows.zip -Force
       - name: upload windows artifact-release
         uses: actions/upload-release-asset@v1
         env:
@@ -91,6 +91,6 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ needs.begin-release.outputs.upload_url }}
-          asset_path: ./'Mobile final'/bin/Release/net7.0-android/com.companyname.'Mobile final'-Signed.apk
+          asset_path: ./'Mobile final'/bin/Release/net7.0-android/com.companyname.MobileFinal-Signed.apk
           asset_name: MobileFinal.apk
           asset_content_type: application/zip
