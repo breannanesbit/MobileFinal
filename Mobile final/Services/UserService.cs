@@ -15,16 +15,16 @@ namespace Mobile_final.Services
         private readonly HttpClient http1;
         private readonly HttpClient http2;
         private readonly CurrentUser current;
-        
 
-        public UserService(HttpClient http1, 
+
+        public UserService(HttpClient http1,
             HttpClient http2)
         {
             this.http1 = http1;
             this.http2 = http2;
         }
 
-        
+
 
         public string Username { get; set; }
         public string AuthenticationID { get; set; }
@@ -82,7 +82,7 @@ namespace Mobile_final.Services
             var user = GetCurrentUser();
 
             var c = new Comment()
-            { 
+            {
                 Comment1 = comment,
                 MediaId = id,
                 UserId = user.Id
@@ -99,7 +99,7 @@ namespace Mobile_final.Services
 
         public async Task<Media> GetMediaByKey(string mediaKey)
         {
-           return await http1.GetFromJsonAsync<Media>($"/Media/v1/getmediabykey/{mediaKey}");
+            return await http1.GetFromJsonAsync<Media>($"/Media/v1/getmediabykey/{mediaKey}");
         }
 
         public async Task CreateAppointment(Appointment appoint)
