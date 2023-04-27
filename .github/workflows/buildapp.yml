@@ -34,15 +34,12 @@ jobs:
               dotnet workload install maui --ignore-failed-sources
 
           - name: Restore Dependencies
-            run: dotnet restore ./'Mobile final'/'Mobile final'.csproj
+            run: dotnet restore ./'Mobile final'/MobileFinal.csproj
 
           - name: Build MAUI Android
             run: | 
-              dotnet build ./'Mobile final'/'Mobile final'.csproj -c Release -f net7.0-android --no-restore
-              dir ./'Mobile final'
-              dir ./'Mobile final'/bin
-              dir ./'Mobile final'/bin/Release
-              dir ./'Mobile final'/bin/Release/net7.0-android
+              dotnet build ./'Mobile final'/MobileFinal.csproj -c Release -f net7.0-android --no-restore
+           
 
           - name: Upload Android Artifact
             uses: actions/upload-artifact@v2.3.1
@@ -73,18 +70,18 @@ jobs:
               dotnet workload install maui --ignore-failed-sources
 
           - name: Restore Dependencies
-            run: dotnet restore ./'Mobile final'/'Mobile final'.csproj
+            run: dotnet restore ./'Mobile final'/MobileFinal.csproj
 
           #- name: Build MAUI Windows
           #  run: msbuild ./'Mobile final'/'Mobile final'.csproj -r -p:Configuration=Release -p:RestorePackages=false -p:TargetFramework=net7.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true
 
           - name: Publish MAUI Windows
-            run: msbuild ./'Mobile final'/'Mobile final'.csproj /restore /t:build /p:TargetFramework=net7.0-windows10.0.19041.0 /p:Configuration=release /p:WindowsAppSDKSelfContained=true /p:Platform=x64 /p:WindowsPackageType=None /p:RuntimeIdentifier=win10-x64
+            run: msbuild ./'Mobile final'/MobileFinal.csproj /restore /t:build /p:TargetFramework=net7.0-windows10.0.19041.0 /p:Configuration=release /p:WindowsAppSDKSelfContained=true /p:Platform=x64 /p:WindowsPackageType=None /p:RuntimeIdentifier=win10-x64
 
           - name: Upload Windows Artifact
             uses: actions/upload-artifact@v2.3.1
             with:
               name: windows-ci-build
-              path: ./'Mobile final'/bin/Release/net7.0-windows10.0.19041.0/wind10-x64/*
+              path: ./'Mobile final'/bin/Release/net7.0-windows10.0.19041.0/win10-x64/*
 
     #https://blog.taranissoftware.com/build-net-maui-apps-with-github-actions

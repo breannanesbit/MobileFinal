@@ -53,6 +53,7 @@ namespace Mobile_final.ViewModels
             };
 
             await uService.CreateAppointment(appoint);
+            popup.Close();  
 
         }
 

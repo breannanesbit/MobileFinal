@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mobile final", "Mobile final\Mobile final.csproj", "{084710BA-DD67-4D58-A2E8-D26562BAE9E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileFinal", "Mobile final\MobileFinal.csproj", "{084710BA-DD67-4D58-A2E8-D26562BAE9E0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaAPI", "MediaAPI\MediaAPI.csproj", "{3893CA39-B693-4CA3-84F7-9C845D24EC2D}"
 EndProject
@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaAPITests", "MediaAPITe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiShared", "MauiShared\MauiShared.csproj", "{8FC82465-4DB3-411D-8F6F-3981B93DAC83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTesting", "MobileTesting\MobileTesting.csproj", "{E3E94C46-0683-429C-A904-FEDC3173D5CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTesting", "MobileTesting\MobileTesting.csproj", "{6B999D6B-3551-4618-908D-3859F5AEA148}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,10 @@ Global
 		{8FC82465-4DB3-411D-8F6F-3981B93DAC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FC82465-4DB3-411D-8F6F-3981B93DAC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FC82465-4DB3-411D-8F6F-3981B93DAC83}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E3E94C46-0683-429C-A904-FEDC3173D5CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3E94C46-0683-429C-A904-FEDC3173D5CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3E94C46-0683-429C-A904-FEDC3173D5CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3E94C46-0683-429C-A904-FEDC3173D5CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B999D6B-3551-4618-908D-3859F5AEA148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B999D6B-3551-4618-908D-3859F5AEA148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B999D6B-3551-4618-908D-3859F5AEA148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B999D6B-3551-4618-908D-3859F5AEA148}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
