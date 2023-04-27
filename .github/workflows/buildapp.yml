@@ -1,112 +1,95 @@
 name: Platform Builds
-
 on:
   push:
     tags:
       - 'v*.*'
-    paths-ignore:
-      - '**/*.md'
-      - '**/*.gitignore'
-      - '**/*.gitattributes'
-
 jobs:
-     begin-release:
-       runs-on: ubuntu-latest
-       outputs:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-       steps:
-       - name: create-release
-         uses: actions/create-release@v1
-         id: create_release
-         with:
-           draft: false
-           prerelease: false
-           release_name: Release windows ${{ github.ref }}
-           tag_name: ${{ github.ref }}
-         env:
-           GITHUB_TOKEN: ${{ github.token }}
-     build-windows:
-        runs-on: windows-2022
-        name: Windows Build
-        needs: begin-release
-        steps:
-          - name: Checkout
-            uses: actions/checkout@v2
-
-          - name: Setup .NET 7
-            uses: actions/setup-dotnet@v1
-            with:
-              dotnet-version: 7.0.x
-              include-prerelease: true
-
-          - name: Setup MSBuild
-            uses: microsoft/setup-msbuild@v1.1
-            with:
-              vs-prerelease: true
-
-          - name: Install MAUI Workloads
-            run: |
-              dotnet workload install maui --ignore-failed-sources
-
-          - name: Restore Dependencies
-            run: dotnet restore ./'Mobile final'/MobileFinal.csproj
-
-          #- name: Build MAUI Windows
-          #  run: msbuild ./'Mobile final'/'Mobile final'.csproj -r -p:Configuration=Release -p:RestorePackages=false -p:TargetFramework=net7.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true
-
-          - name: Build MAUI Windows
-            run: msbuild ./'Mobile final'/MobileFinal.csproj /restore /t:build /p:TargetFramework=net7.0-windows10.0.19041.0 /p:Configuration=release /p:WindowsAppSDKSelfContained=true /p:Platform=x64 /p:WindowsPackageType=None /p:RuntimeIdentifier=win10-x64
-
-          - name: zip_file
-            run: |
-                Compress-Archive -Path ./MaidService/bin/x64/release/net7.0-windows10.0.19041.0/win10-x64 -DestinationPath ./windows.zip
-          - name: upload windows artifact-release
-            uses: actions/upload-release-asset@v1
-            env:
-              GITHUB_TOKEN: ${{ github.token }}
-            with:
-              upload_url: ${{ needs.begin-release.outputs.upload_url }}
-              asset_path: ./windows.zip
-              asset_name: windows_app.zip
-              asset_content_type: application/zip
-
-     build-android:
-        runs-on: windows-2022
-        name: Android Build
-        steps:
-          - name: Checkout
-            uses: actions/checkout@v2
-
-          - name: Setup .NET 7
-            uses: actions/setup-dotnet@v1
-            with:
-              dotnet-version: 7.0.x
-              include-prerelease: true
-
-          - uses: actions/setup-java@v2
-            with:
-              distribution: 'microsoft'
-              java-version: '11'
-
-          - name: Install MAUI Workloads
-            run: |
-              dotnet workload install android --ignore-failed-sources
-              dotnet workload install maui --ignore-failed-sources
-
-          - name: Restore Dependencies
-            run: dotnet restore ./'Mobile final'/MobileFinal.csproj
-
-          - name: Build MAUI Android
-            run: | 
-              dotnet build ./'Mobile final'/MobileFinal.csproj -c Release -f net7.0-android --no-restore
-           
-
-          - name: Upload Android Artifact
-            uses: actions/upload-artifact@v2.3.1
-            with:
-              name: android-ci-build
-              path: ./'Mobile final'/bin/Release/net7.0-android/com.companyname.mobile_final-Signed.apk
-
-   
-
-    #https://blog.taranissoftware.com/build-net-maui-apps-with-github-actions
+  begin-release:
+    runs-on: ubuntu-latest
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+    steps:
+    - name: create-release
+      uses: actions/create-release@v1
+      id: create_release
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release windows ${{ github.ref }}
+        tag_name: ${{ github.ref }}
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+ 
+  build-windows:
+    runs-on: windows-2022
+    permissions: write-all
+    name: Windows Build
+    needs: begin-release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup .NET 7
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 7.0.x
+          include-prerelease: true
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
+        with:
+          vs-prerelease: true
+      - name: Install MAUI Workloads
+        run: |
+          dotnet workload install maui --ignore-failed-sources
+      - name: Restore Dependencies
+        run: dotnet restore ./'Mobile final'/MobileFinal.csproj
+      - name: Build MAUI Windows
+        run: msbuild .\'Mobile final'\MobileFinal.csproj /restore /t:build /p:TargetFramework=net7.0-windows10.0.19041.0 /p:configuration=release /p:WindowsAppSDKSelfContained=true /p:Platform=x64 /p:WindowsPackageType=None /p:RuntimeIdentifier=win10-x64
+    
+      - name: zip_file
+        run: |
+          Compress-Archive -Path ./'Mobile final'/bin/x64/release/net7.0-windows10.0.19041.0/win10-x64 -DestinationPath ./windows.zip
+      - name: upload windows artifact-release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ needs.begin-release.outputs.upload_url }}
+          asset_path: ./windows.zip
+          asset_name: windows_app.zip
+          asset_content_type: application/zip
+      
+  # got from https://blog.taranissoftware.com/building-net-maui-apps-with-github-actions#heading-android-build-job
+  build-android:
+    runs-on: windows-2022
+    permissions: write-all
+    needs: begin-release
+    name: Android Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup .NET 7
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 7.0.x
+          include-prerelease: true
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'microsoft'
+          java-version: '11'
+      - name: Install MAUI Workloads
+        run: |
+          #dotnet workload install android --ignore-failed-sources
+          dotnet workload install maui --ignore-failed-sources
+      - name: Restore Dependencies
+        run: dotnet restore ./'Mobile final'/MobileFinal.csproj
+      - name: Build MAUI Android
+        run: dotnet build ./'Mobile final'/MobileFinal.csproj -c Release -f net7.0-android --no-restore
+      - name: upload android artifact-release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ needs.begin-release.outputs.upload_url }}
+          asset_path: ./'Mobile final'/bin/Release/net7.0-android/com.companyname.'Mobile final'-Signed.apk
+          asset_name: MobileFinal.apk
+          asset_content_type: application/zip
