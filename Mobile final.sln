@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaAPITests", "MediaAPITe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiShared", "MauiShared\MauiShared.csproj", "{8FC82465-4DB3-411D-8F6F-3981B93DAC83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTesting", "MobileTesting\MobileTesting.csproj", "{6B999D6B-3551-4618-908D-3859F5AEA148}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTests", "MobileTests\MobileTests.csproj", "{016D0BFF-83B1-4AE6-AE68-B2393F2E0E95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,10 @@ Global
 		{8FC82465-4DB3-411D-8F6F-3981B93DAC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FC82465-4DB3-411D-8F6F-3981B93DAC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FC82465-4DB3-411D-8F6F-3981B93DAC83}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B999D6B-3551-4618-908D-3859F5AEA148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B999D6B-3551-4618-908D-3859F5AEA148}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B999D6B-3551-4618-908D-3859F5AEA148}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B999D6B-3551-4618-908D-3859F5AEA148}.Release|Any CPU.Build.0 = Release|Any CPU
+		{016D0BFF-83B1-4AE6-AE68-B2393F2E0E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{016D0BFF-83B1-4AE6-AE68-B2393F2E0E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{016D0BFF-83B1-4AE6-AE68-B2393F2E0E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{016D0BFF-83B1-4AE6-AE68-B2393F2E0E95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

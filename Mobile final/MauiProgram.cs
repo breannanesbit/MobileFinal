@@ -41,13 +41,13 @@ public static class MauiProgram
         }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler());
        //.AddHttpMessageHandler<TokenHandler>();
 
-        builder.Services.AddSingleton<UserService>(provider =>
+        builder.Services.AddSingleton<IUserService>(provider =>
         {
             var clientV1 = provider.GetRequiredService<IHttpClientFactory>().CreateClient("v1");
             var clientV2 = provider.GetRequiredService<IHttpClientFactory>().CreateClient("v2");
 
-            return new UserService(clientV1, clientV2);
-
+            var service =  new UserService(clientV1, clientV2) ;
+            return service as IUserService;
         });
 
         /*builder.Services.AddTransient(

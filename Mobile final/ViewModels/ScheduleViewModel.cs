@@ -16,12 +16,12 @@ namespace Mobile_final.ViewModels
     public partial class ScheduleViewModel : ObservableObject
     {
         private readonly AppointmentService appointmentService;
-        private readonly UserService userService;
+        private readonly IUserService userService;
         public ContentPage Page { get; set; } = new();
 
         [ObservableProperty]
         private ObservableCollection<SchedulerAppointment> events;
-        public ScheduleViewModel(AppointmentService appointmentService, UserService userService)
+        public ScheduleViewModel(AppointmentService appointmentService, IUserService userService)
         {
             this.appointmentService = appointmentService;
             this.userService = userService;

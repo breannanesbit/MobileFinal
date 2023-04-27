@@ -16,9 +16,9 @@ namespace Mobile_final.ViewModels
     public partial class ProfileViewModel : ObservableObject
     {
         private readonly HttpClient client;
-        private readonly UserService service;
+        private readonly IUserService service;
         private readonly INavigationService nav;
-        public ProfileViewModel(HttpClient cli, UserService service, INavigationService nav)
+        public ProfileViewModel(HttpClient cli, IUserService service, INavigationService nav)
         {
             this.client = cli;
             this.service = service;

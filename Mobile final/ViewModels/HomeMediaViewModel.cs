@@ -14,9 +14,9 @@ namespace Mobile_final.ViewModels
         public ObservableCollection<Media> VideoList { get; set; } = new();
         public ObservableCollection<Media> AudioList { get; set; } = new();
         public ObservableCollection<Media> VisualList { get; set; } = new();
-        private readonly UserService service;
+        private readonly IUserService service;
 
-        public HomeMediaViewModel(UserService service)
+        public HomeMediaViewModel(IUserService service)
         {
             this.service = service;
         }
@@ -41,25 +41,26 @@ namespace Mobile_final.ViewModels
             foreach (var media in latestMediaList)
             {
                 media.User = userList.Find(m => m.Id == media.UserId);
-                if (media.Category.Category1 == "Videos")
+                if (media.CategoryId == 1 || media.Category.Category1 == "Videos")
                 {
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/videos/" + media.MediaKey;
                     //media.UserName = media.User.Username;
                     videoList.Add(media);
                 }
-                else if (media.Category.Category1 == "Audios")
+                else if (media.CategoryId == 2 || media.Category.Category1 == "Audios")
                 {
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/audios/" + media.MediaKey;
                     //media.UserName = media.User.Username;
                     audioList.Add(media);
 
                 }
-                else if (media.Category.Category1 == "Pictures")
+                else if (media.CategoryId == 3 || media.Category.Category1 == "Pictures")
                 {
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/pictures/" + media.MediaKey;
                     //media.UserName = media.User.Username;
                     visualList.Add(media);
-                }
+                    Category ca
+                } 
             }
         }
 

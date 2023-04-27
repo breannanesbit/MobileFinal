@@ -10,11 +10,12 @@ using static System.Net.WebRequestMethods;
 
 namespace Mobile_final.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly HttpClient http1;
         private readonly HttpClient http2;
         private readonly CurrentUser current;
+        
 
         public UserService(HttpClient http1, 
             HttpClient http2)
@@ -22,6 +23,8 @@ namespace Mobile_final.Services
             this.http1 = http1;
             this.http2 = http2;
         }
+
+        
 
         public string Username { get; set; }
         public string AuthenticationID { get; set; }
@@ -56,14 +59,14 @@ namespace Mobile_final.Services
             return mediaList;
         }
 
-        internal async Task<Category> GetCategory(int categoryId)
+        public async Task<Category> GetCategory(int categoryId)
         {
             var category = await http1.GetFromJsonAsync<Category>($"/Media/v1/category/{categoryId}");
 
             return category;
         }
 
-        internal async Task<List<Media>> GetMostRecentUploaded()
+        public async Task<List<Media>> GetMostRecentUploaded()
         {
             var mediaList = await http1.GetFromJsonAsync<List<Media>>($"Media/v1/getlatestmedia");
             return mediaList;
@@ -115,6 +118,16 @@ namespace Mobile_final.Services
             //var test2 = await http2.PostAsync($"/media/v2/uploadfile/{type}/{Username}/{fileName}", convertedForm);
 
 
+        }
+
+        public void SetUsername(string username)
+        {
+            Username = username;
+        }
+
+        public void SetAuthID(string authID)
+        {
+            AuthenticationID = authID;
         }
     }
 }

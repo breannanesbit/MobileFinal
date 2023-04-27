@@ -19,6 +19,7 @@ env:
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 7.0.x
   WORKING_DIRECTORY: MediaAPI
+  WORKING_TEST: MediaAPITests
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -35,7 +36,7 @@ jobs:
     - name: Build
       run: dotnet build ${{ env.WORKING_DIRECTORY }} --configuration ${{ env.CONFIGURATION }} --no-restore
     - name: Test
-      run: dotnet test ${{ env.WORKING_DIRECTORY }} --no-build
+      run: dotnet test ${{ env.WORKING_TEST }} --no-build
     - name: Publish
       run: dotnet publish ${{ env.WORKING_DIRECTORY }} --configuration ${{ env.CONFIGURATION }} --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     - name: Install Swashbuckle CLI .NET Global Tool

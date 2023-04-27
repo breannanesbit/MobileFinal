@@ -15,9 +15,9 @@ public partial class LoginViewModel : ObservableObject
 {
     private readonly Auth0Client auth0Client;
     public readonly CurrentUser currentUser;
-    private readonly UserService service;
+    private readonly IUserService service;
 
-    public LoginViewModel(Auth0Client client, CurrentUser currentUser, UserService service)
+    public LoginViewModel(Auth0Client client, CurrentUser currentUser, IUserService service)
     {
         auth0Client = client;
         this.currentUser = currentUser;
@@ -62,12 +62,13 @@ public partial class LoginViewModel : ObservableObject
 
         if (FirstName != null && LastName != null)
         {
-            await AddUserToDatabase(loginResult.User.Identity.Name);
+            await AddUserToDatabase(loginResult.User.Claims.FirstOrDefault(c => c.Type == "email").Value);
 
         }
+        string username = loginResult.User.Claims.FirstOrDefault(c => c.Type == "email").Value;
 
-        service.Username = loginResult.User.Claims.FirstOrDefault(c => c.Type == "email").Value;
-        service.AuthenticationID = loginResult.AccessToken;
+        service.SetUsername(username);
+        service.SetAuthID(loginResult.AccessToken);
         // }
 
         Application.Current.MainPage = new AppShell();
