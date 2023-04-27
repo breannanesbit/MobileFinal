@@ -59,7 +59,8 @@ namespace Mobile_final.ViewModels
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/pictures/" + media.MediaKey;
                     //media.UserName = media.User.Username;
                     visualList.Add(media);
-                }
+                    Category ca
+                } 
             }
         }
 
