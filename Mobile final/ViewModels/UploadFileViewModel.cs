@@ -1,29 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net.Http.Headers;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.AspNetCore.Http;
-using Mobile_final.Pages;
 using Mobile_final.Services;
 
 namespace Mobile_final.ViewModels
 {
     public partial class UploadFileViewModel : ObservableObject
     {
-        private readonly HttpClient client;
+
         private readonly IUserService service;
         private readonly INavigationService nag;
 
         public ContentPage Page { get; set; } = new();
 
-        public UploadFileViewModel(IUserService service, INavigationService nag)
+        public UploadFileViewModel(IUserService service/*, INavigationService nag*/)
         {
             this.service = service;
-            this.nag = nag;
+            //this.nag = nag;
         }
         [ObservableProperty]
         private string filePath;
@@ -107,7 +100,6 @@ namespace Mobile_final.ViewModels
                     SelectedOption = null;
                     FileName = null;
                     FilePath = null;
-                    //await nag.NaviagteToAsync(nameof(HomeMediaPage));
 
                 }
                 catch (Exception ex)
@@ -119,9 +111,6 @@ namespace Mobile_final.ViewModels
            {
                 FileName = "Please enter a file name";
            }
-           
-            
-            //Blobkey = await response.Content.ReadAsStringAsync();
 
         }
 

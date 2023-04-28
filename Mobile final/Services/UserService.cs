@@ -14,7 +14,7 @@ namespace Mobile_final.Services
     {
         private readonly HttpClient http1;
         private readonly HttpClient http2;
-        private readonly CurrentUser current;
+        //private readonly CurrentUser current;
 
 
         public UserService(HttpClient http1,
