@@ -20,6 +20,7 @@ namespace Mobile_final.Services
         void SetAuthID(string authID);
         void SetUsername(string username);
         Task SubmitComment(int id, string comment);
+        Task SubmitLike(Media media);
         Task UploadNewFile(string type, string fileName, MultipartFormDataContent convertedForm);
     }
 }

@@ -14,6 +14,8 @@ namespace Mobile_final.ViewModels
         public ObservableCollection<Media> VideoList { get; set; } = new();
         public ObservableCollection<Media> AudioList { get; set; } = new();
         public ObservableCollection<Media> VisualList { get; set; } = new();
+        public bool MediaLiked { get; set; } = false;
+
         private readonly IUserService service;
 
         public HomeMediaViewModel(IUserService service)
@@ -68,6 +70,13 @@ namespace Mobile_final.ViewModels
         {
             await service.SubmitComment(media.Id, Comment);
             Comment = null;
+        }
+
+        [RelayCommand]
+        public async void SubmitLike(Media media)
+        {
+            await service.SubmitLike(media);
+
         }
     }
 }

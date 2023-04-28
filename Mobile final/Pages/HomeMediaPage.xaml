@@ -63,8 +63,16 @@
                                     HorizontalOptions="End"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HomeMediaViewModel}}, Path=SubmitCommentCommand}"
                                     CommandParameter="{Binding .}"/>
-                              
 
+                                <ImageButton
+                                    Grid.Row="4"
+                                    Grid.Column="0"
+                                    HorizontalOptions="Start"
+                                    HeightRequest="40"
+                                    WidthRequest="40"
+                                    Source="musicheart"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HomeMediaViewModel}}, Path=SubmitLikeCommand}"
+                                    CommandParameter="{Binding .}"/>
 
                             </Grid>
                             </Border>

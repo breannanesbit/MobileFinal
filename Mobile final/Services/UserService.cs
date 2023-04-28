@@ -129,5 +129,10 @@ namespace Mobile_final.Services
         {
             AuthenticationID = authID;
         }
+
+        public async Task SubmitLike(Media media)
+        {
+            await http1.PostAsJsonAsync<Media>($"/media/likes", media);
+        }
     }
 }

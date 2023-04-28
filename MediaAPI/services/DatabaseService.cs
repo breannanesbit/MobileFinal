@@ -140,5 +140,19 @@ namespace MediaAPI.services
         {
             return await Context.Media.Include(m => m.Category).Include(n => n.User).Where(n => n.User.Id == n.UserId).OrderByDescending(m => m.DateUpload).Take(count).ToListAsync();
         }
+
+        public async Task SubmitALike(Media media)
+        {
+           var likedMedia = Context.Media.Where(m => m.Id == media.Id).FirstOrDefault();
+           
+            if(likedMedia != null)
+            {
+                likedMedia.Likes++;
+            }
+
+            Context.Update(likedMedia);
+            await Context.SaveChangesAsync();
+            
+        }
     }
 }

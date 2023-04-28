@@ -121,6 +121,12 @@ namespace MediaAPI.Controllers
             return await database.GetMediaByKey(mediaKey);
         }
 
+        [HttpPost("/media/likes")]
+        public async Task SubmitALike(Media media)
+        {
+            await database.SubmitALike(media);
+        }
+
         /* [HttpGet("test/{test}")]
          public long SquareNumber(int test)
          {
