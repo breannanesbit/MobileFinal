@@ -82,10 +82,12 @@ namespace Mobile_final.Services
             {
                 Comment1 = comment,
                 MediaId = id,
-                UserId = user.Id
+                UserId = user.Id,
+                Id = null
             };
 
             var test = await http1.PostAsJsonAsync<Comment>($"/comment/v1/submitcomment", c);
+            test = null;
         }
 
         public async Task<List<Comment>> GetAllCommentsForMediaElement(int id)
