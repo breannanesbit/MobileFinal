@@ -6,6 +6,7 @@ using TechTalk.SpecFlow;
 using Mobile_final.ViewModels;
 using Mobile_final.Services;
 using NUnit.Framework;
+using MobileFinal.ViewModels;
 
 namespace MobileTests.StepDefinitions
 {
@@ -107,7 +108,7 @@ namespace MobileTests.StepDefinitions
         {
             foreach( var item in _videoList )
             {
-                Assert.AreEqual(videos, item.Category.Category1);
+                Assert.AreEqual(videos, item.MediaItem.Category.Category1);
             }
         }
 
@@ -116,7 +117,7 @@ namespace MobileTests.StepDefinitions
         {
             foreach (var item in _audioList)
             {
-                Assert.AreEqual(audios, item.Category.Category1);
+                Assert.AreEqual(audios, item.MediaItem.Category.Category1);
             }
         }
 
@@ -125,7 +126,7 @@ namespace MobileTests.StepDefinitions
         {
             foreach (var item in _visualList)
             {
-                Assert.AreEqual(pictures, item.Category.Category1);
+                Assert.AreEqual(pictures, item.MediaItem.Category.Category1);
             }
         }
     }
