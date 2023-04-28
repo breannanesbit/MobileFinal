@@ -32,13 +32,13 @@
                                 <Label
                                 Grid.Row="2"
                                 Grid.Column="0"
-                                Text="{Binding User.Username}"
+                                Text="{Binding MediaItem.User.Username}"
                                 Margin="10"/>
                                 <Label
                                 Margin="10"
                                 Grid.Row="2"
                                 Grid.Column="1"
-                                Text="{Binding FileName}"
+                                Text="{Binding MediaItem.FileName}"
                                 HorizontalOptions="Center"
                                 />
                                 <Image 
@@ -46,14 +46,14 @@
                                 Grid.RowSpan="2"
                                 Grid.Column="0"
                                 Grid.ColumnSpan="2"
-                                Source="{Binding MediaKey}"/>
+                                Source="{Binding MediaItem.MediaKey}"/>
 
                                 <Entry
                                     Grid.Row="3"
                                     Grid.Column="0"
                                     Grid.ColumnSpan="2"
                                     Placeholder="Enter in comment"
-                                    Text="{Binding Source={RelativeSource AncestorType={x:Type vm:HomeMediaViewModel}}, Path=Comment}"/>
+                                    Text="{Binding Comment}"/>
                                 <ImageButton
                                     HeightRequest="40"
                                     WidthRequest="40"
@@ -92,41 +92,53 @@
                             Stroke="#D97AF1">
 
                             <Grid
-                                Margin="20"
-                                RowDefinitions="2*,*,*,*,*"
-                                ColumnDefinitions="*,*">
-                            <Label
+                               RowDefinitions="2*,*,*,*,*"
+                            ColumnDefinitions="2*,*"
+                            Margin="20">
+                                <Label
                                 Grid.Row="2"
                                 Grid.Column="0"
-                                Text="{Binding User.Username}"
-                                HorizontalOptions="Center"/>
-                            <Label
+                                Text="{Binding MediaItem.User.Username}"
+                                Margin="10"/>
+                                <Label
+                                Margin="10"
                                 Grid.Row="2"
                                 Grid.Column="1"
-                                Text="{Binding FileName}"
-                                HorizontalOptions="Center"/>
-                            <toolkit:MediaElement 
+                                Text="{Binding MediaItem.FileName}"
+                                HorizontalOptions="Center"
+                                />
+                                <Image 
                                 Grid.Row="0"
+                                Grid.RowSpan="2"
                                 Grid.Column="0"
                                 Grid.ColumnSpan="2"
-                                x:Name="mediaElement"
-                                ShouldAutoPlay="False"
-                                ShouldShowPlaybackControls="True"
-                                Source="{Binding MediaKey}"
-                                HeightRequest="600"
-                                WidthRequest="400" />
-                            <Editor
+                                Source="{Binding MediaItem.MediaKey}"/>
+
+                                <Entry
                                     Grid.Row="3"
                                     Grid.Column="0"
                                     Grid.ColumnSpan="2"
                                     Placeholder="Enter in comment"
                                     Text="{Binding Comment}"/>
-                            <ImageButton
+                                <ImageButton
+                                    HeightRequest="40"
+                                    WidthRequest="40"
                                     Source="plus.png"
                                     Grid.Column="1"
                                     Grid.Row="4"
                                     HorizontalOptions="End"
-                                    Command="{Binding SubmitCommentCommand}"/>
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HomeMediaViewModel}}, Path=SubmitCommentCommand}"
+                                    CommandParameter="{Binding .}"/>
+
+                                <ImageButton
+                                    Grid.Row="4"
+                                    Grid.Column="0"
+                                    HorizontalOptions="Start"
+                                    HeightRequest="40"
+                                    WidthRequest="40"
+                                    Source="musicheart"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HomeMediaViewModel}}, Path=SubmitLikeCommand}"
+                                    CommandParameter="{Binding .}"/>
 
                             </Grid>
                         </Border>
@@ -146,43 +158,53 @@
                               Stroke="#D97AF1">
                             
                         <Grid
-                            RowDefinitions="*,*,*"
-                            ColumnDefinitions="*,*"
+                            RowDefinitions="2*,*,*,*,*"
+                            ColumnDefinitions="2*,*"
                             Margin="20">
-                            <toolkit:MediaElement 
-                                Grid.Row="0"
+                                <Label
+                                Grid.Row="2"
                                 Grid.Column="0"
-                                Grid.ColumnSpan="2"
-                                x:Name="mediaElement"
-                                ShouldAutoPlay="False"
-                                ShouldShowPlaybackControls="True"
-                                Source="{Binding MediaKey}"
-                                HeightRequest="600"
-                                WidthRequest="400" />
-                            <Label
+                                Text="{Binding MediaItem.User.Username}"
+                                Margin="10"/>
+                                <Label
+                                Margin="10"
                                 Grid.Row="2"
                                 Grid.Column="1"
-                                Text="{Binding FileName}"
-                                HorizontalOptions="Center"/>
-                            <Label
-                                Grid.Row="2"
+                                Text="{Binding MediaItem.FileName}"
+                                HorizontalOptions="Center"
+                                />
+                                <Image 
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
                                 Grid.Column="0"
-                                Text="{Binding User.Username}"
-                                HorizontalOptions="Center"/>
-                                <Editor
+                                Grid.ColumnSpan="2"
+                                Source="{Binding MediaItem.MediaKey}"/>
+
+                                <Entry
                                     Grid.Row="3"
                                     Grid.Column="0"
                                     Grid.ColumnSpan="2"
                                     Placeholder="Enter in comment"
                                     Text="{Binding Comment}"/>
                                 <ImageButton
-                                    Source="plus.png"
                                     HeightRequest="40"
                                     WidthRequest="40"
+                                    Source="plus.png"
                                     Grid.Column="1"
                                     Grid.Row="4"
                                     HorizontalOptions="End"
-                                    Command="{Binding SubmitCommentCommand}"/>
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HomeMediaViewModel}}, Path=SubmitCommentCommand}"
+                                    CommandParameter="{Binding .}"/>
+
+                                <ImageButton
+                                    Grid.Row="4"
+                                    Grid.Column="0"
+                                    HorizontalOptions="Start"
+                                    HeightRequest="40"
+                                    WidthRequest="40"
+                                    Source="musicheart"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HomeMediaViewModel}}, Path=SubmitLikeCommand}"
+                                    CommandParameter="{Binding .}"/>
                             </Grid>
                         </Border>
                     </DataTemplate>

@@ -1,21 +1,18 @@
 ﻿
-
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Mobile_final.Services;
+using MobileFinal.ViewModels;
 using Shared;
 using System.Collections.ObjectModel;
-using static System.Net.WebRequestMethods;
 
 namespace Mobile_final.ViewModels
 {
     public partial class HomeMediaViewModel : ObservableObject
     {
-        public ObservableCollection<Media> VideoList { get; set; } = new();
-        public ObservableCollection<Media> AudioList { get; set; } = new();
-        public ObservableCollection<Media> VisualList { get; set; } = new();
-        public bool MediaLiked { get; set; } = false;
-
+        public ObservableCollection<MediaDisplayOutLine> VideoList { get; set; } = new();
+        public ObservableCollection<MediaDisplayOutLine> AudioList { get; set; } = new();
+        public ObservableCollection<MediaDisplayOutLine> VisualList { get; set; } = new();
         private readonly IUserService service;
 
         public HomeMediaViewModel(IUserService service)
@@ -38,7 +35,7 @@ namespace Mobile_final.ViewModels
             SortMediaIntoLists(latestMediaList, userList, VideoList, AudioList, VisualList);
         }
 
-        public void SortMediaIntoLists(List<Media> latestMediaList, List<User> userList, ObservableCollection<Media> videoList, ObservableCollection<Media> audioList, ObservableCollection<Media> visualList)
+        public void SortMediaIntoLists(List<Media> latestMediaList, List<User> userList, ObservableCollection<MediaDisplayOutLine> videoList, ObservableCollection<MediaDisplayOutLine> audioList, ObservableCollection<MediaDisplayOutLine> visualList)
         {
             foreach (var media in latestMediaList)
             {
@@ -47,35 +44,54 @@ namespace Mobile_final.ViewModels
                 {
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/videos/" + media.MediaKey;
                     //media.UserName = media.User.Username;
-                    videoList.Add(media);
+                    var md = new MediaDisplayOutLine
+                    {
+                        MediaItem = media,
+                        Comment = null,
+                        LikeSelected = false,
+                    };
+                    videoList.Add(md);
                 }
                 else if (media.CategoryId == 2 || media.Category.Category1 == "Audios")
                 {
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/audios/" + media.MediaKey;
                     //media.UserName = media.User.Username;
-                    audioList.Add(media);
+                    var md = new MediaDisplayOutLine
+                    {
+                        MediaItem = media,
+                        Comment = null,
+                        LikeSelected = false,
+                    };
+                    audioList.Add(md);
 
                 }
                 else if (media.CategoryId == 3 || media.Category.Category1 == "Pictures")
                 {
                     media.MediaKey = "https://mobilemediastorage.blob.core.windows.net/pictures/" + media.MediaKey;
                     //media.UserName = media.User.Username;
-                    visualList.Add(media);
+                    var md = new MediaDisplayOutLine
+                    {
+                        MediaItem = media,
+                        Comment = null,
+                        LikeSelected = false,
+                    };
+                    visualList.Add(md); ;
                 } 
             }
         }
 
         [RelayCommand]
-        public async void SubmitComment(Media media)
+        public async void SubmitComment(MediaDisplayOutLine mediaItem)
         {
-            await service.SubmitComment(media.Id, Comment);
-            Comment = null;
+            await service.SubmitComment(mediaItem.MediaItem.Id, mediaItem.Comment);
+            mediaItem.Comment = null;
         }
 
         [RelayCommand]
-        public async void SubmitLike(Media media)
+        public async void SubmitLike(MediaDisplayOutLine media)
         {
-            await service.SubmitLike(media);
+            await service.SubmitLike(media.MediaItem);
+            media.LikeSelected = true;
 
         }
     }

@@ -15,9 +15,9 @@ namespace MobileTests.StepDefinitions
     {
         private List<User> _userList;
         private List<Media> _latestMediaList;
-        private ObservableCollection<Media> _videoList;
-        private ObservableCollection<Media> _audioList;
-        private ObservableCollection<Media> _visualList;
+        private ObservableCollection<MediaDisplayOutLine> _videoList;
+        private ObservableCollection<MediaDisplayOutLine> _audioList;
+        private ObservableCollection<MediaDisplayOutLine> _visualList;
         private Category _videoCategory;
         private Category _audioCategory;
         private Category _visualCategory;
@@ -80,9 +80,9 @@ namespace MobileTests.StepDefinitions
         [Given(@"empty video, audio and visual lists")]
         public void GivenEmptyVideoAudioAndVisualLists()
         {
-            _videoList = new ObservableCollection<Media>();
-            _audioList = new ObservableCollection<Media>();
-            _visualList = new ObservableCollection<Media>();
+            _videoList = new ObservableCollection<MediaDisplayOutLine>();
+            _audioList = new ObservableCollection<MediaDisplayOutLine>();
+            _visualList = new ObservableCollection<MediaDisplayOutLine>();
         }
 
         [Given(@"a list of categories")]
