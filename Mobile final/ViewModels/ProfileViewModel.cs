@@ -86,10 +86,18 @@ namespace Mobile_final.ViewModels
             //attach as parameter the media object
         }
 
-        private async Task<Media> MutateMediaKeyToURL(string mediaKey)//TEST
+        private async Task<Media> MutateMediaKeyToURL(string mediaKey)
         {
             Media media = await service.GetMediaByKey(mediaKey);
 
+            MutateUrl(media);
+            return media;
+            //nav to play page
+            //attach as parameter the media object
+        }
+
+        public void MutateUrl(Media media)
+        {
             switch (media.CategoryId)
             {
                 case 1:
@@ -105,9 +113,6 @@ namespace Mobile_final.ViewModels
                     // Handle unexpected category
                     break;
             }
-           return media;
-            //nav to play page
-            //attach as parameter the media object
         }
     }
 }
