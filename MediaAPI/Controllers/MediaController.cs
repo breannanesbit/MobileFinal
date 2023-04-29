@@ -130,7 +130,7 @@ namespace MediaAPI.Controllers
             }
             else
             {
-                database.DecreaseLikes(media);
+                database.IncreaseLikes(media, -1);
             }
 
         }
