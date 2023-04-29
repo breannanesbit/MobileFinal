@@ -85,6 +85,7 @@ namespace Mobile_final.ViewModels
         {
             await service.SubmitComment(mediaItem.MediaItem.Id, mediaItem.Comment);
             mediaItem.Comment = null;
+            Start();
         }
 
         [RelayCommand]
