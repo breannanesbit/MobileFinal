@@ -90,8 +90,9 @@ namespace Mobile_final.ViewModels
         [RelayCommand]
         public async void SubmitLike(MediaDisplayOutLine media)
         {
-            await service.SubmitLike(media.MediaItem);
-            media.LikeSelected = true;
+            media.LikeSelected = !media.LikeSelected;
+            await service.SubmitLike(media.MediaItem, media.LikeSelected);
+            
 
         }
     }

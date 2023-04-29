@@ -121,10 +121,18 @@ namespace MediaAPI.Controllers
             return await database.GetMediaByKey(mediaKey);
         }
 
-        [HttpPost("/media/likes")]
-        public async Task SubmitALike(Media media)
+        [HttpPost("/media/likes/{incrementor}")]
+        public async Task SubmitALike(Media media, int incrementor)
         {
-            await database.SubmitALike(media);
+            if (incrementor == 1)
+            {
+                database.IncreaseLikes(media, 1);
+            }
+            else
+            {
+                await database.DecreaseLikes(media);
+            }
+            
         }
 
         /* [HttpGet("test/{test}")]
