@@ -12,5 +12,13 @@ namespace MobileFinal.ViewModels
         public Media MediaItem {  get; set; }
         public string Comment { get; set; }
         public bool LikeSelected { get; set; }
+
+        public string ImageSource { get; set; }
+
+        public MediaDisplayOutLine()
+        {
+            ImageSource = "musicheart";
+            Comment = "";
+        }
     }
 }

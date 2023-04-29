@@ -92,6 +92,14 @@ namespace Mobile_final.ViewModels
         public async void SubmitLike(MediaDisplayOutLine media)
         {
             media.LikeSelected = !media.LikeSelected;
+            if(media.LikeSelected)
+            {
+                media.ImageSource = "likedmusicheart";
+            }
+            else
+            {
+                media.ImageSource = "musicheart";
+            }
             await service.SubmitLike(media.MediaItem, media.LikeSelected);
             
 
