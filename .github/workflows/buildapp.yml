@@ -96,7 +96,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          publish_dir: ./
         with:
           upload_url: ${{ needs.begin-release.outputs.upload_url }}
           asset_path: ./'Mobile final'/bin/Release/net7.0-android/com.companyname.mobile_final-Signed.apk
