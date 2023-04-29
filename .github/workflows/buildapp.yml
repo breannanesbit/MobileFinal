@@ -87,10 +87,10 @@ jobs:
       - name: Build MAUI Android
         run: |
             dotnet build ./'Mobile final'/MobileFinal.csproj -c Release -f net7.0-android --no-restore
-            dir 'Mobile final'
-            dir 'Mobile final'/bin
-            dir 'Mobile final'/bin/Release
-            dir 'Mobile final'/bin/Release/net7.0-android
+              dir ./'Mobile final'
+              dir ./'Mobile final'/bin
+              dir ./'Mobile final'/bin/Release
+              dir ./'Mobile final'/bin/Release/net7.0-android
 
       - name: upload android artifact-release
         uses: actions/upload-release-asset@v1
