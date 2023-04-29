@@ -141,18 +141,20 @@ namespace MediaAPI.services
             return await Context.Media.Include(m => m.Category).Include(n => n.User).Where(n => n.User.Id == n.UserId).OrderByDescending(m => m.DateUpload).Take(count).ToListAsync();
         }
 
-        public async Task SubmitALike(Media media)
+        public void IncreaseLikes(Media media, int count)
         {
-           var likedMedia = Context.Media.Where(m => m.Id == media.Id).FirstOrDefault();
-           
-            if(likedMedia != null)
+            var mymedia = Context.Media.Where(m => m.Id == media.Id).FirstOrDefault();
+            if (mymedia != null)
             {
-                likedMedia.Likes++;
+                mymedia.Likes += count;
+                Context.Media.Update(mymedia);
+                Context.SaveChanges();
             }
+        }
 
-            Context.Update(likedMedia);
-            await Context.SaveChangesAsync();
-            
+        public void DecreaseLikes(Media media)
+        {
+            IncreaseLikes(media, -1);
         }
     }
 }

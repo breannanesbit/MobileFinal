@@ -20,13 +20,13 @@ namespace MediaAPI.Controllers
         private readonly MediaControllerSource mediaHelpSource;
         public MediaController(BlobServiceClient blobclient, DatabaseService service, MediaControllerSource mediasource)
         {
-           
+
             database = service;
             mediaHelpSource = mediasource;
         }
 
-  
-        
+
+
         [HttpPost, Route("v1/uploadfile/{type}/{username}/{filename}"), HttpHeader("version", "1.0")]
         public async Task UploadAnyFile(string username, string type, string filename, IFormFile file)
         {
@@ -51,12 +51,12 @@ namespace MediaAPI.Controllers
                     categoryId = 3;
                     break;
                 default:
-                    Console.Write( "Error: Not an accepted format");
+                    Console.Write("Error: Not an accepted format");
                     break;
             }
             string blobName = await mediaHelpSource.AddMedia(file, username, mediaBlobClient, mediaCategory, filename);
 
-           // return blobName;
+            // return blobName;
         }
 
         [HttpPost, Route("v2/uploadfile/{type}/{username}/{filename}"), HttpHeader("version", "2.0")]
@@ -88,7 +88,7 @@ namespace MediaAPI.Controllers
 
 
         [HttpGet("v1/category/{categoryId}")]
-         public async Task<Category> GetCategory(int categoryId)
+        public async Task<Category> GetCategory(int categoryId)
         {
             return database.GetCategoryById(categoryId);
         }
@@ -104,8 +104,8 @@ namespace MediaAPI.Controllers
         public async Task<IActionResult> GetLatestMediaAsync()
         {
             var media = await database.GetLatestMediaAsync();
-           // return media;
-           return Ok(media);
+            // return media;
+            return Ok(media);
         }
 
         [HttpGet, Route("v2/getlatestmedia/{count}"), HttpHeader("version", "2.0")]
@@ -121,10 +121,18 @@ namespace MediaAPI.Controllers
             return await database.GetMediaByKey(mediaKey);
         }
 
-        [HttpPost("/media/likes")]
-        public async Task SubmitALike(Media media)
+        [HttpPost("/media/likes/{incrementor}")]
+        public async Task SubmitALike(Media media, int incrementor)
         {
-            await database.SubmitALike(media);
+            if (incrementor == 1)
+            {
+                database.IncreaseLikes(media, 1);
+            }
+            else
+            {
+                database.IncreaseLikes(media, -1);
+            }
+
         }
 
         /* [HttpGet("test/{test}")]

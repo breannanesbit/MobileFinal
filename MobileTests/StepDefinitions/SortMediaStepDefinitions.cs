@@ -100,6 +100,7 @@ namespace MobileTests.StepDefinitions
         {
             var mockservice = new Mock<IUserService>();
             var homemediavm = new HomeMediaViewModel(mockservice.Object);
+            
             homemediavm.SortMediaIntoLists(_latestMediaList, _userList, _videoList, _audioList, _visualList);
         }
 
