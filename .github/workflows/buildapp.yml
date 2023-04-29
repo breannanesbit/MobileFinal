@@ -85,11 +85,18 @@ jobs:
       - name: Restore Dependencies
         run: dotnet restore ./'Mobile final'/MobileFinal.csproj
       - name: Build MAUI Android
-        run: dotnet build ./'Mobile final'/MobileFinal.csproj -c Release -f net7.0-android --no-restore
+        run: |
+            dotnet build ./'Mobile final'/MobileFinal.csproj -c Release -f net7.0-android --no-restore
+            dir 'Mobile final'
+            dir 'Mobile final'/bin
+            dir 'Mobile final'/bin/Release
+            dir 'Mobile final'/bin/Release/net7.0-android
+
       - name: upload android artifact-release
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          publish_dir: ./
         with:
           upload_url: ${{ needs.begin-release.outputs.upload_url }}
           asset_path: ./'Mobile final'/bin/Release/net7.0-android/com.companyname.mobile_final-Signed.apk
