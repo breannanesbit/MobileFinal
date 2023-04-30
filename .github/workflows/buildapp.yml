@@ -92,6 +92,12 @@ jobs:
               dir ./'Mobile final'/bin/Release
               dir ./'Mobile final'/bin/Release/net7.0-android
 
+      - name: Verify APK exists
+        run: |
+         ls -la ./'Mobile final'/bin/Release/net7.0-android/
+         test -f ./'Mobile final'/bin/Release/net7.0-android/com.companyname.mobile_final-Signed.apk
+
+
       - name: upload android artifact-release
         uses: actions/upload-release-asset@v1
         env:
