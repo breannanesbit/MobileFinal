@@ -79,6 +79,7 @@ jobs:
         with:
           distribution: 'microsoft'
           java-version: '11'
+
       - name: Install MAUI Workloads
         run: |
           dotnet workload install maui --ignore-failed-sources
