@@ -94,7 +94,7 @@ jobs:
 
       - name: Verify APK exists
         run: |
-         ls -la ./'Mobile final'/bin/Release/net7.0-android/
+         ls ./'Mobile final'/bin/Release/net7.0-android/
          test -f ./'Mobile final'/bin/Release/net7.0-android/com.companyname.mobile_final-Signed.apk
 
 
