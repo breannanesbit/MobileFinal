@@ -69,6 +69,7 @@ namespace Mobile_final.Services
         public async Task<List<Media>> GetMostRecentUploaded()
         {
             var mediaList = await http1.GetFromJsonAsync<List<Media>>($"Media/v1/getlatestmedia");
+            //var mediaList = await http2.GetFromJsonAsync<List<Media>>($"Media/v2/getlatestmedia/{25}");
             return mediaList;
 
         }
@@ -90,7 +91,7 @@ namespace Mobile_final.Services
 
         public async Task<List<Comment>> GetAllCommentsForMediaElement(int id)
         {
-            //var test1 = await http1.GetFromJsonAsync<List<Comment>>($"v1/allcomments");
+            //return await http1.GetFromJsonAsync<List<Comment>>($"/comment/v1/allcomments");
             return await http2.GetFromJsonAsync<List<Comment>>($"/comment/v2/allcomments/{id}");
         }
 

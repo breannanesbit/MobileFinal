@@ -24,7 +24,7 @@
             />
         
         <Grid
-                RowDefinitions="15*,*"
+                RowDefinitions="6*,*"
                 ColumnDefinitions="*"
                 RowSpacing="10">
                 
@@ -43,7 +43,7 @@
                     HeightRequest="80"
                     WidthRequest="80"
                     HorizontalOptions="End"
-                    Margin="20"
+                    Margin="1"
                     Padding="8"
                     Command="{Binding AddEventPopUpCommand}"/>
             </Grid>
